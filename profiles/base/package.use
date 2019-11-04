@@ -1,0 +1,6 @@
+>=sys-apps/gptfdisk-1.0.1 -ncurses
+x11-libs/libva-intel-driver hybrid_codec
+<sys-kernel/chromeos-kernel-4_19-9999 apply_patches -clang
+>=sys-kernel/chromeos-kernel-4_19-9999 -clang
+chromeos-base/chromeos-chrome chrome_media
+chromeos-base/libchromeos-use-flags highdpi stylus touchview drm_atomic edge_touch_filtering

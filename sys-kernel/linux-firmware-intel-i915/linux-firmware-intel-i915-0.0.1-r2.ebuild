@@ -1,0 +1,1 @@
+linux-firmware-intel-i915-0.0.1.ebuild
