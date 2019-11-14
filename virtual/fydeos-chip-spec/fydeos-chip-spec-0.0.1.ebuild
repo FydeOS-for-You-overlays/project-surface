@@ -11,6 +11,9 @@ SLOT="0"
 KEYWORDS="*"
 IUSE=""
 
-RDEPEND="sys-kernel/linux-firmware-surface"
+RDEPEND="
+  sys-kernel/linux-firmware-surface
+  chromeos-base/surface-power-management-policy
+"
 
 DEPEND="${RDEPEND}"
