@@ -16,6 +16,7 @@ IUSE_INTEL=(
   glk
   kbl
   skl 
+  all
 )
 
 IUSE="${IUSE_INTEL[@]/#/intel_}"
@@ -34,6 +35,7 @@ SRC_URI="
   intel_glk? ( ${FYDEBASE_URI}/i915_firmware_glk.zip )
   intel_kbl? ( ${FYDEBASE_URI}/i915_firmware_kbl.zip )
   intel_skl? ( ${FYDEBASE_URI}/i915_firmware_skl.zip )
+  intel_all? ( ${FYDEBASE_URI}/i915_firmware_all.zip )
 "
 
 FIRMWARE_INSTALL_ROOT="/lib/firmware/i915"
