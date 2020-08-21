@@ -26,5 +26,5 @@ S=$WORKDIR
 
 src_install() {
   insinto ${FIRMWARE_INSTALL_ROOT}
-  doins *
+  doins -r *
 }
