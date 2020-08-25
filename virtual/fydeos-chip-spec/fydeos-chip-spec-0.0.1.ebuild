@@ -14,6 +14,7 @@ IUSE=""
 RDEPEND="
   sys-kernel/linux-firmware-surface
   chromeos-base/surface-power-management-policy
+  chromeos-base/libwidevine
 "
 
 DEPEND="${RDEPEND}"
