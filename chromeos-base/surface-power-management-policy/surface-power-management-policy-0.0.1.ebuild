@@ -15,6 +15,6 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_install() {
-    insinto /etc/chromium/policies/managed
-	doins "${FILESDIR}"/*
+  insinto /etc/chromium/policies/managed
+  doins "${FILESDIR}"/*
 }

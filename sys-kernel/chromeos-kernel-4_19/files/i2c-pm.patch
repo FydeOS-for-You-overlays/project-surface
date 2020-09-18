@@ -1,0 +1,26 @@
+diff --git a/drivers/i2c/busses/i2c-designware-platdrv.c b/drivers/i2c/busses/i2c-designware-platdrv.c
+index b5750fd85125..5b723fa6f81a 100644
+--- a/drivers/i2c/busses/i2c-designware-platdrv.c
++++ b/drivers/i2c/busses/i2c-designware-platdrv.c
+@@ -344,6 +344,8 @@ static int dw_i2c_plat_probe(struct platform_device *pdev)
+ 	/* The code below assumes runtime PM to be disabled. */
+ 	WARN_ON(pm_runtime_enabled(&pdev->dev));
+ 
++  pm_suspend_ignore_children(&pdev->dev, false);
++
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, 1000);
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+ 	pm_runtime_set_active(&pdev->dev);
+diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
+index 5b44e4966d33..76f79bb88b07 100644
+--- a/drivers/i2c/i2c-core-base.c
++++ b/drivers/i2c/i2c-core-base.c
+@@ -1278,7 +1278,7 @@ static int i2c_register_adapter(struct i2c_adapter *adap)
+ 	dev_dbg(&adap->dev, "adapter [%s] registered\n", adap->name);
+ 
+ 	pm_runtime_no_callbacks(&adap->dev);
+-	pm_suspend_ignore_children(&adap->dev, true);
++	pm_suspend_ignore_children(&adap->dev, false);
+ 	pm_runtime_enable(&adap->dev);
+ 
+ #ifdef CONFIG_I2C_COMPAT
