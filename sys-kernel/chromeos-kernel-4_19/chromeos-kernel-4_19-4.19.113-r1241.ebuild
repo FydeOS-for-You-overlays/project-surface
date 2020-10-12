@@ -1,1 +1,0 @@
-chromeos-kernel-4_19-4.19.113-r1240.ebuild
