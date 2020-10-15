@@ -77,10 +77,10 @@ index b272c329d45d..cf547883a993 100644
  		} else {	/* IPMI */
  
 diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index 5223d39fc101..996742ed163f 100644
+index 2e4269797cfb..b3b7e2cdfc51 100644
 --- a/drivers/bluetooth/btusb.c
 +++ b/drivers/bluetooth/btusb.c
-@@ -346,6 +346,7 @@ static const struct usb_device_id blacklist_table[] = {
+@@ -344,6 +344,7 @@ static const struct usb_device_id blacklist_table[] = {
  	{ USB_DEVICE(0x1286, 0x2044), .driver_info = BTUSB_MARVELL },
  	{ USB_DEVICE(0x1286, 0x2046), .driver_info = BTUSB_MARVELL },
  	{ USB_DEVICE(0x1286, 0x204e), .driver_info = BTUSB_MARVELL },
@@ -211,7 +211,7 @@ index 68563a4840f1..b33da6474e6b 100644
  {
  	struct i915_gem_context *ctx;
 diff --git a/drivers/gpu/drm/i915/i915_irq.c b/drivers/gpu/drm/i915/i915_irq.c
-index 72703e63b54e..029242e47574 100644
+index 99c589413621..3b28bb44d1f8 100644
 --- a/drivers/gpu/drm/i915/i915_irq.c
 +++ b/drivers/gpu/drm/i915/i915_irq.c
 @@ -39,6 +39,7 @@
@@ -232,7 +232,7 @@ index 72703e63b54e..029242e47574 100644
  	if (tasklet)
  		tasklet_hi_schedule(&engine->execlists.tasklet);
  }
-@@ -4139,7 +4143,8 @@ static void gen8_gt_irq_postinstall(struct drm_i915_private *dev_priv)
+@@ -4140,7 +4144,8 @@ static void gen8_gt_irq_postinstall(struct drm_i915_private *dev_priv)
  {
  	/* These are interrupts we'll toggle with the ring mask register */
  	uint32_t gt_interrupts[] = {
@@ -280,7 +280,7 @@ index 36aa070cea66..2d859ac61b45 100644
  
  #define MEMBER(T, member, ...) T member;
 diff --git a/drivers/gpu/drm/i915/intel_dp.c b/drivers/gpu/drm/i915/intel_dp.c
-index 5937b5e776b1..1e769f9b4ef0 100644
+index bc046f42f2f8..7dac62085fd6 100644
 --- a/drivers/gpu/drm/i915/intel_dp.c
 +++ b/drivers/gpu/drm/i915/intel_dp.c
 @@ -558,7 +558,7 @@ static bool intel_dp_link_params_valid(struct intel_dp *intel_dp, int link_rate,
@@ -1329,10 +1329,10 @@ index 72d766a7fc7e..b6202183b643 100644
  
  static void pch_enable_backlight(const struct intel_crtc_state *crtc_state,
 diff --git a/drivers/hid/hid-ids.h b/drivers/hid/hid-ids.h
-index 23fa1ecfeb73..52a8028f4e2a 100644
+index a0007d705ec4..d1886375e887 100644
 --- a/drivers/hid/hid-ids.h
 +++ b/drivers/hid/hid-ids.h
-@@ -814,11 +814,22 @@
+@@ -818,11 +818,22 @@
  #define USB_DEVICE_ID_MS_DIGITAL_MEDIA_3KV1 0x0732
  #define USB_DEVICE_ID_MS_DIGITAL_MEDIA_600  0x0750
  #define USB_DEVICE_ID_MS_COMFORT_MOUSE_4500	0x076c
@@ -1375,7 +1375,7 @@ index 72d983626afd..133395b45022 100644
  		.driver_data = MS_PRESENTER },
  	{ HID_BLUETOOTH_DEVICE(USB_VENDOR_ID_MICROSOFT, 0x091B),
 diff --git a/drivers/hid/hid-multitouch.c b/drivers/hid/hid-multitouch.c
-index 19dfd8acd0da..fffd25e5cedf 100644
+index 8baf10beb1d5..e01d11f7ac09 100644
 --- a/drivers/hid/hid-multitouch.c
 +++ b/drivers/hid/hid-multitouch.c
 @@ -34,7 +34,6 @@
@@ -1533,7 +1533,7 @@ index 19dfd8acd0da..fffd25e5cedf 100644
  	hid_set_drvdata(hdev, td);
  
  	INIT_LIST_HEAD(&td->applications);
-@@ -1976,6 +2020,63 @@ static const struct hid_device_id mt_devices[] = {
+@@ -1979,6 +2023,63 @@ static const struct hid_device_id mt_devices[] = {
  		HID_DEVICE(BUS_I2C, HID_GROUP_GENERIC,
  			USB_VENDOR_ID_LG, I2C_DEVICE_ID_LG_7010) },
  
@@ -1598,10 +1598,10 @@ index 19dfd8acd0da..fffd25e5cedf 100644
  	{ .driver_data = MT_CLS_CONFIDENCE_MINUS_ONE,
  		MT_USB_DEVICE(USB_VENDOR_ID_ASUS,
 diff --git a/drivers/hid/hid-quirks.c b/drivers/hid/hid-quirks.c
-index 8704c4d4a5ce..4baf35b7aa13 100644
+index c068fc1d7796..caf3d8456d78 100644
 --- a/drivers/hid/hid-quirks.c
 +++ b/drivers/hid/hid-quirks.c
-@@ -116,6 +116,17 @@ static const struct hid_device_id hid_quirks[] = {
+@@ -117,6 +117,17 @@ static const struct hid_device_id hid_quirks[] = {
  	{ HID_USB_DEVICE(USB_VENDOR_ID_MICROSOFT, USB_DEVICE_ID_MS_SURFACE_PRO_2), HID_QUIRK_NO_INIT_REPORTS },
  	{ HID_USB_DEVICE(USB_VENDOR_ID_MICROSOFT, USB_DEVICE_ID_MS_TOUCH_COVER_2), HID_QUIRK_NO_INIT_REPORTS },
  	{ HID_USB_DEVICE(USB_VENDOR_ID_MICROSOFT, USB_DEVICE_ID_MS_TYPE_COVER_2), HID_QUIRK_NO_INIT_REPORTS },
@@ -6827,7 +6827,7 @@ index 000000000000..1fcd02146b50
 +
 +#endif // _IPTS_H_
 diff --git a/drivers/misc/mei/hw-me-regs.h b/drivers/misc/mei/hw-me-regs.h
-index d80372d21c14..6e14bde0a819 100644
+index 2ac1dc5104b7..5daa857a4938 100644
 --- a/drivers/misc/mei/hw-me-regs.h
 +++ b/drivers/misc/mei/hw-me-regs.h
 @@ -119,6 +119,7 @@
@@ -6839,7 +6839,7 @@ index d80372d21c14..6e14bde0a819 100644
  #define MEI_DEV_ID_SPT_H_2    0xA13B  /* Sunrise Point H 2 */
  
 diff --git a/drivers/misc/mei/pci-me.c b/drivers/misc/mei/pci-me.c
-index 3498c10b8263..4442c6366f0d 100644
+index b4bf12f27caf..34f4338fa641 100644
 --- a/drivers/misc/mei/pci-me.c
 +++ b/drivers/misc/mei/pci-me.c
 @@ -86,6 +86,7 @@ static const struct pci_device_id mei_me_pci_tbl[] = {
@@ -6967,7 +6967,7 @@ index 042a1d07f686..fc9041f58e9f 100644
  
  		skb_src = skb_dequeue(&pra_list->skb_head);
 diff --git a/drivers/net/wireless/marvell/mwifiex/cfg80211.c b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
-index af59f622c48e..36c57cabc439 100644
+index 686b830297fc..dd0ae2b76ee9 100644
 --- a/drivers/net/wireless/marvell/mwifiex/cfg80211.c
 +++ b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
 @@ -437,7 +437,10 @@ mwifiex_cfg80211_set_power_mgmt(struct wiphy *wiphy,
@@ -26867,7 +26867,7 @@ index ad351c8aed60..ede3cabcaccc 100644
  	 * Force simple suspend/resume path.
  	 */
 diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-index 5b94f86f9e88..7ee7508a29a1 100644
+index 0ee3404f0e9b..9fd0ad075d9d 100644
 --- a/drivers/nvme/host/pci.c
 +++ b/drivers/nvme/host/pci.c
 @@ -31,6 +31,7 @@
@@ -26878,20 +26878,18 @@ index 5b94f86f9e88..7ee7508a29a1 100644
  
  #include "nvme.h"
  
-@@ -2694,8 +2695,11 @@ static int nvme_simple_suspend(struct device *dev)
+@@ -2711,6 +2712,10 @@ static int nvme_suspend(struct device *dev)
+ static int nvme_simple_suspend(struct device *dev)
  {
- 	struct pci_dev *pdev = to_pci_dev(dev);
- 	struct nvme_dev *ndev = pci_get_drvdata(pdev);
+ 	struct nvme_dev *ndev = pci_get_drvdata(to_pci_dev(dev));
 +	struct nvme_ctrl *ctrl = &ndev->ctrl;
 +
 +	if (!(pm_suspend_via_s2idle() && (ctrl->quirks & NVME_QUIRK_NO_DISABLE)))
 +		nvme_dev_disable(ndev, true);
  
--	nvme_dev_disable(ndev, true);
+ 	nvme_dev_disable(ndev, true);
  	return 0;
- }
- 
-@@ -2815,6 +2819,10 @@ static const struct pci_device_id nvme_id_table[] = {
+@@ -2823,6 +2828,10 @@ static const struct pci_device_id nvme_id_table[] = {
  		.driver_data = NVME_QUIRK_LIGHTNVM, },
  	{ PCI_DEVICE(0x1d1d, 0x2601),	/* CNEX Granby */
  		.driver_data = NVME_QUIRK_LIGHTNVM, },
@@ -26903,7 +26901,7 @@ index 5b94f86f9e88..7ee7508a29a1 100644
  	{ PCI_DEVICE(PCI_VENDOR_ID_APPLE, 0x2001) },
  	{ PCI_DEVICE(PCI_VENDOR_ID_APPLE, 0x2003) },
 diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 419dda6dbd16..74396b34429a 100644
+index 8f856657dac2..e130b7a51a7e 100644
 --- a/drivers/pci/quirks.c
 +++ b/drivers/pci/quirks.c
 @@ -1332,6 +1332,10 @@ DECLARE_PCI_FIXUP_CLASS_EARLY(PCI_VENDOR_ID_AL, PCI_ANY_ID,
@@ -27060,7 +27058,7 @@ index e81e292403a8..2ab34842164c 100644
  obj-$(CONFIG_INTEL_BXTWC_PMIC_TMU)	+= intel_bxtwc_tmu.o
  obj-$(CONFIG_INTEL_TELEMETRY)	+= intel_telemetry_core.o \
 diff --git a/drivers/platform/x86/intel-hid.c b/drivers/platform/x86/intel-hid.c
-index 3201a83073b5..aa3c3410ad1a 100644
+index c514cb73bb50..ad5a0d02362c 100644
 --- a/drivers/platform/x86/intel-hid.c
 +++ b/drivers/platform/x86/intel-hid.c
 @@ -67,6 +67,8 @@ static const struct key_entry intel_array_keymap[] = {
@@ -34388,10 +34386,10 @@ index c66a04d24f1d..8778c904c1a3 100644
  		return -ENODEV;
  
 diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
-index c238e60dbbe7..cf6db26e045e 100644
+index ebdfa6ca714b..3c5b23600ec7 100644
 --- a/drivers/usb/core/hub.c
 +++ b/drivers/usb/core/hub.c
-@@ -4183,7 +4183,8 @@ void usb_enable_lpm(struct usb_device *udev)
+@@ -4198,7 +4198,8 @@ void usb_enable_lpm(struct usb_device *udev)
  	if (!udev || !udev->parent ||
  			udev->speed < USB_SPEED_SUPER ||
  			!udev->lpm_capable ||
@@ -34402,7 +34400,7 @@ index c238e60dbbe7..cf6db26e045e 100644
  
  	udev->lpm_disable_count--;
 diff --git a/drivers/usb/serial/qcserial.c b/drivers/usb/serial/qcserial.c
-index 613f91add03d..39ee9675c08f 100644
+index 0f60363c1bbc..29cd33e535e7 100644
 --- a/drivers/usb/serial/qcserial.c
 +++ b/drivers/usb/serial/qcserial.c
 @@ -6,7 +6,6 @@
@@ -34413,7 +34411,7 @@ index 613f91add03d..39ee9675c08f 100644
  #include <linux/tty.h>
  #include <linux/tty_flip.h>
  #include <linux/module.h>
-@@ -177,6 +176,8 @@ static const struct usb_device_id id_table[] = {
+@@ -180,6 +179,8 @@ static const struct usb_device_id id_table[] = {
  	{DEVICE_SWI(0x413c, 0x81d0)},   /* Dell Wireless 5819 */
  	{DEVICE_SWI(0x413c, 0x81d1)},   /* Dell Wireless 5818 */
  	{DEVICE_SWI(0x413c, 0x81d2)},   /* Dell Wireless 5818 */
@@ -34504,10 +34502,10 @@ index 000000000000..f329bbfb8079
 +
 +#endif // INTEL_IPTS_IF_H
 diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
-index d157983b84cf..c9aaf755b649 100644
+index c0dd2f749d3f..199e64164f65 100644
 --- a/include/linux/pci_ids.h
 +++ b/include/linux/pci_ids.h
-@@ -3086,4 +3086,6 @@
+@@ -3118,4 +3118,6 @@
  
  #define PCI_VENDOR_ID_NCUBE		0x10ff
  
