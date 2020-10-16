@@ -7,5 +7,9 @@
             "IdleAction": "DoNothing"
         }
     },
-    "LidCloseAction": 3
+    "LidCloseAction": 3,
+    "ScreenBrightnessPercent": {
+        "BrightnessAC": 50,
+        "BrightnessBattery": 50
+    }
 }
