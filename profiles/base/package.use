@@ -6,3 +6,4 @@ x11-libs/libva-intel-driver hybrid_codec
 >=sys-kernel/chromeos-kernel-5_4-9999 clang lld 
 chromeos-base/chromeos-chrome chrome_media
 chromeos-base/libchromeos-use-flags highdpi stylus touchview drm_atomic edge_touch_filtering
+sys-kernel/surface-kernel-4_19 -clang -lld

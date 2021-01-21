@@ -3,3 +3,4 @@ sys-kernel/chromeos-kernel-4_19::chromiumos
 sys-kernel/chromeos-kernel-5_4::patches
 sys-kernel/chromeos-kernel-5_4::chromiumos
 sys-kernel/linux-firmware::patches
+linux-sources/linux-sources::chromiumos
