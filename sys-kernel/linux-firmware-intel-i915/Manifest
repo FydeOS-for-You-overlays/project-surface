@@ -17,3 +17,5 @@ DIST mwlwifi_firmware.zip 759874 MD5 f22890cc8b748d5f0bcb20a25a8617ad
 DIST nvidia_firmware_gp108.zip 56791 MD5 7ba1429bdaeeb8a21a03885f946d5065
 DIST nvidia_firmware_gv100.zip 63884 MD5 7c9c7f1bbf6c715f5b62d9dde467f9df
 DIST i915_firmware_all.zip 3439273 MD5 f4171a42b859f2b20ef735c263da6e3f
+DIST i915_firmware_icl.zip 692570 MD5 4d28cb46d3001d4c80899df3d8b4d5cd
+DIST i915_firmware_tgl.zip 812185 MD5 cb3ac61d1912137cc6142cdb5c81057d

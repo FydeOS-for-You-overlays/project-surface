@@ -14,6 +14,7 @@ IUSE_SURFACE_TYPE=(
   pro4
   pro5
   pro6
+  pro7
   studio
   laptop
   laptop2
@@ -41,6 +42,10 @@ RDEPEND="
   surface_pro6? (
     sys-kernel/linux-firmware-intel-i915[intel_kbl]
     sys-kernel/linux-firmware-intel-ipts[ipts_102]
+  )
+  surface_pro7? (
+    sys-kernel/linux-firmware-intel-i915[intel_icl]
+    sys-kernel/linux-firmware-intel-ipts[ipts_103]
   )
   surface_studio? (
     sys-kernel/linux-firmware-intel-i915[intel_skl]
