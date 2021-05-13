@@ -15,6 +15,7 @@ RDEPEND="
   sys-kernel/linux-firmware-surface
   chromeos-base/surface-power-management-policy
   chromeos-base/libwidevine
+  chromeos-base/fydeos-power-daemon-go
 "
 
 DEPEND="${RDEPEND}"
