@@ -1,0 +1,182 @@
+diff --git a/drivers/iio/accel/hid-sensor-accel-3d.c b/drivers/iio/accel/hid-sensor-accel-3d.c
+index 38ff374a3ca4..1ba5dde3032f 100644
+--- a/drivers/iio/accel/hid-sensor-accel-3d.c
++++ b/drivers/iio/accel/hid-sensor-accel-3d.c
+@@ -38,6 +38,11 @@ enum accel_3d_channel {
+ 	ACCEL_3D_CHANNEL_MAX,
+ };
+ 
++enum accel_3d_power_status {
++  ACCEL_3D_STOPPING,
++  ACCEL_3D_RUNNING,
++};
++
+ struct accel_3d_state {
+ 	struct hid_sensor_hub_callbacks callbacks;
+ 	struct hid_sensor_common common_attributes;
+@@ -49,6 +54,7 @@ struct accel_3d_state {
+ 	int scale_precision;
+ 	int value_offset;
+ 	int64_t timestamp;
++  enum accel_3d_power_status status;
+ };
+ 
+ static const u32 accel_3d_addresses[ACCEL_3D_CHANNEL_MAX] = {
+@@ -345,6 +351,42 @@ static int accel_3d_parse_report(struct platform_device *pdev,
+ 	return ret;
+ }
+ 
++static irqreturn_t accel_3d_trigger_handler(int irq, void *p) {
++  struct iio_poll_func *pf = p;
++  struct iio_dev *indio_dev = pf->indio_dev;
++  struct accel_3d_state *accel_state = iio_priv(indio_dev);
++  struct hid_sensor_hub_device *hsdev = accel_state->common_attributes.hsdev;
++  int report_id = -1, i;
++  s32 min;
++  u32 address;
++  int scan_index;
++
++  dev_dbg(&indio_dev->dev, "accel_3d_trigger_handler\n");
++  if (accel_state->status != ACCEL_3D_RUNNING) {
++    dev_dbg(&indio_dev->dev, "reason: status is stopping.");
++    goto err; 
++  }
++  hid_sensor_power_state(&accel_state->common_attributes, true);
++  for (i = 0; i < indio_dev->num_channels; i++) {
++    scan_index = indio_dev->channels[i].scan_index;
++    report_id = accel_state->accel[scan_index].report_id;
++    if (report_id < 0) {
++      dev_dbg(&indio_dev->dev, "reason: report_id: %d.", report_id);
++      hid_sensor_power_state(&accel_state->common_attributes, false);
++      goto err;
++    }
++    min = accel_state->accel[scan_index].logical_minimum;
++    address = accel_3d_addresses[scan_index];
++    sensor_hub_input_attr_get_raw_value(
++          hsdev, hsdev->usage, address, report_id, SENSOR_HUB_SYNC,
++          min < 0);
++  }
++  hid_sensor_power_state(&accel_state->common_attributes, false);
++err:
++  iio_trigger_notify_done(indio_dev->trig);
++  return IRQ_HANDLED;
++}
++
+ /* Function to initialize the processing for usage id */
+ static int hid_accel_3d_probe(struct platform_device *pdev)
+ {
+@@ -405,7 +447,7 @@ static int hid_accel_3d_probe(struct platform_device *pdev)
+ 	indio_dev->modes = INDIO_DIRECT_MODE;
+ 
+ 	ret = iio_triggered_buffer_setup(indio_dev, &iio_pollfunc_store_time,
+-		NULL, NULL);
++		&accel_3d_trigger_handler, NULL);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "failed to initialize trigger buffer\n");
+ 		goto error_free_dev_mem;
+@@ -433,6 +475,7 @@ static int hid_accel_3d_probe(struct platform_device *pdev)
+ 		dev_err(&pdev->dev, "callback reg failed\n");
+ 		goto error_iio_unreg;
+ 	}
++  accel_state->status = ACCEL_3D_RUNNING;
+ 
+ 	return ret;
+ 
+@@ -475,11 +518,44 @@ static const struct platform_device_id hid_accel_3d_ids[] = {
+ };
+ MODULE_DEVICE_TABLE(platform, hid_accel_3d_ids);
+ 
++struct accel_3d_state *get_accel_state_from_dev(struct device *dev)
++{
++  struct platform_device *pdev = to_platform_device(dev);
++  struct iio_dev *indio_dev = platform_get_drvdata(pdev);
++  return iio_priv(indio_dev);
++}
++
++static int __maybe_unused hid_3d_sensor_suspend(struct device *dev)
++{
++  struct accel_3d_state *accel_state = get_accel_state_from_dev(dev);
++  accel_state->status = ACCEL_3D_STOPPING; 
++  dev_dbg(dev, "set hid 3d stopping.");
++  return hid_sensor_suspend(dev);
++}
++
++static int __maybe_unused hid_3d_sensor_resume(struct device *dev)
++{
++  int ret = hid_sensor_resume(dev);
++  struct accel_3d_state *accel_state = get_accel_state_from_dev(dev);
++  if (!ret){
++    accel_state->status = ACCEL_3D_RUNNING;
++    hid_sensor_runtime_resume(dev);
++    dev_dbg(dev, "set hid 3d running, %d",accel_state->common_attributes.data_ready);
++  }
++  return ret;
++}
++
++const struct dev_pm_ops hid_3d_sensor_pm_ops = {
++  SET_SYSTEM_SLEEP_PM_OPS(hid_3d_sensor_suspend, hid_3d_sensor_resume)
++  SET_RUNTIME_PM_OPS( hid_sensor_suspend,
++         hid_sensor_runtime_resume, NULL)
++};
++
+ static struct platform_driver hid_accel_3d_platform_driver = {
+ 	.id_table = hid_accel_3d_ids,
+ 	.driver = {
+ 		.name	= KBUILD_MODNAME,
+-		.pm	= &hid_sensor_pm_ops,
++		.pm	= &hid_3d_sensor_pm_ops,
+ 	},
+ 	.probe		= hid_accel_3d_probe,
+ 	.remove		= hid_accel_3d_remove,
+diff --git a/drivers/iio/common/hid-sensors/hid-sensor-trigger.c b/drivers/iio/common/hid-sensors/hid-sensor-trigger.c
+index 1e10c0af2f2c..f24cc8aff9a2 100644
+--- a/drivers/iio/common/hid-sensors/hid-sensor-trigger.c
++++ b/drivers/iio/common/hid-sensors/hid-sensor-trigger.c
+@@ -302,28 +302,31 @@ int hid_sensor_setup_trigger(struct iio_dev *indio_dev, const char *name,
+ }
+ EXPORT_SYMBOL(hid_sensor_setup_trigger);
+ 
+-static int __maybe_unused hid_sensor_suspend(struct device *dev)
++int __maybe_unused hid_sensor_suspend(struct device *dev)
+ {
+ 	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+ 	struct hid_sensor_common *attrb = iio_device_get_drvdata(indio_dev);
+ 
+ 	return _hid_sensor_power_state(attrb, false);
+ }
++EXPORT_SYMBOL(hid_sensor_suspend);
+ 
+-static int __maybe_unused hid_sensor_resume(struct device *dev)
++int __maybe_unused hid_sensor_resume(struct device *dev)
+ {
+ 	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+ 	struct hid_sensor_common *attrb = iio_device_get_drvdata(indio_dev);
+ 	schedule_work(&attrb->work);
+ 	return 0;
+ }
++EXPORT_SYMBOL(hid_sensor_resume);
+ 
+-static int __maybe_unused hid_sensor_runtime_resume(struct device *dev)
++int __maybe_unused hid_sensor_runtime_resume(struct device *dev)
+ {
+ 	struct iio_dev *indio_dev = dev_get_drvdata(dev);
+ 	struct hid_sensor_common *attrb = iio_device_get_drvdata(indio_dev);
+ 	return _hid_sensor_power_state(attrb, true);
+ }
++EXPORT_SYMBOL(hid_sensor_runtime_resume);
+ 
+ const struct dev_pm_ops hid_sensor_pm_ops = {
+ 	SET_SYSTEM_SLEEP_PM_OPS(hid_sensor_suspend, hid_sensor_resume)
+diff --git a/drivers/iio/common/hid-sensors/hid-sensor-trigger.h b/drivers/iio/common/hid-sensors/hid-sensor-trigger.h
+index 9f4713f42ecb..ac60b8f5f09e 100644
+--- a/drivers/iio/common/hid-sensors/hid-sensor-trigger.h
++++ b/drivers/iio/common/hid-sensors/hid-sensor-trigger.h
+@@ -28,5 +28,8 @@ int hid_sensor_setup_trigger(struct iio_dev *indio_dev, const char *name,
+ 				struct hid_sensor_common *attrb);
+ void hid_sensor_remove_trigger(struct hid_sensor_common *attrb);
+ int hid_sensor_power_state(struct hid_sensor_common *st, bool state);
++int hid_sensor_suspend(struct device *dev);
++int hid_sensor_resume(struct device *dev);
++int hid_sensor_runtime_resume(struct device *dev);
+ 
+ #endif

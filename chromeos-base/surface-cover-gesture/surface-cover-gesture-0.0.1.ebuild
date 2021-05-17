@@ -11,11 +11,13 @@ SLOT="0"
 KEYWORDS="*"
 IUSE=""
 
-RDEPEND="
-  sys-kernel/linux-firmware-surface
-  chromeos-base/libwidevine
-  chromeos-base/fydeos-power-daemon-go
-  chromeos-base/surface-cover-gesture
-"
+RDEPEND=""
 
 DEPEND="${RDEPEND}"
+
+S=$WORKDIR
+
+src_install() {
+  insinto /etc/gesture
+  doins $FILESDIR/50-surface-cover.conf
+}
