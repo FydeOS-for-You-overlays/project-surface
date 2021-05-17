@@ -20,15 +20,17 @@ IUSE_KERNEL_VERS=(
 	kernel-4_19
 	kernel-4_19-ht
 	kernel-5_4
+	kernel-5_10
 	kernel-experimental
 	kernel-next
 	kernel-upstream
 	kernel-upstream-mainline
 	kernel-upstream-next
-  kernel-surface-4_19
+	kernel-surface-4_19
 )
 IUSE="${IUSE_KERNEL_VERS[*]}"
-REQUIRED_USE="?? ( ${IUSE_KERNEL_VERS[*]} )"
+# exactly one of foo, bar, or baz must be set, but not several
+REQUIRED_USE="^^ ( ${IUSE_KERNEL_VERS[*]} )"
 
 RDEPEND="
 	kernel-3_8? ( sys-kernel/chromeos-kernel-3_8 )
@@ -40,12 +42,13 @@ RDEPEND="
 	kernel-4_19? ( sys-kernel/chromeos-kernel-4_19 )
 	kernel-4_19-ht? ( sys-kernel/chromeos-kernel-4_19-ht )
 	kernel-5_4? ( sys-kernel/chromeos-kernel-5_4 )
+	kernel-5_10? ( sys-kernel/chromeos-kernel-5_10 )
 	kernel-experimental? ( sys-kernel/chromeos-kernel-experimental )
 	kernel-next? ( sys-kernel/chromeos-kernel-next )
 	kernel-upstream? ( sys-kernel/chromeos-kernel-upstream )
 	kernel-upstream-mainline? ( sys-kernel/upstream-kernel-mainline )
 	kernel-upstream-next? ( sys-kernel/upstream-kernel-next )
-  kernel-surface-4_19? ( sys-kernel/surface-kernel-4_19 )
+	kernel-surface-4_19? ( sys-kernel/surface-kernel-4_19 )
 "
 
 # Add blockers so when migrating between USE flags, the old version gets
@@ -55,6 +58,7 @@ RDEPEND+="
 "
 
 # Default to the latest kernel if none has been selected.
+# TODO: This defaulting does not work. Fix or remove.
 RDEPEND_DEFAULT="sys-kernel/chromeos-kernel-5_4"
 # Here be dragons!
 RDEPEND+="
