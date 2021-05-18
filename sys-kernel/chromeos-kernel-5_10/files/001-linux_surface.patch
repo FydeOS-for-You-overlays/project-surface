@@ -1,0 +1,9 @@
+diff --git a/.gitignore b/.gitignore
+index a5ec24ebb8c7..237b6d2944ca 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -158,3 +158,4 @@ x509.genkey
+ 
+ # Documentation toolchain
+ sphinx_*/
++out_*/
