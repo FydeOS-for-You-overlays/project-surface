@@ -1,8 +1,8 @@
 diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
-index 21fbdcde1faa1..24cd2030a2b07 100644
+index 3dd7d32467378..cb27044a7955e 100644
 --- a/drivers/hid/hid-sensor-hub.c
 +++ b/drivers/hid/hid-sensor-hub.c
-@@ -693,9 +693,7 @@ static int sensor_hub_probe(struct hid_device *hdev,
+@@ -680,9 +680,7 @@ static int sensor_hub_probe(struct hid_device *hdev,
  			if (last_hsdev)
  				last_hsdev->end_collection_index = i;
  			last_hsdev = hsdev;
@@ -14,10 +14,10 @@ index 21fbdcde1faa1..24cd2030a2b07 100644
  				hid_err(hdev, "Failed MFD device name\n");
  				ret = -ENOMEM;
 diff --git a/drivers/iio/common/hid-sensors/Makefile b/drivers/iio/common/hid-sensors/Makefile
-index 22e7c5a82325e..f71aab6669cba 100644
+index 64b01a81fcb2d..576e7ac072697 100644
 --- a/drivers/iio/common/hid-sensors/Makefile
 +++ b/drivers/iio/common/hid-sensors/Makefile
-@@ -3,5 +3,6 @@
+@@ -4,5 +4,6 @@
  #
  
  obj-$(CONFIG_HID_SENSOR_IIO_COMMON) += hid-sensor-iio-common.o

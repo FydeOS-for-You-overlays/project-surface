@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
+CROS_WORKON_COMMIT="e01da40d8d70dbea2023edeb58ccb0d6fbc6c1f6"
+CROS_WORKON_TREE="abaaaf196aa7066a7fa6ff3efa187799b506e19f"
 CROS_WORKON_PROJECT="chromiumos/third_party/linux-firmware"
 CROS_WORKON_OUTOFTREE_BUILD=1
 CROS_WORKON_EGIT_BRANCH="master"
@@ -12,7 +14,7 @@ DESCRIPTION="Firmware images from the upstream linux-fimware package"
 HOMEPAGE="https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/"
 
 SLOT="0"
-KEYWORDS="~*"
+KEYWORDS="*"
 
 
 IUSE_KERNEL_VERS=(

@@ -1,0 +1,346 @@
+diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
+index cdf519e94c448..b365c133bfc2b 100644
+--- a/include/acpi/acpi_bus.h
++++ b/include/acpi/acpi_bus.h
+@@ -91,12 +91,21 @@ acpi_evaluate_dsm_typed(acpi_handle handle, const guid_t *guid, u64 rev,
+ bool acpi_dev_found(const char *hid);
+ bool acpi_dev_present(const char *hid, const char *uid, s64 hrv);
+ 
++struct acpi_device *
++acpi_dev_get_next_dep_dev(struct acpi_device *adev, struct acpi_device *prev);
++struct acpi_device *
++acpi_dev_get_next_match_dev(struct acpi_device *adev, const char *hid, const char *uid, s64 hrv);
+ struct acpi_device *
+ acpi_dev_get_first_match_dev(const char *hid, const char *uid, s64 hrv);
+ 
+ const char *
+ acpi_dev_get_first_match_name(const char *hid, const char *uid, s64 hrv);
+ 
++#define for_each_acpi_dev_match(adev, hid, uid, hrv)     \
++ for (adev = acpi_dev_get_first_match_dev(hid, uid, hrv);  \
++      adev;              \
++      adev = acpi_dev_get_next_match_dev(adev, hid, uid, hrv))
++
+ #ifdef CONFIG_ACPI
+ 
+ #include <linux/proc_fs.h>
+@@ -687,6 +696,11 @@ static inline bool acpi_device_can_poweroff(struct acpi_device *adev)
+ 		adev->power.states[ACPI_STATE_D3_HOT].flags.explicit_set);
+ }
+ 
++static inline void acpi_dev_put(struct acpi_device *adev)
++{
++  put_device(&adev->dev);
++}
++
+ #else	/* CONFIG_ACPI */
+ 
+ static inline int register_acpi_bus_type(void *bus) { return 0; }
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index a4529960679d2..7733af5b4029d 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -1052,6 +1052,7 @@ void devm_acpi_dev_remove_driver_gpios(struct device *dev);
+ bool acpi_gpio_get_irq_resource(struct acpi_resource *ares,
+ 				struct acpi_resource_gpio **agpio);
+ int acpi_dev_gpio_irq_get(struct acpi_device *adev, int index);
++struct gpio_desc *acpi_get_gpiod(char *path, int pin);
+ #else
+ static inline int acpi_dev_add_driver_gpios(struct acpi_device *adev,
+ 			      const struct acpi_gpio_mapping *gpios)
+@@ -1076,6 +1077,10 @@ static inline int acpi_dev_gpio_irq_get(struct acpi_device *adev, int index)
+ {
+ 	return -ENXIO;
+ }
++struct gpio_desc *acpi_get_gpiod(char *path, int pin)
++{
++	return NULL;
++}
+ #endif
+ 
+ /* Device properties */
+diff --git a/include/linux/fwnode.h b/include/linux/fwnode.h
+index faebf0ca0686c..c801fffa8ceb8 100644
+--- a/include/linux/fwnode.h
++++ b/include/linux/fwnode.h
+@@ -34,6 +34,13 @@ struct fwnode_endpoint {
+ 	const struct fwnode_handle *local_fwnode;
+ };
+ 
++/*
++ * ports and endpoints defined as software_nodes should all follow a common
++ * naming scheme; use these macros to ensure commonality.
++ */
++#define SWNODE_GRAPH_PORT_NAME_FMT		"port@%u"
++#define SWNODE_GRAPH_ENDPOINT_NAME_FMT		"endpoint@%u"
++
+ #define NR_FWNODE_REFERENCE_ARGS	8
+ 
+ /**
+diff --git a/include/linux/i2c.h b/include/linux/i2c.h
+index 3b13d89c0871f..8035c4d6b27e1 100644
+--- a/include/linux/i2c.h
++++ b/include/linux/i2c.h
+@@ -26,6 +26,7 @@
+ #ifndef _LINUX_I2C_H
+ #define _LINUX_I2C_H
+ 
++#include <linux/acpi.h>         /* for acpi_handle */
+ #include <linux/mod_devicetable.h>
+ #include <linux/device.h>	/* for struct device */
+ #include <linux/sched.h>	/* for completion */
+@@ -53,6 +54,9 @@ struct i2c_board_info;
+ enum i2c_slave_event;
+ typedef int (*i2c_slave_cb_t)(struct i2c_client *, enum i2c_slave_event, u8 *);
+ 
++/* I2C Device Name Format - to maintain consistency outside the i2c layer */
++#define I2C_DEV_NAME_FORMAT		"i2c-%s"
++
+ /* I2C Frequency Modes */
+ #define I2C_MAX_STANDARD_MODE_FREQ	100000
+ #define I2C_MAX_FAST_MODE_FREQ		400000
+@@ -946,6 +950,7 @@ static inline int of_i2c_get_board_info(struct device *dev,
+ u32 i2c_acpi_find_bus_speed(struct device *dev);
+ struct i2c_client *i2c_acpi_new_device(struct device *dev, int index,
+ 				       struct i2c_board_info *info);
++char *i2c_acpi_dev_name(struct acpi_device *adev);
+ #else
+ static inline u32 i2c_acpi_find_bus_speed(struct device *dev)
+ {
+@@ -956,6 +961,10 @@ static inline struct i2c_client *i2c_acpi_new_device(struct device *dev,
+ {
+ 	return NULL;
+ }
++static inline char *i2c_acpi_dev_name(struct acpi_device *adev)
++{
++ return NULL;
++}
+ #endif /* CONFIG_ACPI */
+ 
+ #endif /* _LINUX_I2C_H */
+diff --git a/include/linux/property.h b/include/linux/property.h
+index df388bec57ed3..9808e2d3336e3 100644
+--- a/include/linux/property.h
++++ b/include/linux/property.h
+@@ -24,6 +24,7 @@ enum dev_prop_type {
+ 	DEV_PROP_U32,
+ 	DEV_PROP_U64,
+ 	DEV_PROP_STRING,
++  DEV_PROP_REF,
+ 	DEV_PROP_MAX,
+ };
+ 
+@@ -77,7 +78,8 @@ int fwnode_property_get_reference_args(const struct fwnode_handle *fwnode,
+ 				       const char *prop, const char *nargs_prop,
+ 				       unsigned int nargs, unsigned int index,
+ 				       struct fwnode_reference_args *args);
+-
++const char *fwnode_get_name(const struct fwnode_handle *fwnode);
++const char *fwnode_get_name_prefix(const struct fwnode_handle *fwnode);
+ struct fwnode_handle *fwnode_get_parent(const struct fwnode_handle *fwnode);
+ struct fwnode_handle *fwnode_get_next_parent(
+ 	struct fwnode_handle *fwnode);
+@@ -230,6 +232,7 @@ struct property_entry {
+ 	const char *name;
+ 	size_t length;
+ 	bool is_array;
++  bool is_inline;
+ 	enum dev_prop_type type;
+ 	union {
+ 		union {
+@@ -312,9 +315,46 @@ struct property_entry {
+ 	.name = _name_,				\
+ }
+ 
++struct software_node;
++
++/**
++ * struct software_node_ref_args - Reference property with additional arguments
++ * @node: Reference to a software node
++ * @nargs: Number of elements in @args array
++ * @args: Integer arguments
++ */
++struct software_node_ref_args {
++  const struct software_node *node;
++  unsigned int nargs;
++  u64 args[NR_FWNODE_REFERENCE_ARGS];
++};
++
++#define PROPERTY_ENTRY_REF(_name_, _ref_, ...)        \
++(struct property_entry) {           \
++  .name = _name_,             \
++  .length = sizeof(struct software_node_ref_args),    \
++  .type = DEV_PROP_REF,           \
++  { .value = {.str = (const char *) &(const struct software_node_ref_args) {   \
++    .node = _ref_,            \
++    .nargs = ARRAY_SIZE(((u64[]){ 0, ##__VA_ARGS__ })) - 1, \
++    .args = { __VA_ARGS__ },        \
++  } } },                \
++}
++
++#define PROPERTY_ENTRY_REF_ARRAY(_name_, _val_)     \
++(struct property_entry) {           \
++  .name = _name_,                   \
++  .length = sizeof(struct software_node_ref_args) * ARRAY_SIZE(_val_),  \
++  .is_array = true,         \
++  .type = DEV_PROP_REF,           \
++  {.value = {.str = (const char *) _val_}}, \
++}
++
+ struct property_entry *
+ property_entries_dup(const struct property_entry *properties);
+ 
++const void *property_get_pointer(const struct property_entry *prop);
++
+ void property_entries_free(const struct property_entry *properties);
+ 
+ int device_add_properties(struct device *dev,
+@@ -355,4 +395,39 @@ fwnode_graph_get_remote_node(const struct fwnode_handle *fwnode, u32 port,
+ int fwnode_graph_parse_endpoint(const struct fwnode_handle *fwnode,
+ 				struct fwnode_endpoint *endpoint);
+ 
++/* -------------------------------------------------------------------------- */
++/* Software fwnode support - when HW description is incomplete or missing */
++
++/**
++ * struct software_node - Software node description
++ * @name: Name of the software node
++ * @parent: Parent of the software node
++ * @properties: Array of device properties
++ */
++struct software_node {
++  const char *name;
++  const struct software_node *parent;
++  const struct property_entry *properties;
++};
++
++bool is_software_node(const struct fwnode_handle *fwnode);
++const struct software_node *
++to_software_node(const struct fwnode_handle *fwnode);
++struct fwnode_handle *software_node_fwnode(const struct software_node *node);
++int software_node_register(const struct software_node *node);
++int software_node_register_node_group(const struct software_node **node_group);
++void software_node_unregister_node_group(const struct software_node **node_group);
++const struct software_node *
++software_node_find_by_name(const struct software_node *parent, const char *name);
++int software_node_register_nodes(const struct software_node *nodes);
++void software_node_unregister_nodes(const struct software_node *nodes);
++int software_node_notify(struct device *dev, unsigned long action);
++struct fwnode_handle *
++fwnode_create_software_node(const struct property_entry *properties,
++          const struct fwnode_handle *parent);
++void software_node_unregister(const struct software_node *node);
++void fwnode_remove_software_node(struct fwnode_handle *fwnode);
++int device_add_software_node(struct device *dev, const struct software_node *swnode);
++void device_remove_software_node(struct device *dev);
++
+ #endif /* _LINUX_PROPERTY_H_ */
+diff --git a/include/media/v4l2-ctrls.h b/include/media/v4l2-ctrls.h
+index 6bd71078ffb9e..eda2d18050cca 100644
+--- a/include/media/v4l2-ctrls.h
++++ b/include/media/v4l2-ctrls.h
+@@ -20,6 +20,7 @@
+ #include <linux/list.h>
+ #include <linux/mutex.h>
+ #include <linux/videodev2.h>
++#include <media/v4l2-fwnode.h>
+ #include <media/media-request.h>
+ 
+ /*
+@@ -1310,4 +1311,7 @@ int v4l2_ctrl_subdev_subscribe_event(struct v4l2_subdev *sd, struct v4l2_fh *fh,
+  */
+ int v4l2_ctrl_subdev_log_status(struct v4l2_subdev *sd);
+ 
++int v4l2_ctrl_new_fwnode_properties(struct v4l2_ctrl_handler *hdl,
++            const struct v4l2_ctrl_ops *ctrl_ops,
++            const struct v4l2_fwnode_device_properties *p);
+ #endif
+diff --git a/include/media/v4l2-fwnode.h b/include/media/v4l2-fwnode.h
+index 6c07825e18b90..46e356fdd7834 100644
+--- a/include/media/v4l2-fwnode.h
++++ b/include/media/v4l2-fwnode.h
+@@ -126,6 +126,59 @@ struct v4l2_fwnode_link {
+ 	unsigned int remote_port;
+ };
+ 
++/**
++ * V4L2_FWNODE_PROPERTY_UNSET - identify a non initialized property
++ *
++ * All properties in &struct v4l2_fwnode_device_properties are initialized
++ * to this value.
++ */
++#define V4L2_FWNODE_PROPERTY_UNSET   (-1U)
++
++/**
++ * enum v4l2_fwnode_orientation - possible device orientation
++ * @V4L2_FWNODE_ORIENTATION_FRONT: device installed on the front side
++ * @V4L2_FWNODE_ORIENTATION_BACK: device installed on the back side
++ * @V4L2_FWNODE_ORIENTATION_EXTERNAL: device externally located
++ */
++enum v4l2_fwnode_orientation {
++  V4L2_FWNODE_ORIENTATION_FRONT,
++  V4L2_FWNODE_ORIENTATION_BACK,
++  V4L2_FWNODE_ORIENTATION_EXTERNAL
++};
++
++/**
++ * struct v4l2_fwnode_device_properties - fwnode device properties
++ * @orientation: device orientation. See &enum v4l2_fwnode_orientation
++ * @rotation: device rotation
++ */
++struct v4l2_fwnode_device_properties {
++	enum v4l2_fwnode_orientation orientation;
++	unsigned int rotation;
++};
++
++
++/**
++ * enum v4l2_fwnode_bus_type - Video bus types defined by firmware properties
++ * @V4L2_FWNODE_BUS_TYPE_GUESS: Default value if no bus-type fwnode property
++ * @V4L2_FWNODE_BUS_TYPE_CSI2_CPHY: MIPI CSI-2 bus, C-PHY physical layer
++ * @V4L2_FWNODE_BUS_TYPE_CSI1: MIPI CSI-1 bus
++ * @V4L2_FWNODE_BUS_TYPE_CCP2: SMIA Compact Camera Port 2 bus
++ * @V4L2_FWNODE_BUS_TYPE_CSI2_DPHY: MIPI CSI-2 bus, D-PHY physical layer
++ * @V4L2_FWNODE_BUS_TYPE_PARALLEL: Camera Parallel Interface bus
++ * @V4L2_FWNODE_BUS_TYPE_BT656: BT.656 video format bus-type
++ * @NR_OF_V4L2_FWNODE_BUS_TYPE: Number of bus-types
++ */
++enum v4l2_fwnode_bus_type {
++	V4L2_FWNODE_BUS_TYPE_GUESS = 0,
++	V4L2_FWNODE_BUS_TYPE_CSI2_CPHY,
++	V4L2_FWNODE_BUS_TYPE_CSI1,
++	V4L2_FWNODE_BUS_TYPE_CCP2,
++	V4L2_FWNODE_BUS_TYPE_CSI2_DPHY,
++	V4L2_FWNODE_BUS_TYPE_PARALLEL,
++	V4L2_FWNODE_BUS_TYPE_BT656,
++	NR_OF_V4L2_FWNODE_BUS_TYPE
++};
++
+ /**
+  * v4l2_fwnode_endpoint_parse() - parse all fwnode node properties
+  * @fwnode: pointer to the endpoint's fwnode handle
+@@ -409,4 +462,6 @@ v4l2_async_register_fwnode_subdev(struct v4l2_subdev *sd,
+ 				  unsigned int num_ports,
+ 				  parse_endpoint_func parse_endpoint);
+ 
++int v4l2_fwnode_device_parse(struct device *dev,
++			     struct v4l2_fwnode_device_properties *props);
+ #endif /* _V4L2_FWNODE_H */
+diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
+index d1d37f3b7be94..2a1f0f230b3c2 100644
+--- a/include/uapi/linux/v4l2-controls.h
++++ b/include/uapi/linux/v4l2-controls.h
+@@ -904,6 +904,13 @@ enum v4l2_auto_focus_range {
+ #define V4L2_CID_REGION_OF_INTEREST_AUTO_IMAGE_STABILIZATION	(1 << 6)
+ #define V4L2_CID_REGION_OF_INTEREST_AUTO_HIGHER_QUALITY	(1 << 7)
+ 
++#define V4L2_CID_CAMERA_ORIENTATION   (V4L2_CID_CAMERA_CLASS_BASE+35)
++#define V4L2_CAMERA_ORIENTATION_FRONT   0
++#define V4L2_CAMERA_ORIENTATION_BACK    1
++#define V4L2_CAMERA_ORIENTATION_EXTERNAL  2
++
++#define V4L2_CID_CAMERA_SENSOR_ROTATION   (V4L2_CID_CAMERA_CLASS_BASE+36)
++
+ /* FM Modulator class control IDs */
+ 
+ #define V4L2_CID_FM_TX_CLASS_BASE		(V4L2_CTRL_CLASS_FM_TX | 0x900)

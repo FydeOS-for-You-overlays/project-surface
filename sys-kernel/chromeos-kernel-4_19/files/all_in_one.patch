@@ -12204,7 +12204,7 @@ index 991b9cc18000..5a17054c07e2 100644
  	 * can't grab the device lock, maybe we'll get another chance later.
  	 */
 diff --git a/drivers/net/wireless/marvell/mwifiex/pcie.h b/drivers/net/wireless/marvell/mwifiex/pcie.h
-index f7ce9b6db6b4..f983a95624f4 100644
+index 72d0c01ff3592..ed8bcd6720704 100644
 --- a/drivers/net/wireless/marvell/mwifiex/pcie.h
 +++ b/drivers/net/wireless/marvell/mwifiex/pcie.h
 @@ -391,6 +391,7 @@ struct pcie_service_card {
@@ -12212,6 +12212,8 @@ index f7ce9b6db6b4..f983a95624f4 100644
  	struct work_struct work;
  	unsigned long work_flags;
 +  unsigned long quirks;
+
+  bool pci_reset_ongoing;
  };
  
  static inline int

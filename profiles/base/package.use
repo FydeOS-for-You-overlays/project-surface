@@ -1,7 +1,7 @@
 >=sys-apps/gptfdisk-1.0.1 -ncurses
 x11-libs/libva-intel-driver hybrid_codec
-<sys-kernel/chromeos-kernel-4_19-9999 apply_patches -clang -lld 
->=sys-kernel/chromeos-kernel-4_19-9999 -clang -lld -apply_patches
+<sys-kernel/chromeos-kernel-4_19-9999 apply_patches clang lld llvm_ias
+>=sys-kernel/chromeos-kernel-4_19-9999 clang lld llvm_ias -apply_patches
 <sys-kernel/chromeos-kernel-5_4-9999 apply_patches clang lld
 >=sys-kernel/chromeos-kernel-5_4-9999 clang lld 
 >=sys-kernel/chromeos-kernel-5_10-9999 clang lld
@@ -10,3 +10,5 @@ chromeos-base/chromeos-chrome chrome_media tpm_fallback
 chromeos-base/libchromeos-use-flags highdpi stylus touchview drm_atomic edge_touch_filtering
 sys-kernel/surface-kernel-4_19 nowerror -clang -lld -llvm_ias
 sys-kernel/chromeos-kernel-4_19 nowerror -clang -lld -llvm_ias
+media-libs/libcamera dev
+dev-libs/libevent threads

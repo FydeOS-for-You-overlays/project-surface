@@ -7,7 +7,7 @@ DESCRIPTION="FydeOS power management policy for microsoft surface devices"
 LICENSE="BSD-Google"
 SLOT="0"
 KEYWORDS="*"
-IUSE=""
+IUSE="-keepwaking"
 S="${FILESDIR}"
 
 RDEPEND=""
@@ -15,6 +15,10 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 
 src_install() {
-  insinto /etc/chromium/policies/managed
-  doins "${FILESDIR}"/*
+  insinto "/usr/share/power_manager/board_specific"
+  doins "${FILESDIR}"/powerd_prefs/*
+  if use keepwaking; then
+    insinto /etc/chromium/policies/managed
+    doins "${FILESDIR}"/*
+  fi
 }
