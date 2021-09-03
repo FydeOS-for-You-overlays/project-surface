@@ -18,6 +18,7 @@ RDEPEND="
   chromeos-base/fydeos-power-daemon-go
   chromeos-base/surface-cover-gesture
   chromeos-base/surface-power-management-policy
+  chromeos-base/bluetooth-input-fix
 "
 
 DEPEND="${RDEPEND}"
