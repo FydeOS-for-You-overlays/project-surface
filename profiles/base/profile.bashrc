@@ -4,7 +4,7 @@
 
 # Set LANG=C globally because it speeds up build times, and we don't need
 # localized messages inside of our builds.
-export LANG=C
+# export LANG=C
 
 # Since unittests on the buildbots don't automatically get access to an
 # X server, don't let local dev stations get access either.  If a test
