@@ -50,6 +50,7 @@ IUSE_IWLWIFI=(
 	iwlwifi-9260
 	iwlwifi-cc
 	iwlwifi-QuZ
+	iwlwifi-so
 )
 IUSE_BRCMWIFI=(
 	brcmfmac-all
@@ -59,6 +60,7 @@ IUSE_BRCMWIFI=(
 )
 IUSE_LINUX_FIRMWARE=(
 	adreno-630
+	adreno-660
 	adsp_apl
 	adsp_cnl
 	adsp_glk
@@ -68,6 +70,7 @@ IUSE_LINUX_FIRMWARE=(
 	ath10k_qca6174a-5
 	ath10k_qca6174a-3
 	ath10k_wcn3990
+	ath11k_wcn6855
 	amdgpu_carrizo
 	amdgpu_green_sardine
 	amdgpu_picasso
@@ -91,6 +94,7 @@ IUSE_LINUX_FIRMWARE=(
 	ibt_9560
 	ibt_ax200
 	ibt_ax201
+	ibt_ax211
 	ibt-hw
 	ipu3_fw
 	keyspan_usb
@@ -105,6 +109,7 @@ IUSE_LINUX_FIRMWARE=(
 	qca6174a-5-bt
 	qca-wcn3990-bt
 	qca-wcn3991-bt
+	qca-wcn685x-bt
 	rockchip-dptx
 	rt2870
 	rtl8107e-1
@@ -123,6 +128,7 @@ IUSE_LINUX_FIRMWARE=(
 	rtw8852a
 	venus-52
 	venus-54
+	venus-vpu-2
 	"${IUSE_ATH3K[@]}"
 	"${IUSE_IWLWIFI[@]}"
 	"${IUSE_BRCMWIFI[@]}"
@@ -135,6 +141,7 @@ IUSE="
 REQUIRED_USE="?? ( ${IUSE_KERNEL_VERS[*]} )"
 LICENSE="
 	linux_firmware_adreno-630? ( LICENSE.qcom )
+	linux_firmware_adreno-660? ( LICENSE.qcom )
 	linux_firmware_adsp_apl? ( LICENCE.adsp_sst )
 	linux_firmware_adsp_cnl? ( LICENCE.adsp_sst )
 	linux_firmware_adsp_glk? ( LICENCE.adsp_sst )
@@ -154,6 +161,7 @@ LICENSE="
 	linux_firmware_ath10k_qca6174a-5? ( LICENSE.QualcommAtheros_ath10k )
 	linux_firmware_ath10k_qca6174a-3? ( LICENSE.QualcommAtheros_ath10k )
 	linux_firmware_ath10k_wcn3990? ( LICENCE.atheros_firmware )
+	linux_firmware_ath11k_wcn6855? ( LICENSE.QualcommAtheros_ath10k )
 	linux_firmware_bcm4354-bt? ( LICENCE.broadcom_bcm43xx )
 	linux_firmware_cros-pd? ( BSD-Google )
 	linux_firmware_fw_sst? ( LICENCE.fw_sst )
@@ -171,11 +179,12 @@ LICENSE="
 	linux_firmware_ibt_9560? ( LICENCE.ibt_firmware )
 	linux_firmware_ibt_ax200? ( LICENCE.ibt_firmware )
 	linux_firmware_ibt_ax201? ( LICENCE.ibt_firmware )
+	linux_firmware_ibt_ax211? ( LICENCE.ibt_firmware )
 	linux_firmware_ibt-hw? ( LICENCE.ibt_firmware )
 	linux_firmware_keyspan_usb? ( LICENSE.keyspan_usb )
 	linux_firmware_marvell-mwlwifi? ( LICENCE.Marvell )
-	linux_firmware_marvell-pcie8897? ( LICENCE.Marvell )
-	linux_firmware_marvell-pcie8997? ( LICENCE.Marvell )
+	linux_firmware_marvell-pcie8897? ( LICENCE.NXP )
+	linux_firmware_marvell-pcie8997? ( LICENCE.NXP )
 	linux_firmware_mt7921e? ( LICENCE.mediatek-nic )
 	linux_firmware_mt7921e-bt? ( LICENCE.mediatek-nic )
 	linux_firmware_mt8173-vpu? ( LICENCE.mediatek-vpu )
@@ -184,6 +193,7 @@ LICENSE="
 	linux_firmware_qca6174a-5-bt? ( LICENSE.QualcommAtheros_ath10k )
 	linux_firmware_qca-wcn3990-bt? ( LICENSE.QualcommAtheros_ath10k )
 	linux_firmware_qca-wcn3991-bt? ( LICENSE.QualcommAtheros_ath10k )
+	linux_firmware_qca-wcn685x-bt? ( LICENSE.QualcommAtheros_ath10k )
 	linux_firmware_rockchip-dptx? ( LICENCE.rockchip )
 	linux_firmware_rt2870? ( LICENCE.ralink-firmware.txt LICENCE.ralink_a_mediatek_company_firmware )
 	linux_firmware_rtl8107e-1? ( LICENCE.rtl_nic )
@@ -202,6 +212,7 @@ LICENSE="
 	linux_firmware_rtw8852a? ( LICENCE.rtlwifi_firmware )
 	linux_firmware_venus-52? ( LICENSE.qcom )
 	linux_firmware_venus-54? ( LICENSE.qcom )
+	linux_firmware_venus-vpu-2? ( LICENSE.qcom )
 	$(printf 'linux_firmware_%s? ( LICENCE.iwlwifi_firmware ) ' "${IUSE_IWLWIFI[@]}")
 	$(printf 'linux_firmware_%s? ( LICENCE.broadcom_bcm43xx ) ' "${IUSE_BRCMWIFI[@]}")
 	video_cards_radeon? ( LICENSE.radeon )
@@ -215,6 +226,7 @@ BDEPEND="
 
 RDEPEND="
 	linux_firmware_adreno-630? ( !media-libs/a630-fw )
+	linux_firmware_adreno-630? ( !media-libs/a660-fw )
 	linux_firmware_ath3k-all? ( !net-wireless/ath3k )
 	linux_firmware_ath3k-ar3011? ( !net-wireless/ath3k )
 	linux_firmware_ath3k-ar3012? ( !net-wireless/ath3k )
@@ -239,6 +251,7 @@ RDEPEND="
 	!net-wireless/iwl6005-ucode
 	!net-wireless/iwl6030-ucode
 	!net-wireless/iwl6050-ucode
+	!sys-kernel/iwlwifi-gfp2-private
 "
 
 RESTRICT="binchecks strip"
@@ -293,13 +306,13 @@ install_iwlwifi() {
 		iwlwifi-cc)
 			case "${kernel}" in
 			kernel-upstream) doins "${x}-a0-62.ucode" ;;
-			*)               doins "${x}-a0-64.ucode" ;;
+			*)               doins "${x}-a0-67.ucode" ;;
 			esac
 			;;
 		iwlwifi-QuZ)
 			case "${kernel}" in
-			kernel-4_19) doins "${x}-a0-hr-b0-64.ucode" ;;
-			kernel-5_4)  doins "${x}-a0-hr-b0-64.ucode" ;;
+			kernel-4_19) doins "${x}-a0-hr-b0-67.ucode" ;;
+			kernel-5_4)  doins "${x}-a0-hr-b0-67.ucode" ;;
 			kernel-upstream)  doins "${x}-a0-hr-b0-62.ucode" ;;
 			*)
 				ewarn "Unexpected kernel version '${kernel}'."
@@ -307,6 +320,10 @@ install_iwlwifi() {
 				doins "${x}"-*.ucode
 				;;
 			esac
+			;;
+		iwlwifi-so)
+			doins "${x}-a0-gf-a0-67.ucode"
+			doins "${x}-a0-gf-a0.pnvm"
 			;;
 		iwlwifi-*) doins "${x}"-*.ucode ;;
 		esac
@@ -321,6 +338,7 @@ src_install() {
 	local x
 	insinto "${FIRMWARE_INSTALL_ROOT}"
 	use_fw adreno-630 && doins_subdir qcom/a630*
+	use_fw adreno-660 && doins_subdir qcom/a660*
 	use_fw adsp_apl && doins_subdir intel/dsp_fw_bxtn*
 	use_fw adsp_cnl && doins_subdir intel/dsp_fw_cnl*
 	use_fw adsp_glk && doins_subdir intel/dsp_fw_glk*
@@ -330,6 +348,7 @@ src_install() {
 	use_fw ath10k_qca6174a-5 && doins_subdir ath10k/QCA6174/hw3.0/{firmware-6,board-2}.bin
 	use_fw ath10k_qca6174a-3 && doins_subdir ath10k/QCA6174/hw3.0/{firmware-sdio-6,board-2}.bin
 	use_fw ath10k_wcn3990 && doins_subdir ath10k/WCN3990/hw1.0/*
+	use_fw ath11k_wcn6855 && doins_subdir ath11k/WCN6855/hw2.0/*
 	use_fw bcm4354-bt && doins_subdir brcm/BCM4354_*.hcd
 	use_fw cros-pd && doins_subdir cros-pd/*
 	use_fw fw_sst && doins_subdir intel/fw_sst*
@@ -347,6 +366,7 @@ src_install() {
 	use_fw ibt_9560 && doins_subdir intel/ibt-17-16-1.*
 	use_fw ibt_ax200 && doins_subdir intel/ibt-20-*.*
 	use_fw ibt_ax201 && doins_subdir intel/ibt-19-*.*
+	use_fw ibt_ax211 && doins_subdir intel/ibt-0040-0041.*
 	use_fw ibt-hw && doins_subdir intel/ibt-hw-*.bseq
 	use_fw keyspan_usb && doins_subdir keyspan/*
 	use_fw marvell-mwlwifi && doins_subdir mwlwifi/*.bin
@@ -357,9 +377,10 @@ src_install() {
 	use_fw mt8173-vpu && doins vpu_{d,p}.bin
 	use_fw nvidia-xusb && doins_subdir nvidia/tegra*/xusb.bin
 	use_fw qca6174a-3-bt && doins_subdir qca/{nvm,rampatch}_0044*.bin
-	use_fw qca6174a-5-bt && doins_subdir qca/{nvm,rampatch}_usb_*.bin
+	use_fw qca6174a-5-bt && doins_subdir qca/{nvm,rampatch}_usb_00000302*.bin
 	use_fw qca-wcn3990-bt && doins_subdir qca/{crbtfw21.tlv,crnv21.bin}
 	use_fw qca-wcn3991-bt && doins_subdir qca/{crbtfw32.tlv,crnv32.bin,crnv32u.bin}
+	use_fw qca-wcn685x-bt && doins_subdir qca/{nvm,rampatch}_usb_0013*.bin
 	use_fw rockchip-dptx && doins_subdir rockchip/dptx.bin
 	use_fw rtl8107e-1 && doins_subdir rtl_nic/rtl8107e-1.fw
 	use_fw rtl8107e-2 && doins_subdir rtl_nic/rtl8107e-2.fw
@@ -377,6 +398,7 @@ src_install() {
 	use_fw rtw8852a && doins_subdir rtw89/rtw8852a*.bin
 	use_fw venus-52 && doins_subdir qcom/venus-5.2/*
 	use_fw venus-54 && doins_subdir qcom/venus-5.4/*
+	use_fw venus-vpu-2 && doins_subdir qcom/vpu-2.0/*
 	use video_cards_radeon && doins_subdir radeon/*
 
 	local ignore_legacy_amdgpu=0
