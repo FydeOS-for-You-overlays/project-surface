@@ -14,7 +14,6 @@ IUSE=""
 RDEPEND="
   sys-kernel/linux-firmware-surface
   sys-firmware/intel-microcode
-  chromeos-base/libwidevine
   chromeos-base/fydeos-power-daemon-go
   chromeos-base/surface-cover-gesture
   chromeos-base/surface-power-management-policy
