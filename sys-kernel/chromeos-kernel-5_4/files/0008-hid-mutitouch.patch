@@ -1,7 +1,7 @@
-Index: v5.4/drivers/hid/hid-ids.h
+Index: kernel5_4/drivers/hid/hid-ids.h
 ===================================================================
---- v5.4.orig/drivers/hid/hid-ids.h
-+++ v5.4/drivers/hid/hid-ids.h
+--- kernel5_4.orig/drivers/hid/hid-ids.h
++++ kernel5_4/drivers/hid/hid-ids.h
 @@ -475,6 +475,7 @@
  
  #define I2C_VENDOR_ID_GOODIX		0x27c6
@@ -38,10 +38,10 @@ Index: v5.4/drivers/hid/hid-ids.h
  #define USB_VENDOR_ID_VIEWSONIC			0x0543
  #define USB_DEVICE_ID_VIEWSONIC_PD1011		0xe621
  
-Index: v5.4/drivers/hid/hid-multitouch.c
+Index: kernel5_4/drivers/hid/hid-multitouch.c
 ===================================================================
---- v5.4.orig/drivers/hid/hid-multitouch.c
-+++ v5.4/drivers/hid/hid-multitouch.c
+--- kernel5_4.orig/drivers/hid/hid-multitouch.c
++++ kernel5_4/drivers/hid/hid-multitouch.c
 @@ -70,6 +70,8 @@ MODULE_LICENSE("GPL");
  #define MT_QUIRK_WIN8_PTP_BUTTONS	BIT(18)
  #define MT_QUIRK_SEPARATE_APP_REPORT	BIT(19)
@@ -181,20 +181,20 @@ Index: v5.4/drivers/hid/hid-multitouch.c
  	case HID_DG_TOUCHSCREEN:
  		/* we do not set suffix = "Touchscreen" */
  		hi->input->name = hdev->name;
-+		hid_info(hdev, "set touchscreen mtclass:%d", td->mtclass.name);
++    hid_info(hdev, "set touchscreen mtclass:%d", td->mtclass.name);
  		break;
  	case HID_VD_ASUS_CUSTOM_MEDIA_KEYS:
  		suffix = "Custom Media Keys";
  		break;
  	case HID_DG_STYLUS:
  		/* force BTN_STYLUS to allow tablet matching in udev */
-+		suffix = "Pen";
++    suffix = "Pen";
  		__set_bit(BTN_STYLUS, hi->input->keybit);
-+		__set_bit(INPUT_PROP_DIRECT, hi->input->propbit);
++    __set_bit(INPUT_PROP_DIRECT, hi->input->propbit);
  		fallthrough;
  	case HID_DG_PEN:
  		suffix = "Stylus";
-+		hid_info(hdev, "set stylus mtclass:%d", td->mtclass.name);
++    hid_info(hdev, "set stylus mtclass:%d", td->mtclass.name);
  		break;
  	default:
  		suffix = "UNKNOWN";

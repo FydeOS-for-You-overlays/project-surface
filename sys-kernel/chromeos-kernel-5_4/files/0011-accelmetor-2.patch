@@ -1,8 +1,8 @@
-diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
-index 3dd7d32467378..cb27044a7955e 100644
---- a/drivers/hid/hid-sensor-hub.c
-+++ b/drivers/hid/hid-sensor-hub.c
-@@ -680,9 +680,7 @@ static int sensor_hub_probe(struct hid_device *hdev,
+Index: kernel5_4/drivers/hid/hid-sensor-hub.c
+===================================================================
+--- kernel5_4.orig/drivers/hid/hid-sensor-hub.c
++++ kernel5_4/drivers/hid/hid-sensor-hub.c
+@@ -685,9 +685,7 @@ static int sensor_hub_probe(struct hid_d
  			if (last_hsdev)
  				last_hsdev->end_collection_index = i;
  			last_hsdev = hsdev;
