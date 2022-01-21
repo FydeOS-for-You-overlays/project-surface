@@ -1,0 +1,12 @@
+Index: kernel5_4/drivers/bluetooth/btusb.c
+===================================================================
+--- kernel5_4.orig/drivers/bluetooth/btusb.c
++++ kernel5_4/drivers/bluetooth/btusb.c
+@@ -263,6 +263,7 @@ static const struct usb_device_id blackl
+ 	{ USB_DEVICE(0x0cf3, 0xe010), .driver_info = BTUSB_QCA_ROME },
+ 	{ USB_DEVICE(0x0cf3, 0xe300), .driver_info = BTUSB_QCA_ROME },
+ 	{ USB_DEVICE(0x0cf3, 0xe301), .driver_info = BTUSB_QCA_ROME },
++  { USB_DEVICE(0x0cf3, 0xe302), .driver_info = BTUSB_QCA_ROME },
+ 	{ USB_DEVICE(0x0cf3, 0xe360), .driver_info = BTUSB_QCA_ROME },
+ 	{ USB_DEVICE(0x0489, 0xe092), .driver_info = BTUSB_QCA_ROME },
+ 	{ USB_DEVICE(0x0489, 0xe09f), .driver_info = BTUSB_QCA_ROME },
