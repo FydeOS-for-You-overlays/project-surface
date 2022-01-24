@@ -1,7 +1,7 @@
-Index: v4.19/Documentation/ABI/testing/sysfs-bus-pci
-===================================================================
---- v4.19.orig/Documentation/ABI/testing/sysfs-bus-pci
-+++ v4.19/Documentation/ABI/testing/sysfs-bus-pci
+diff --git a/Documentation/ABI/testing/sysfs-bus-pci b/Documentation/ABI/testing/sysfs-bus-pci
+index 44d4b2be92fd..daded06ae017 100644
+--- a/Documentation/ABI/testing/sysfs-bus-pci
++++ b/Documentation/ABI/testing/sysfs-bus-pci
 @@ -323,3 +323,12 @@ Description:
  
  		This is similar to /sys/bus/pci/drivers_autoprobe, but
@@ -15,10 +15,10 @@ Index: v4.19/Documentation/ABI/testing/sysfs-bus-pci
 +		The value comes from the PCI kernel device state and can be one
 +		of: "unknown", "error", "D0", D1", "D2", "D3hot", "D3cold".
 +		The file is read only.
-Index: v4.19/Documentation/driver-api/index.rst
-===================================================================
---- v4.19.orig/Documentation/driver-api/index.rst
-+++ v4.19/Documentation/driver-api/index.rst
+diff --git a/Documentation/driver-api/index.rst b/Documentation/driver-api/index.rst
+index 13ef78e8b68e..164ef7db395c 100644
+--- a/Documentation/driver-api/index.rst
++++ b/Documentation/driver-api/index.rst
 @@ -54,6 +54,7 @@ available subsections can be seen below.
     slimbus
     soundwire/index
@@ -27,10 +27,11 @@ Index: v4.19/Documentation/driver-api/index.rst
  
  .. only::  subproject and html
  
-Index: v4.19/Documentation/driver-api/surface_aggregator/client-api.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/client-api.rst b/Documentation/driver-api/surface_aggregator/client-api.rst
+new file mode 100644
+index 000000000000..a1117d57036a
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/client-api.rst
++++ b/Documentation/driver-api/surface_aggregator/client-api.rst
 @@ -0,0 +1,38 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -70,10 +71,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/client-api.rst
 +
 +.. kernel-doc:: drivers/misc/surface_aggregator/bus.c
 +    :export:
-Index: v4.19/Documentation/driver-api/surface_aggregator/client.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/client.rst b/Documentation/driver-api/surface_aggregator/client.rst
+new file mode 100644
+index 000000000000..26d13085a117
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/client.rst
++++ b/Documentation/driver-api/surface_aggregator/client.rst
 @@ -0,0 +1,393 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -468,10 +470,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/client.rst
 +flags are therefore only used on the first registered notifier, however, one
 +should take care that notifiers for a specific event are always registered
 +with the same flag and it is considered a bug to do otherwise.
-Index: v4.19/Documentation/driver-api/surface_aggregator/clients/cdev.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/clients/cdev.rst b/Documentation/driver-api/surface_aggregator/clients/cdev.rst
+new file mode 100644
+index 000000000000..248c1372d879
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/clients/cdev.rst
++++ b/Documentation/driver-api/surface_aggregator/clients/cdev.rst
 @@ -0,0 +1,87 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -560,10 +563,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/clients/cdev.rst
 +A full definition of the argument struct is provided below:
 +
 +.. kernel-doc:: include/uapi/linux/surface_aggregator/cdev.h
-Index: v4.19/Documentation/driver-api/surface_aggregator/clients/dtx.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/clients/dtx.rst b/Documentation/driver-api/surface_aggregator/clients/dtx.rst
+new file mode 100644
+index 000000000000..e974c2b04e9f
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/clients/dtx.rst
++++ b/Documentation/driver-api/surface_aggregator/clients/dtx.rst
 @@ -0,0 +1,712 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -1277,10 +1281,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/clients/dtx.rst
 +--------------------
 +
 +.. kernel-doc:: include/uapi/linux/surface_aggregator/dtx.h
-Index: v4.19/Documentation/driver-api/surface_aggregator/clients/index.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/clients/index.rst b/Documentation/driver-api/surface_aggregator/clients/index.rst
+new file mode 100644
+index 000000000000..98ea9946b8a2
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/clients/index.rst
++++ b/Documentation/driver-api/surface_aggregator/clients/index.rst
 @@ -0,0 +1,22 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -1304,10 +1309,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/clients/index.rst
 +   =======
 +
 +   * :ref:`genindex`
-Index: v4.19/Documentation/driver-api/surface_aggregator/clients/san.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/clients/san.rst b/Documentation/driver-api/surface_aggregator/clients/san.rst
+new file mode 100644
+index 000000000000..1bf830ad367d
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/clients/san.rst
++++ b/Documentation/driver-api/surface_aggregator/clients/san.rst
 @@ -0,0 +1,44 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -1353,10 +1359,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/clients/san.rst
 +
 +.. kernel-doc:: drivers/misc/surface_aggregator/clients/surface_acpi_notify.c
 +    :export:
-Index: v4.19/Documentation/driver-api/surface_aggregator/index.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/index.rst b/Documentation/driver-api/surface_aggregator/index.rst
+new file mode 100644
+index 000000000000..6f3e1094904d
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/index.rst
++++ b/Documentation/driver-api/surface_aggregator/index.rst
 @@ -0,0 +1,21 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -1379,10 +1386,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/index.rst
 +   =======
 +
 +   * :ref:`genindex`
-Index: v4.19/Documentation/driver-api/surface_aggregator/internal-api.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/internal-api.rst b/Documentation/driver-api/surface_aggregator/internal-api.rst
+new file mode 100644
+index 000000000000..db6a70119f49
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/internal-api.rst
++++ b/Documentation/driver-api/surface_aggregator/internal-api.rst
 @@ -0,0 +1,67 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -1451,10 +1459,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/internal-api.rst
 +=============
 +
 +.. kernel-doc:: drivers/misc/surface_aggregator/trace.h
-Index: v4.19/Documentation/driver-api/surface_aggregator/internal.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/internal.rst b/Documentation/driver-api/surface_aggregator/internal.rst
+new file mode 100644
+index 000000000000..72704734982a
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/internal.rst
++++ b/Documentation/driver-api/surface_aggregator/internal.rst
 @@ -0,0 +1,577 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -2033,10 +2042,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/internal.rst
 +all non-initialization and non-shutdown functions may run concurrently with
 +each other. This includes |ssam_notifier_register|, |ssam_notifier_unregister|,
 +|ssam_request_sync_submit|, as well as all functions building on top of those.
-Index: v4.19/Documentation/driver-api/surface_aggregator/overview.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/overview.rst b/Documentation/driver-api/surface_aggregator/overview.rst
+new file mode 100644
+index 000000000000..1e9d57e50063
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/overview.rst
++++ b/Documentation/driver-api/surface_aggregator/overview.rst
 @@ -0,0 +1,77 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -2115,10 +2125,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/overview.rst
 +
 +See :doc:`ssh` for a more technical protocol documentation and
 +:doc:`internal` for an overview of the internal driver architecture.
-Index: v4.19/Documentation/driver-api/surface_aggregator/ssh.rst
-===================================================================
+diff --git a/Documentation/driver-api/surface_aggregator/ssh.rst b/Documentation/driver-api/surface_aggregator/ssh.rst
+new file mode 100644
+index 000000000000..bf007d6c9873
 --- /dev/null
-+++ v4.19/Documentation/driver-api/surface_aggregator/ssh.rst
++++ b/Documentation/driver-api/surface_aggregator/ssh.rst
 @@ -0,0 +1,344 @@
 +.. SPDX-License-Identifier: GPL-2.0+
 +
@@ -2464,11 +2475,11 @@ Index: v4.19/Documentation/driver-api/surface_aggregator/ssh.rst
 +(per party, effectively leading to synchronous communication regarding
 +frames) and at most three pending commands. The limit to synchronous frame
 +transfers seems to be consistent with behavior observed on Windows.
-Index: v4.19/drivers/acpi/acpica/dsopcode.c
-===================================================================
---- v4.19.orig/drivers/acpi/acpica/dsopcode.c
-+++ v4.19/drivers/acpi/acpica/dsopcode.c
-@@ -123,7 +123,7 @@ acpi_ds_init_buffer_field(u16 aml_opcode
+diff --git a/drivers/acpi/acpica/dsopcode.c b/drivers/acpi/acpica/dsopcode.c
+index 2f4641e5ecde..beb22d7e245e 100644
+--- a/drivers/acpi/acpica/dsopcode.c
++++ b/drivers/acpi/acpica/dsopcode.c
+@@ -123,7 +123,7 @@ acpi_ds_init_buffer_field(u16 aml_opcode,
  
  		/* Offset is in bits, count is in bits */
  
@@ -2477,11 +2488,11 @@ Index: v4.19/drivers/acpi/acpica/dsopcode.c
  		bit_offset = offset;
  		bit_count = (u32) length_desc->integer.value;
  
-Index: v4.19/drivers/acpi/acpica/exfield.c
-===================================================================
---- v4.19.orig/drivers/acpi/acpica/exfield.c
-+++ v4.19/drivers/acpi/acpica/exfield.c
-@@ -102,6 +102,7 @@ acpi_ex_read_data_from_field(struct acpi
+diff --git a/drivers/acpi/acpica/exfield.c b/drivers/acpi/acpica/exfield.c
+index b272c329d45d..cf547883a993 100644
+--- a/drivers/acpi/acpica/exfield.c
++++ b/drivers/acpi/acpica/exfield.c
+@@ -102,6 +102,7 @@ acpi_ex_read_data_from_field(struct acpi_walk_state *walk_state,
  	void *buffer;
  	u32 function;
  	u16 accessor_type;
@@ -2489,7 +2500,7 @@ Index: v4.19/drivers/acpi/acpica/exfield.c
  
  	ACPI_FUNCTION_TRACE_PTR(ex_read_data_from_field, obj_desc);
  
-@@ -199,11 +200,16 @@ acpi_ex_read_data_from_field(struct acpi
+@@ -199,11 +200,16 @@ acpi_ex_read_data_from_field(struct acpi_walk_state *walk_state,
  	 * Note: Field.length is in bits.
  	 */
  	length =
@@ -2509,7 +2520,7 @@ Index: v4.19/drivers/acpi/acpica/exfield.c
  
  		buffer_desc = acpi_ut_create_buffer_object(length);
  		if (!buffer_desc) {
-@@ -366,19 +372,7 @@ acpi_ex_write_data_to_field(union acpi_o
+@@ -366,19 +372,7 @@ acpi_ex_write_data_to_field(union acpi_operand_object *source_desc,
  		} else if (obj_desc->field.region_obj->region.space_id ==
  			   ACPI_ADR_SPACE_GSBUS) {
  			accessor_type = obj_desc->field.attribute;
@@ -2530,11 +2541,11 @@ Index: v4.19/drivers/acpi/acpica/exfield.c
  			function = ACPI_WRITE | (accessor_type << 16);
  		} else {	/* IPMI */
  
-Index: v4.19/drivers/acpi/property.c
-===================================================================
---- v4.19.orig/drivers/acpi/property.c
-+++ v4.19/drivers/acpi/property.c
-@@ -24,11 +24,15 @@ static int acpi_data_get_property_array(
+diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
+index 288673cff85e..5ca89166ea4e 100644
+--- a/drivers/acpi/property.c
++++ b/drivers/acpi/property.c
+@@ -24,11 +24,15 @@ static int acpi_data_get_property_array(const struct acpi_device_data *data,
  					acpi_object_type type,
  					const union acpi_object **obj);
  
@@ -2554,7 +2565,7 @@ Index: v4.19/drivers/acpi/property.c
  static const guid_t ads_guid =
  	GUID_INIT(0xdbb8e3e6, 0x5886, 0x4ba6,
  		  0x87, 0x95, 0x13, 0x19, 0xf5, 0x2a, 0x96, 0x6b);
-@@ -56,6 +60,7 @@ static bool acpi_nondev_subnode_extract(
+@@ -56,6 +60,7 @@ static bool acpi_nondev_subnode_extract(const union acpi_object *desc,
  	dn->name = link->package.elements[0].string.pointer;
  	dn->fwnode.ops = &acpi_data_fwnode_ops;
  	dn->parent = parent;
@@ -2562,7 +2573,7 @@ Index: v4.19/drivers/acpi/property.c
  	INIT_LIST_HEAD(&dn->data.subnodes);
  
  	result = acpi_extract_properties(desc, &dn->data);
-@@ -288,6 +293,35 @@ static void acpi_init_of_compatible(stru
+@@ -288,6 +293,35 @@ static void acpi_init_of_compatible(struct acpi_device *adev)
  	adev->flags.of_compatible_ok = 1;
  }
  
@@ -2598,7 +2609,7 @@ Index: v4.19/drivers/acpi/property.c
  static bool acpi_extract_properties(const union acpi_object *desc,
  				    struct acpi_device_data *data)
  {
-@@ -312,7 +346,7 @@ static bool acpi_extract_properties(cons
+@@ -312,7 +346,7 @@ static bool acpi_extract_properties(const union acpi_object *desc,
  		    properties->type != ACPI_TYPE_PACKAGE)
  			break;
  
@@ -2607,7 +2618,7 @@ Index: v4.19/drivers/acpi/property.c
  			continue;
  
  		/*
-@@ -320,13 +354,13 @@ static bool acpi_extract_properties(cons
+@@ -320,13 +354,13 @@ static bool acpi_extract_properties(const union acpi_object *desc,
  		 * package immediately following it.
  		 */
  		if (!acpi_properties_format_valid(properties))
@@ -2625,7 +2636,7 @@ Index: v4.19/drivers/acpi/property.c
  }
  
  void acpi_init_properties(struct acpi_device *adev)
-@@ -336,6 +370,7 @@ void acpi_init_properties(struct acpi_de
+@@ -336,6 +370,7 @@ void acpi_init_properties(struct acpi_device *adev)
  	acpi_status status;
  	bool acpi_of = false;
  
@@ -2633,7 +2644,7 @@ Index: v4.19/drivers/acpi/property.c
  	INIT_LIST_HEAD(&adev->data.subnodes);
  
  	if (!adev->handle)
-@@ -398,11 +433,16 @@ static void acpi_destroy_nondev_subnodes
+@@ -398,11 +433,16 @@ static void acpi_destroy_nondev_subnodes(struct list_head *list)
  
  void acpi_free_properties(struct acpi_device *adev)
  {
@@ -2651,7 +2662,7 @@ Index: v4.19/drivers/acpi/property.c
  }
  
  /**
-@@ -427,32 +467,37 @@ static int acpi_data_get_property(const
+@@ -427,32 +467,37 @@ static int acpi_data_get_property(const struct acpi_device_data *data,
  				  const char *name, acpi_object_type type,
  				  const union acpi_object **obj)
  {
@@ -2670,49 +2681,46 @@ Index: v4.19/drivers/acpi/property.c
 -	for (i = 0; i < properties->package.count; i++) {
 -		const union acpi_object *propname, *propvalue;
 -		const union acpi_object *property;
--
--		property = &properties->package.elements[i];
 +	list_for_each_entry(props, &data->properties, list) {
 +		const union acpi_object *properties;
 +		unsigned int i;
-+
+ 
+-		property = &properties->package.elements[i];
 +		properties = props->properties;
 +		for (i = 0; i < properties->package.count; i++) {
 +			const union acpi_object *propname, *propvalue;
 +			const union acpi_object *property;
-+
+ 
+-		propname = &property->package.elements[0];
+-		propvalue = &property->package.elements[1];
 +			property = &properties->package.elements[i];
-+
+ 
+-		if (!strcmp(name, propname->string.pointer)) {
+-			if (type != ACPI_TYPE_ANY && propvalue->type != type)
+-				return -EPROTO;
+-			if (obj)
+-				*obj = propvalue;
 +			propname = &property->package.elements[0];
 +			propvalue = &property->package.elements[1];
-+
+ 
+-			return 0;
 +			if (!strcmp(name, propname->string.pointer)) {
 +				if (type != ACPI_TYPE_ANY &&
 +				    propvalue->type != type)
 +					return -EPROTO;
 +				if (obj)
 +					*obj = propvalue;
- 
--		propname = &property->package.elements[0];
--		propvalue = &property->package.elements[1];
--
--		if (!strcmp(name, propname->string.pointer)) {
--			if (type != ACPI_TYPE_ANY && propvalue->type != type)
--				return -EPROTO;
--			if (obj)
--				*obj = propvalue;
--
--			return 0;
++
 +				return 0;
 +			}
  		}
  	}
  	return -EINVAL;
-Index: v4.19/drivers/acpi/x86/apple.c
-===================================================================
---- v4.19.orig/drivers/acpi/x86/apple.c
-+++ v4.19/drivers/acpi/x86/apple.c
-@@ -132,8 +132,8 @@ void acpi_extract_apple_properties(struc
+diff --git a/drivers/acpi/x86/apple.c b/drivers/acpi/x86/apple.c
+index 51b4cf9f25da..130df1c8ed7d 100644
+--- a/drivers/acpi/x86/apple.c
++++ b/drivers/acpi/x86/apple.c
+@@ -132,8 +132,8 @@ void acpi_extract_apple_properties(struct acpi_device *adev)
  	}
  	WARN_ON(free_space != (void *)newprops + newsize);
  
@@ -2722,10 +2730,10 @@ Index: v4.19/drivers/acpi/x86/apple.c
  
  out_free:
  	ACPI_FREE(props);
-Index: v4.19/drivers/bluetooth/btusb.c
-===================================================================
---- v4.19.orig/drivers/bluetooth/btusb.c
-+++ v4.19/drivers/bluetooth/btusb.c
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index c1f6368998fb..4ca5feb7e7d6 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
 @@ -72,6 +72,7 @@ static struct usb_driver btusb_driver;
  #define BTUSB_CW6622		0x100000
  #define BTUSB_WIDEBAND_SPEECH	0x400000
@@ -2734,7 +2742,7 @@ Index: v4.19/drivers/bluetooth/btusb.c
  
  static const struct usb_device_id btusb_table[] = {
  	/* Generic Bluetooth USB device */
-@@ -344,6 +345,7 @@ static const struct usb_device_id blackl
+@@ -344,6 +345,7 @@ static const struct usb_device_id blacklist_table[] = {
  	{ USB_DEVICE(0x1286, 0x2044), .driver_info = BTUSB_MARVELL },
  	{ USB_DEVICE(0x1286, 0x2046), .driver_info = BTUSB_MARVELL },
  	{ USB_DEVICE(0x1286, 0x204e), .driver_info = BTUSB_MARVELL },
@@ -2742,7 +2750,7 @@ Index: v4.19/drivers/bluetooth/btusb.c
  
  	/* Intel Bluetooth devices */
  	{ USB_DEVICE(0x8087, 0x0025), .driver_info = BTUSB_INTEL_NEW |
-@@ -3462,6 +3464,19 @@ static int btusb_probe(struct usb_interf
+@@ -3457,6 +3459,19 @@ static int btusb_probe(struct usb_interface *intf,
  	if (id->driver_info & BTUSB_MARVELL)
  		hdev->set_bdaddr = btusb_set_bdaddr_marvell;
  
@@ -2762,11 +2770,11 @@ Index: v4.19/drivers/bluetooth/btusb.c
  	if (id->driver_info & BTUSB_SWAVE) {
  		set_bit(HCI_QUIRK_FIXUP_INQUIRY_MODE, &hdev->quirks);
  		set_bit(HCI_QUIRK_BROKEN_LOCAL_COMMANDS, &hdev->quirks);
-Index: v4.19/drivers/dma/dw/core.c
-===================================================================
---- v4.19.orig/drivers/dma/dw/core.c
-+++ v4.19/drivers/dma/dw/core.c
-@@ -180,9 +180,6 @@ static void dwc_initialize(struct dw_dma
+diff --git a/drivers/dma/dw/core.c b/drivers/dma/dw/core.c
+index 055d83b6cb68..acf64302a2b2 100644
+--- a/drivers/dma/dw/core.c
++++ b/drivers/dma/dw/core.c
+@@ -180,9 +180,6 @@ static void dwc_initialize(struct dw_dma_chan *dwc)
  {
  	struct dw_dma *dw = to_dw_dma(dwc->chan.device);
  
@@ -2776,7 +2784,7 @@ Index: v4.19/drivers/dma/dw/core.c
  	if (dw->pdata->is_idma32)
  		dwc_initialize_chan_idma32(dwc);
  	else
-@@ -191,8 +188,6 @@ static void dwc_initialize(struct dw_dma
+@@ -191,8 +188,6 @@ static void dwc_initialize(struct dw_dma_chan *dwc)
  	/* Enable interrupts */
  	channel_set_bit(dw, MASK.XFER, dwc->mask);
  	channel_set_bit(dw, MASK.ERROR, dwc->mask);
@@ -2785,7 +2793,7 @@ Index: v4.19/drivers/dma/dw/core.c
  }
  
  /*----------------------------------------------------------------------*/
-@@ -1091,8 +1086,6 @@ static void idma32_fifo_partition(struct
+@@ -1091,8 +1086,6 @@ static void idma32_fifo_partition(struct dw_dma *dw)
  
  static void dw_dma_off(struct dw_dma *dw)
  {
@@ -2794,7 +2802,7 @@ Index: v4.19/drivers/dma/dw/core.c
  	dma_writel(dw, CFG, 0);
  
  	channel_clear_bit(dw, MASK.XFER, dw->all_chan_mask);
-@@ -1103,9 +1096,6 @@ static void dw_dma_off(struct dw_dma *dw
+@@ -1103,9 +1096,6 @@ static void dw_dma_off(struct dw_dma *dw)
  
  	while (dma_readl(dw, CFG) & DW_CFG_DMA_EN)
  		cpu_relax();
@@ -2804,7 +2812,7 @@ Index: v4.19/drivers/dma/dw/core.c
  }
  
  static void dw_dma_on(struct dw_dma *dw)
-@@ -1170,8 +1160,6 @@ static void dwc_free_chan_resources(stru
+@@ -1170,8 +1160,6 @@ static void dwc_free_chan_resources(struct dma_chan *chan)
  	/* Clear custom channel configuration */
  	memset(&dwc->dws, 0, sizeof(struct dw_dma_slave));
  
@@ -2813,11 +2821,11 @@ Index: v4.19/drivers/dma/dw/core.c
  	/* Disable interrupts */
  	channel_clear_bit(dw, MASK.XFER, dwc->mask);
  	channel_clear_bit(dw, MASK.BLOCK, dwc->mask);
-Index: v4.19/drivers/gpio/gpiolib-acpi.c
-===================================================================
---- v4.19.orig/drivers/gpio/gpiolib-acpi.c
-+++ v4.19/drivers/gpio/gpiolib-acpi.c
-@@ -1307,7 +1307,7 @@ int acpi_gpio_count(struct device *dev,
+diff --git a/drivers/gpio/gpiolib-acpi.c b/drivers/gpio/gpiolib-acpi.c
+index 485ab0aeef4d..1c7511aa15e5 100644
+--- a/drivers/gpio/gpiolib-acpi.c
++++ b/drivers/gpio/gpiolib-acpi.c
+@@ -1307,7 +1307,7 @@ int acpi_gpio_count(struct device *dev, const char *con_id)
  bool acpi_can_fallback_to_crs(struct acpi_device *adev, const char *con_id)
  {
  	/* Never allow fallback if the device has properties */
@@ -2826,10 +2834,10 @@ Index: v4.19/drivers/gpio/gpiolib-acpi.c
  		return false;
  
  	return con_id == NULL;
-Index: v4.19/drivers/gpu/drm/i915/Makefile
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/Makefile
-+++ v4.19/drivers/gpu/drm/i915/Makefile
+diff --git a/drivers/gpu/drm/i915/Makefile b/drivers/gpu/drm/i915/Makefile
+index ba81187aeae6..539112c23be2 100644
+--- a/drivers/gpu/drm/i915/Makefile
++++ b/drivers/gpu/drm/i915/Makefile
 @@ -157,6 +157,9 @@ i915-y += dvo_ch7017.o \
  	  vlv_dsi.o \
  	  vlv_dsi_pll.o
@@ -2840,10 +2848,10 @@ Index: v4.19/drivers/gpu/drm/i915/Makefile
  # Post-mortem debug and GPU hang state capture
  i915-$(CONFIG_DRM_I915_CAPTURE_ERROR) += i915_gpu_error.o
  i915-$(CONFIG_DRM_I915_SELFTEST) += \
-Index: v4.19/drivers/gpu/drm/i915/i915_debugfs.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/i915_debugfs.c
-+++ v4.19/drivers/gpu/drm/i915/i915_debugfs.c
+diff --git a/drivers/gpu/drm/i915/i915_debugfs.c b/drivers/gpu/drm/i915/i915_debugfs.c
+index 8f210044aeba..1cd441a08123 100644
+--- a/drivers/gpu/drm/i915/i915_debugfs.c
++++ b/drivers/gpu/drm/i915/i915_debugfs.c
 @@ -32,6 +32,7 @@
  #include "intel_drv.h"
  #include "intel_guc_submission.h"
@@ -2852,7 +2860,7 @@ Index: v4.19/drivers/gpu/drm/i915/i915_debugfs.c
  
  static inline struct drm_i915_private *node_to_i915(struct drm_info_node *node)
  {
-@@ -4771,6 +4772,64 @@ static const struct file_operations i915
+@@ -4765,6 +4766,64 @@ static const struct file_operations i915_fifo_underrun_reset_ops = {
  	.llseek = default_llseek,
  };
  
@@ -2917,7 +2925,7 @@ Index: v4.19/drivers/gpu/drm/i915/i915_debugfs.c
  static const struct drm_info_list i915_debugfs_list[] = {
  	{"i915_capabilities", i915_capabilities, 0},
  	{"i915_gem_objects", i915_gem_object_info, 0},
-@@ -4849,7 +4908,9 @@ static const struct i915_debugfs_files {
+@@ -4843,7 +4902,9 @@ static const struct i915_debugfs_files {
  	{"i915_hpd_storm_ctl", &i915_hpd_storm_ctl_fops},
  	{"i915_ipc_status", &i915_ipc_status_fops},
  	{"i915_drrs_ctl", &i915_drrs_ctl_fops},
@@ -2928,10 +2936,10 @@ Index: v4.19/drivers/gpu/drm/i915/i915_debugfs.c
  };
  
  int i915_debugfs_register(struct drm_i915_private *dev_priv)
-Index: v4.19/drivers/gpu/drm/i915/i915_drv.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/i915_drv.c
-+++ v4.19/drivers/gpu/drm/i915/i915_drv.c
+diff --git a/drivers/gpu/drm/i915/i915_drv.c b/drivers/gpu/drm/i915/i915_drv.c
+index 3bc1bd9800c5..ef1e7fa9d77d 100644
+--- a/drivers/gpu/drm/i915/i915_drv.c
++++ b/drivers/gpu/drm/i915/i915_drv.c
 @@ -47,11 +47,12 @@
  #include <drm/i915_drm.h>
  
@@ -2946,7 +2954,7 @@ Index: v4.19/drivers/gpu/drm/i915/i915_drv.c
  #include "intel_uc.h"
  
  static struct drm_driver driver;
-@@ -704,6 +705,9 @@ static int i915_load_modeset_init(struct
+@@ -704,6 +705,9 @@ static int i915_load_modeset_init(struct drm_device *dev)
  	/* Only enable hotplug handling once the fbdev is fully set up. */
  	intel_hpd_init(dev_priv);
  
@@ -2956,7 +2964,7 @@ Index: v4.19/drivers/gpu/drm/i915/i915_drv.c
  	return 0;
  
  cleanup_gem:
-@@ -1772,6 +1776,9 @@ void i915_driver_unload(struct drm_devic
+@@ -1772,6 +1776,9 @@ void i915_driver_unload(struct drm_device *dev)
  
  	disable_rpm_wakeref_asserts(dev_priv);
  
@@ -2966,11 +2974,11 @@ Index: v4.19/drivers/gpu/drm/i915/i915_drv.c
  	i915_driver_unregister(dev_priv);
  
  	if (i915_gem_suspend(dev_priv))
-Index: v4.19/drivers/gpu/drm/i915/i915_drv.h
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/i915_drv.h
-+++ v4.19/drivers/gpu/drm/i915/i915_drv.h
-@@ -3326,6 +3326,9 @@ void i915_gem_object_do_bit_17_swizzle(s
+diff --git a/drivers/gpu/drm/i915/i915_drv.h b/drivers/gpu/drm/i915/i915_drv.h
+index 1d25f75f15d8..da071d582216 100644
+--- a/drivers/gpu/drm/i915/i915_drv.h
++++ b/drivers/gpu/drm/i915/i915_drv.h
+@@ -3326,6 +3326,9 @@ void i915_gem_object_do_bit_17_swizzle(struct drm_i915_gem_object *obj,
  void i915_gem_object_save_bit_17_swizzle(struct drm_i915_gem_object *obj,
  					 struct sg_table *pages);
  
@@ -2980,11 +2988,11 @@ Index: v4.19/drivers/gpu/drm/i915/i915_drv.h
  static inline struct i915_gem_context *
  __i915_gem_context_lookup_rcu(struct drm_i915_file_private *file_priv, u32 id)
  {
-Index: v4.19/drivers/gpu/drm/i915/i915_gem_context.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/i915_gem_context.c
-+++ v4.19/drivers/gpu/drm/i915/i915_gem_context.c
-@@ -537,6 +537,18 @@ static bool needs_preempt_context(struct
+diff --git a/drivers/gpu/drm/i915/i915_gem_context.c b/drivers/gpu/drm/i915/i915_gem_context.c
+index 68563a4840f1..b33da6474e6b 100644
+--- a/drivers/gpu/drm/i915/i915_gem_context.c
++++ b/drivers/gpu/drm/i915/i915_gem_context.c
+@@ -537,6 +537,18 @@ static bool needs_preempt_context(struct drm_i915_private *i915)
  	return HAS_LOGICAL_RING_PREEMPTION(i915);
  }
  
@@ -3003,10 +3011,10 @@ Index: v4.19/drivers/gpu/drm/i915/i915_gem_context.c
  int i915_gem_contexts_init(struct drm_i915_private *dev_priv)
  {
  	struct i915_gem_context *ctx;
-Index: v4.19/drivers/gpu/drm/i915/i915_irq.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/i915_irq.c
-+++ v4.19/drivers/gpu/drm/i915/i915_irq.c
+diff --git a/drivers/gpu/drm/i915/i915_irq.c b/drivers/gpu/drm/i915/i915_irq.c
+index 99c589413621..de4b63d36784 100644
+--- a/drivers/gpu/drm/i915/i915_irq.c
++++ b/drivers/gpu/drm/i915/i915_irq.c
 @@ -39,6 +39,7 @@
  #include "i915_trace.h"
  #include "intel_drv.h"
@@ -3015,7 +3023,7 @@ Index: v4.19/drivers/gpu/drm/i915/i915_irq.c
  
  /**
   * DOC: interrupt handling
-@@ -1506,6 +1507,9 @@ gen8_cs_irq_handler(struct intel_engine_
+@@ -1506,6 +1507,9 @@ gen8_cs_irq_handler(struct intel_engine_cs *engine, u32 iir)
  		tasklet |= USES_GUC_SUBMISSION(engine->i915);
  	}
  
@@ -3025,7 +3033,7 @@ Index: v4.19/drivers/gpu/drm/i915/i915_irq.c
  	if (tasklet)
  		tasklet_hi_schedule(&engine->execlists.tasklet);
  }
-@@ -4140,7 +4144,8 @@ static void gen8_gt_irq_postinstall(stru
+@@ -4140,7 +4144,8 @@ static void gen8_gt_irq_postinstall(struct drm_i915_private *dev_priv)
  {
  	/* These are interrupts we'll toggle with the ring mask register */
  	uint32_t gt_interrupts[] = {
@@ -3035,11 +3043,11 @@ Index: v4.19/drivers/gpu/drm/i915/i915_irq.c
  			GT_CONTEXT_SWITCH_INTERRUPT << GEN8_RCS_IRQ_SHIFT |
  			GT_RENDER_USER_INTERRUPT << GEN8_BCS_IRQ_SHIFT |
  			GT_CONTEXT_SWITCH_INTERRUPT << GEN8_BCS_IRQ_SHIFT,
-Index: v4.19/drivers/gpu/drm/i915/i915_params.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/i915_params.c
-+++ v4.19/drivers/gpu/drm/i915/i915_params.c
-@@ -145,7 +145,10 @@ i915_param_named_unsafe(edp_vswing, int,
+diff --git a/drivers/gpu/drm/i915/i915_params.c b/drivers/gpu/drm/i915/i915_params.c
+index 9fdb7959c804..92d7eabff396 100644
+--- a/drivers/gpu/drm/i915/i915_params.c
++++ b/drivers/gpu/drm/i915/i915_params.c
+@@ -145,7 +145,10 @@ i915_param_named_unsafe(edp_vswing, int, 0400,
  i915_param_named_unsafe(enable_guc, int, 0400,
  	"Enable GuC load for GuC submission and/or HuC load. "
  	"Required functionality can be selected using bitmask values. "
@@ -3051,10 +3059,10 @@ Index: v4.19/drivers/gpu/drm/i915/i915_params.c
  
  i915_param_named(guc_log_level, int, 0400,
  	"GuC firmware logging level. Requires GuC to be loaded. "
-Index: v4.19/drivers/gpu/drm/i915/i915_params.h
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/i915_params.h
-+++ v4.19/drivers/gpu/drm/i915/i915_params.h
+diff --git a/drivers/gpu/drm/i915/i915_params.h b/drivers/gpu/drm/i915/i915_params.h
+index 21c18949e4f4..b3e198e37e96 100644
+--- a/drivers/gpu/drm/i915/i915_params.h
++++ b/drivers/gpu/drm/i915/i915_params.h
 @@ -46,7 +46,7 @@ struct drm_printer;
  	param(int, disable_power_well, -1) \
  	param(int, enable_ips, 1) \
@@ -3064,18 +3072,20 @@ Index: v4.19/drivers/gpu/drm/i915/i915_params.h
  	param(int, guc_log_level, -1) \
  	param(char *, guc_firmware_path, NULL) \
  	param(char *, huc_firmware_path, NULL) \
-@@ -59,6 +59,7 @@ struct drm_printer;
- 	param(int, enable_dpcd_backlight, -1) \
- 	param(int, power_mode_limit, 2) \
- 	param(int, disable_rps_interactive, 0) \
-+	param(int, enable_ipts, 1) \
- 	/* leave bools at the end to not create holes */ \
- 	param(bool, alpha_support, IS_ENABLED(CONFIG_DRM_I915_ALPHA_SUPPORT)) \
- 	param(bool, enable_hangcheck, true) \
-Index: v4.19/drivers/gpu/drm/i915/intel_guc.h
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/intel_guc.h
-+++ v4.19/drivers/gpu/drm/i915/intel_guc.h
+@@ -71,7 +71,8 @@ struct drm_printer;
+ 	param(bool, verbose_state_checks, true) \
+ 	param(bool, nuclear_pageflip, false) \
+ 	param(bool, enable_dp_mst, true) \
+-	param(bool, enable_gvt, false)
++	param(bool, enable_gvt, false) \
++  param(int, enable_ipts, 1)
+ 
+ #define MEMBER(T, member, ...) T member;
+ struct i915_params {
+diff --git a/drivers/gpu/drm/i915/intel_guc.h b/drivers/gpu/drm/i915/intel_guc.h
+index ad42faf48c46..d497757ad9b6 100644
+--- a/drivers/gpu/drm/i915/intel_guc.h
++++ b/drivers/gpu/drm/i915/intel_guc.h
 @@ -66,6 +66,7 @@ struct intel_guc {
  
  	struct intel_guc_client *execbuf_client;
@@ -3084,11 +3094,11 @@ Index: v4.19/drivers/gpu/drm/i915/intel_guc.h
  
  	struct guc_preempt_work preempt_work[I915_NUM_ENGINES];
  	struct workqueue_struct *preempt_wq;
-Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/intel_guc_submission.c
-+++ v4.19/drivers/gpu/drm/i915/intel_guc_submission.c
-@@ -88,12 +88,17 @@ static inline struct i915_priolist *to_p
+diff --git a/drivers/gpu/drm/i915/intel_guc_submission.c b/drivers/gpu/drm/i915/intel_guc_submission.c
+index a81f04d46e87..abc6384d9624 100644
+--- a/drivers/gpu/drm/i915/intel_guc_submission.c
++++ b/drivers/gpu/drm/i915/intel_guc_submission.c
+@@ -88,12 +88,17 @@ static inline struct i915_priolist *to_priolist(struct rb_node *rb)
  
  static inline bool is_high_priority(struct intel_guc_client *client)
  {
@@ -3108,7 +3118,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.c
  	unsigned long offset;
  	unsigned long end;
  	u16 id;
-@@ -106,10 +111,14 @@ static int reserve_doorbell(struct intel
+@@ -106,10 +111,14 @@ static int reserve_doorbell(struct intel_guc_client *client)
  	 * priority contexts, the second half for high-priority ones.
  	 */
  	offset = 0;
@@ -3127,7 +3137,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.c
  	}
  
  	id = find_next_zero_bit(client->guc->doorbell_bitmap, end, offset);
-@@ -354,9 +363,15 @@ static void guc_stage_desc_init(struct i
+@@ -354,9 +363,15 @@ static void guc_stage_desc_init(struct intel_guc *guc,
  	desc = __get_stage_desc(client);
  	memset(desc, 0, sizeof(*desc));
  
@@ -3146,7 +3156,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.c
  		desc->attribute |= GUC_STAGE_DESC_ATTR_PREEMPT;
  	desc->stage_id = client->stage_id;
  	desc->priority = client->priority;
-@@ -1183,7 +1198,8 @@ static void guc_interrupts_capture(struc
+@@ -1183,7 +1198,8 @@ static void guc_interrupts_capture(struct drm_i915_private *dev_priv)
  		I915_WRITE(RING_MODE_GEN7(engine), irqs);
  
  	/* route USER_INTERRUPT to Host, all others are sent to GuC. */
@@ -3156,7 +3166,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.c
  	       GT_RENDER_USER_INTERRUPT << GEN8_BCS_IRQ_SHIFT;
  	/* These three registers have the same bit definitions */
  	I915_WRITE(GUC_BCS_RCS_IER, ~irqs);
-@@ -1328,6 +1344,59 @@ void intel_guc_submission_disable(struct
+@@ -1328,6 +1344,59 @@ void intel_guc_submission_disable(struct intel_guc *guc)
  	guc_clients_doorbell_fini(guc);
  }
  
@@ -3216,11 +3226,11 @@ Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.c
  #if IS_ENABLED(CONFIG_DRM_I915_SELFTEST)
  #include "selftests/intel_guc.c"
  #endif
-Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.h
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/intel_guc_submission.h
-+++ v4.19/drivers/gpu/drm/i915/intel_guc_submission.h
-@@ -83,5 +83,9 @@ void intel_guc_submission_disable(struct
+diff --git a/drivers/gpu/drm/i915/intel_guc_submission.h b/drivers/gpu/drm/i915/intel_guc_submission.h
+index 169c54568340..245a8de1df2a 100644
+--- a/drivers/gpu/drm/i915/intel_guc_submission.h
++++ b/drivers/gpu/drm/i915/intel_guc_submission.h
+@@ -83,5 +83,9 @@ void intel_guc_submission_disable(struct intel_guc *guc);
  void intel_guc_submission_fini(struct intel_guc *guc);
  int intel_guc_preempt_work_create(struct intel_guc *guc);
  void intel_guc_preempt_work_destroy(struct intel_guc *guc);
@@ -3230,10 +3240,11 @@ Index: v4.19/drivers/gpu/drm/i915/intel_guc_submission.h
 +void i915_guc_ipts_reacquire_doorbell(struct drm_i915_private *dev_priv);
  
  #endif
-Index: v4.19/drivers/gpu/drm/i915/intel_ipts.c
-===================================================================
+diff --git a/drivers/gpu/drm/i915/intel_ipts.c b/drivers/gpu/drm/i915/intel_ipts.c
+new file mode 100644
+index 000000000000..c1199074924a
 --- /dev/null
-+++ v4.19/drivers/gpu/drm/i915/intel_ipts.c
++++ b/drivers/gpu/drm/i915/intel_ipts.c
 @@ -0,0 +1,650 @@
 +/*
 + * Copyright  2016 Intel Corporation
@@ -3885,10 +3896,11 @@ Index: v4.19/drivers/gpu/drm/i915/intel_ipts.c
 +	destroy_ipts_context();
 +	cancel_delayed_work(&ipts.reacquire_db_work);
 +}
-Index: v4.19/drivers/gpu/drm/i915/intel_ipts.h
-===================================================================
+diff --git a/drivers/gpu/drm/i915/intel_ipts.h b/drivers/gpu/drm/i915/intel_ipts.h
+new file mode 100644
+index 000000000000..67f90b72f237
 --- /dev/null
-+++ v4.19/drivers/gpu/drm/i915/intel_ipts.h
++++ b/drivers/gpu/drm/i915/intel_ipts.h
 @@ -0,0 +1,34 @@
 +/*
 + * Copyright © 2016 Intel Corporation
@@ -3924,10 +3936,10 @@ Index: v4.19/drivers/gpu/drm/i915/intel_ipts.h
 +int ipts_notify_complete(void);
 +
 +#endif //_INTEL_IPTS_H_
-Index: v4.19/drivers/gpu/drm/i915/intel_lrc.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/intel_lrc.c
-+++ v4.19/drivers/gpu/drm/i915/intel_lrc.c
+diff --git a/drivers/gpu/drm/i915/intel_lrc.c b/drivers/gpu/drm/i915/intel_lrc.c
+index 24f86f307c24..7d605fd4f322 100644
+--- a/drivers/gpu/drm/i915/intel_lrc.c
++++ b/drivers/gpu/drm/i915/intel_lrc.c
 @@ -164,9 +164,6 @@
  #define WA_TAIL_DWORDS 2
  #define WA_TAIL_BYTES (sizeof(u32) * WA_TAIL_DWORDS)
@@ -3938,7 +3950,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_lrc.c
  static void execlists_init_reg_state(u32 *reg_state,
  				     struct i915_gem_context *ctx,
  				     struct intel_engine_cs *engine,
-@@ -1292,7 +1289,7 @@ static void execlists_context_destroy(st
+@@ -1292,7 +1289,7 @@ static void execlists_context_destroy(struct intel_context *ce)
  	i915_gem_object_put(ce->state->obj);
  }
  
@@ -3947,7 +3959,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_lrc.c
  {
  	i915_gem_context_unpin_hw_id(ce->gem_context);
  
-@@ -1390,7 +1387,7 @@ static const struct intel_context_ops ex
+@@ -1390,7 +1387,7 @@ static const struct intel_context_ops execlists_context_ops = {
  	.destroy = execlists_context_destroy,
  };
  
@@ -3956,7 +3968,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_lrc.c
  execlists_context_pin(struct intel_engine_cs *engine,
  		      struct i915_gem_context *ctx)
  {
-@@ -2480,6 +2477,9 @@ int logical_render_ring_init(struct inte
+@@ -2480,6 +2477,9 @@ int logical_render_ring_init(struct intel_engine_cs *engine)
  
  	logical_ring_setup(engine);
  
@@ -3966,7 +3978,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_lrc.c
  	if (HAS_L3_DPF(dev_priv))
  		engine->irq_keep_mask |= GT_RENDER_L3_PARITY_ERROR_INTERRUPT;
  
-@@ -2821,7 +2821,7 @@ err_unpin_ctx:
+@@ -2821,7 +2821,7 @@ populate_lr_context(struct i915_gem_context *ctx,
  	return ret;
  }
  
@@ -3975,11 +3987,11 @@ Index: v4.19/drivers/gpu/drm/i915/intel_lrc.c
  					    struct intel_engine_cs *engine,
  					    struct intel_context *ce)
  {
-Index: v4.19/drivers/gpu/drm/i915/intel_lrc.h
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/intel_lrc.h
-+++ v4.19/drivers/gpu/drm/i915/intel_lrc.h
-@@ -104,4 +104,12 @@ void intel_lr_context_resume(struct drm_
+diff --git a/drivers/gpu/drm/i915/intel_lrc.h b/drivers/gpu/drm/i915/intel_lrc.h
+index f5a5502ecf70..e4a3437119d6 100644
+--- a/drivers/gpu/drm/i915/intel_lrc.h
++++ b/drivers/gpu/drm/i915/intel_lrc.h
+@@ -104,4 +104,12 @@ void intel_lr_context_resume(struct drm_i915_private *dev_priv);
  
  void intel_execlists_set_default_submission(struct intel_engine_cs *engine);
  
@@ -3992,10 +4004,10 @@ Index: v4.19/drivers/gpu/drm/i915/intel_lrc.h
 +						struct intel_context *ce);
 +
  #endif /* _INTEL_LRC_H_ */
-Index: v4.19/drivers/gpu/drm/i915/intel_panel.c
-===================================================================
---- v4.19.orig/drivers/gpu/drm/i915/intel_panel.c
-+++ v4.19/drivers/gpu/drm/i915/intel_panel.c
+diff --git a/drivers/gpu/drm/i915/intel_panel.c b/drivers/gpu/drm/i915/intel_panel.c
+index 72d766a7fc7e..6b0b0643f5f0 100644
+--- a/drivers/gpu/drm/i915/intel_panel.c
++++ b/drivers/gpu/drm/i915/intel_panel.c
 @@ -34,6 +34,7 @@
  #include <linux/moduleparam.h>
  #include <linux/pwm.h>
@@ -4004,7 +4016,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_panel.c
  
  #define CRC_PMIC_PWM_PERIOD_NS	21333
  
-@@ -659,6 +660,9 @@ static void lpt_disable_backlight(const
+@@ -659,6 +660,9 @@ static void lpt_disable_backlight(const struct drm_connector_state *old_conn_sta
  	struct drm_i915_private *dev_priv = to_i915(connector->base.dev);
  	u32 tmp;
  
@@ -4014,7 +4026,7 @@ Index: v4.19/drivers/gpu/drm/i915/intel_panel.c
  	intel_panel_actually_set_backlight(old_conn_state, 0);
  
  	/*
-@@ -846,6 +850,9 @@ static void lpt_enable_backlight(const s
+@@ -846,6 +850,9 @@ static void lpt_enable_backlight(const struct intel_crtc_state *crtc_state,
  
  	/* This won't stick until the above enable. */
  	intel_panel_actually_set_backlight(conn_state, panel->backlight.level);
@@ -4024,30 +4036,30 @@ Index: v4.19/drivers/gpu/drm/i915/intel_panel.c
  }
  
  static void pch_enable_backlight(const struct intel_crtc_state *crtc_state,
-Index: v4.19/drivers/hid/Kconfig
-===================================================================
---- v4.19.orig/drivers/hid/Kconfig
-+++ v4.19/drivers/hid/Kconfig
-@@ -1105,4 +1105,6 @@ source "drivers/hid/i2c-hid/Kconfig"
+diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
+index 748f49a53a14..2d92095bd7fc 100644
+--- a/drivers/hid/Kconfig
++++ b/drivers/hid/Kconfig
+@@ -1096,4 +1096,6 @@ source "drivers/hid/i2c-hid/Kconfig"
  
  source "drivers/hid/intel-ish-hid/Kconfig"
  
 +source "drivers/hid/surface-hid/Kconfig"
 +
  endmenu
-Index: v4.19/drivers/hid/Makefile
-===================================================================
---- v4.19.orig/drivers/hid/Makefile
-+++ v4.19/drivers/hid/Makefile
-@@ -131,3 +131,4 @@ obj-$(CONFIG_I2C_HID)		+= i2c-hid/
+diff --git a/drivers/hid/Makefile b/drivers/hid/Makefile
+index 2b2d66e14d33..b290e97eb7e9 100644
+--- a/drivers/hid/Makefile
++++ b/drivers/hid/Makefile
+@@ -130,3 +130,4 @@ obj-$(CONFIG_I2C_HID)		+= i2c-hid/
  
  obj-$(CONFIG_INTEL_ISH_HID)	+= intel-ish-hid/
  obj-$(INTEL_ISH_FIRMWARE_DOWNLOADER)	+= intel-ish-hid/
 +obj-$(CONFIG_SURFACE_HID_CORE) += surface-hid/
-Index: v4.19/drivers/hid/hid-multitouch.c
-===================================================================
---- v4.19.orig/drivers/hid/hid-multitouch.c
-+++ v4.19/drivers/hid/hid-multitouch.c
+diff --git a/drivers/hid/hid-multitouch.c b/drivers/hid/hid-multitouch.c
+index ccda72f748ee..96fb231fd266 100644
+--- a/drivers/hid/hid-multitouch.c
++++ b/drivers/hid/hid-multitouch.c
 @@ -38,7 +38,10 @@
  #include <linux/device.h>
  #include <linux/hid.h>
@@ -4059,7 +4071,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  #include <linux/input/mt.h>
  #include <linux/jiffies.h>
  #include <linux/string.h>
-@@ -51,6 +54,7 @@ MODULE_DESCRIPTION("HID multitouch panel
+@@ -51,6 +54,7 @@ MODULE_DESCRIPTION("HID multitouch panels");
  MODULE_LICENSE("GPL");
  
  #include "hid-ids.h"
@@ -4092,7 +4104,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  };
  
  static void mt_post_parse_default_settings(struct mt_device *td,
-@@ -207,6 +216,7 @@ static void mt_post_parse(struct mt_devi
+@@ -207,6 +216,7 @@ static void mt_post_parse(struct mt_device *td, struct mt_application *app);
  #define MT_CLS_VTL				0x0110
  #define MT_CLS_GOOGLE				0x0111
  #define MT_CLS_RAZER_BLADE_STEALTH		0x0112
@@ -4100,7 +4112,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  
  #define MT_DEFAULT_MAXCONTACT	10
  #define MT_MAX_MAXCONTACT	250
-@@ -357,6 +367,16 @@ static const struct mt_class mt_classes[
+@@ -357,6 +367,16 @@ static const struct mt_class mt_classes[] = {
  			MT_QUIRK_CONTACT_CNT_ACCURATE |
  			MT_QUIRK_WIN8_PTP_BUTTONS,
  	},
@@ -4117,7 +4129,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  	{ }
  };
  
-@@ -1669,6 +1689,69 @@ static void mt_expired_timeout(struct ti
+@@ -1665,6 +1685,69 @@ static void mt_expired_timeout(struct timer_list *t)
  	clear_bit(MT_IO_FLAGS_RUNNING, &td->mt_io_flags);
  }
  
@@ -4187,7 +4199,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  static int mt_probe(struct hid_device *hdev, const struct hid_device_id *id)
  {
  	int ret, i;
-@@ -1692,6 +1775,9 @@ static int mt_probe(struct hid_device *h
+@@ -1688,6 +1771,9 @@ static int mt_probe(struct hid_device *hdev, const struct hid_device_id *id)
  	td->inputmode_value = MT_INPUTMODE_TOUCHSCREEN;
  	hid_set_drvdata(hdev, td);
  
@@ -4197,7 +4209,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  	INIT_LIST_HEAD(&td->applications);
  	INIT_LIST_HEAD(&td->reports);
  
-@@ -1716,15 +1802,19 @@ static int mt_probe(struct hid_device *h
+@@ -1712,15 +1798,19 @@ static int mt_probe(struct hid_device *hdev, const struct hid_device_id *id)
  	timer_setup(&td->release_timer, mt_expired_timeout, 0);
  
  	ret = hid_parse(hdev);
@@ -4219,7 +4231,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  
  	ret = sysfs_create_group(&hdev->dev.kobj, &mt_attribute_group);
  	if (ret)
-@@ -1760,6 +1850,7 @@ static void mt_remove(struct hid_device
+@@ -1756,6 +1846,7 @@ static void mt_remove(struct hid_device *hdev)
  {
  	struct mt_device *td = hid_get_drvdata(hdev);
  
@@ -4227,7 +4239,7 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  	del_timer_sync(&td->release_timer);
  
  	sysfs_remove_group(&hdev->dev.kobj, &mt_attribute_group);
-@@ -2107,6 +2198,11 @@ static const struct hid_device_id mt_dev
+@@ -2103,6 +2194,11 @@ static const struct hid_device_id mt_devices[] = {
  		MT_USB_DEVICE(USB_VENDOR_ID_XIROKU,
  			USB_DEVICE_ID_XIROKU_CSR2) },
  
@@ -4239,10 +4251,11 @@ Index: v4.19/drivers/hid/hid-multitouch.c
  	/* Google MT devices */
  	{ .driver_data = MT_CLS_GOOGLE,
  		HID_DEVICE(HID_BUS_ANY, HID_GROUP_ANY, USB_VENDOR_ID_GOOGLE,
-Index: v4.19/drivers/hid/surface-hid/Kconfig
-===================================================================
+diff --git a/drivers/hid/surface-hid/Kconfig b/drivers/hid/surface-hid/Kconfig
+new file mode 100644
+index 000000000000..7ce9b5d641eb
 --- /dev/null
-+++ v4.19/drivers/hid/surface-hid/Kconfig
++++ b/drivers/hid/surface-hid/Kconfig
 @@ -0,0 +1,42 @@
 +# SPDX-License-Identifier: GPL-2.0+
 +menu "Surface System Aggregator Module HID support"
@@ -4286,10 +4299,11 @@ Index: v4.19/drivers/hid/surface-hid/Kconfig
 +config SURFACE_HID_CORE
 +	tristate
 +	select HID
-Index: v4.19/drivers/hid/surface-hid/Makefile
-===================================================================
+diff --git a/drivers/hid/surface-hid/Makefile b/drivers/hid/surface-hid/Makefile
+new file mode 100644
+index 000000000000..4ae11cf09b25
 --- /dev/null
-+++ v4.19/drivers/hid/surface-hid/Makefile
++++ b/drivers/hid/surface-hid/Makefile
 @@ -0,0 +1,7 @@
 +# SPDX-License-Identifier: GPL-2.0+
 +#
@@ -4298,10 +4312,11 @@ Index: v4.19/drivers/hid/surface-hid/Makefile
 +obj-$(CONFIG_SURFACE_HID_CORE)	+= surface_hid_core.o
 +obj-$(CONFIG_SURFACE_HID)	+= surface_hid.o
 +obj-$(CONFIG_SURFACE_KBD)	+= surface_kbd.o
-Index: v4.19/drivers/hid/surface-hid/surface_hid.c
-===================================================================
+diff --git a/drivers/hid/surface-hid/surface_hid.c b/drivers/hid/surface-hid/surface_hid.c
+new file mode 100644
+index 000000000000..80e4d185b66f
 --- /dev/null
-+++ v4.19/drivers/hid/surface-hid/surface_hid.c
++++ b/drivers/hid/surface-hid/surface_hid.c
 @@ -0,0 +1,251 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -4554,10 +4569,11 @@ Index: v4.19/drivers/hid/surface-hid/surface_hid.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("HID transport driver for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/hid/surface-hid/surface_hid_core.c
-===================================================================
+diff --git a/drivers/hid/surface-hid/surface_hid_core.c b/drivers/hid/surface-hid/surface_hid_core.c
+new file mode 100644
+index 000000000000..5571e74abe91
 --- /dev/null
-+++ v4.19/drivers/hid/surface-hid/surface_hid_core.c
++++ b/drivers/hid/surface-hid/surface_hid_core.c
 @@ -0,0 +1,272 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -4831,10 +4847,11 @@ Index: v4.19/drivers/hid/surface-hid/surface_hid_core.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("HID transport driver core for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/hid/surface-hid/surface_hid_core.h
-===================================================================
+diff --git a/drivers/hid/surface-hid/surface_hid_core.h b/drivers/hid/surface-hid/surface_hid_core.h
+new file mode 100644
+index 000000000000..56fb9e8c5466
 --- /dev/null
-+++ v4.19/drivers/hid/surface-hid/surface_hid_core.h
++++ b/drivers/hid/surface-hid/surface_hid_core.h
 @@ -0,0 +1,73 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -4909,10 +4926,11 @@ Index: v4.19/drivers/hid/surface-hid/surface_hid_core.h
 +extern const struct dev_pm_ops surface_hid_pm_ops;
 +
 +#endif /* SURFACE_HID_CORE_H */
-Index: v4.19/drivers/hid/surface-hid/surface_kbd.c
-===================================================================
+diff --git a/drivers/hid/surface-hid/surface_kbd.c b/drivers/hid/surface-hid/surface_kbd.c
+new file mode 100644
+index 000000000000..0635341bc517
 --- /dev/null
-+++ v4.19/drivers/hid/surface-hid/surface_kbd.c
++++ b/drivers/hid/surface-hid/surface_kbd.c
 @@ -0,0 +1,300 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -5214,11 +5232,11 @@ Index: v4.19/drivers/hid/surface-hid/surface_kbd.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("HID legacy transport driver for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/i2c/i2c-core-acpi.c
-===================================================================
---- v4.19.orig/drivers/i2c/i2c-core-acpi.c
-+++ v4.19/drivers/i2c/i2c-core-acpi.c
-@@ -552,6 +552,28 @@ static int acpi_gsb_i2c_write_bytes(stru
+diff --git a/drivers/i2c/i2c-core-acpi.c b/drivers/i2c/i2c-core-acpi.c
+index 19435e4e61c4..4de7d448c535 100644
+--- a/drivers/i2c/i2c-core-acpi.c
++++ b/drivers/i2c/i2c-core-acpi.c
+@@ -552,6 +552,28 @@ static int acpi_gsb_i2c_write_bytes(struct i2c_client *client,
  	return (ret == 1) ? 0 : -EIO;
  }
  
@@ -5247,11 +5265,10 @@ Index: v4.19/drivers/i2c/i2c-core-acpi.c
  static acpi_status
  i2c_acpi_space_handler(u32 function, acpi_physical_address command,
  			u32 bits, u64 *value64,
-@@ -658,6 +680,19 @@ i2c_acpi_space_handler(u32 function, acp
- 					gsb->data, info->access_length);
+@@ -659,6 +681,19 @@ i2c_acpi_space_handler(u32 function, acpi_physical_address command,
  		}
  		break;
-+
+ 
 +	case ACPI_GSB_ACCESS_ATTRIB_RAW_BYTES:
 +		if (action == ACPI_READ) {
 +			dev_warn(&adapter->dev,
@@ -5264,13 +5281,14 @@ Index: v4.19/drivers/i2c/i2c-core-acpi.c
 +					gsb->data, info->access_length);
 +		}
 +		break;
- 
++
  	default:
  		dev_warn(&adapter->dev, "protocol 0x%02x not supported for client 0x%02x\n",
-Index: v4.19/drivers/input/misc/Kconfig
-===================================================================
---- v4.19.orig/drivers/input/misc/Kconfig
-+++ v4.19/drivers/input/misc/Kconfig
+ 			 accessor_type, client->addr);
+diff --git a/drivers/input/misc/Kconfig b/drivers/input/misc/Kconfig
+index 9e0232c517d0..8f9991edde8c 100644
+--- a/drivers/input/misc/Kconfig
++++ b/drivers/input/misc/Kconfig
 @@ -786,10 +786,10 @@ config INPUT_IDEAPAD_SLIDEBAR
  
  config INPUT_SOC_BUTTON_ARRAY
@@ -5285,10 +5303,10 @@ Index: v4.19/drivers/input/misc/Kconfig
  
  	  To compile this driver as a module, choose M here: the
  	  module will be called soc_button_array.
-Index: v4.19/drivers/input/misc/soc_button_array.c
-===================================================================
---- v4.19.orig/drivers/input/misc/soc_button_array.c
-+++ v4.19/drivers/input/misc/soc_button_array.c
+diff --git a/drivers/input/misc/soc_button_array.c b/drivers/input/misc/soc_button_array.c
+index 55cd6e0b409c..c564ea99f47d 100644
+--- a/drivers/input/misc/soc_button_array.c
++++ b/drivers/input/misc/soc_button_array.c
 @@ -29,6 +29,11 @@ struct soc_button_info {
  	bool wakeup;
  };
@@ -5301,7 +5319,7 @@ Index: v4.19/drivers/input/misc/soc_button_array.c
  /*
   * Some of the buttons like volume up/down are auto repeat, while others
   * are not. To support both, we register two platform devices, and put
-@@ -91,8 +96,20 @@ soc_button_device_create(struct platform
+@@ -91,8 +96,20 @@ soc_button_device_create(struct platform_device *pdev,
  			continue;
  
  		gpio = soc_button_lookup_gpio(&pdev->dev, info->acpi_index);
@@ -5323,7 +5341,7 @@ Index: v4.19/drivers/input/misc/soc_button_array.c
  
  		gpio_keys[n_buttons].type = info->event_type;
  		gpio_keys[n_buttons].code = info->event_code;
-@@ -309,23 +326,26 @@ static int soc_button_remove(struct plat
+@@ -309,23 +326,26 @@ static int soc_button_remove(struct platform_device *pdev)
  static int soc_button_probe(struct platform_device *pdev)
  {
  	struct device *dev = &pdev->dev;
@@ -5358,7 +5376,7 @@ Index: v4.19/drivers/input/misc/soc_button_array.c
  	}
  
  	error = gpiod_count(dev, NULL);
-@@ -357,8 +377,8 @@ static int soc_button_probe(struct platf
+@@ -357,8 +377,8 @@ static int soc_button_probe(struct platform_device *pdev)
  	if (!priv->children[0] && !priv->children[1])
  		return -ENODEV;
  
@@ -5369,7 +5387,7 @@ Index: v4.19/drivers/input/misc/soc_button_array.c
  
  	return 0;
  }
-@@ -368,7 +388,7 @@ static int soc_button_probe(struct platf
+@@ -368,7 +388,7 @@ static int soc_button_probe(struct platform_device *pdev)
   * is defined in section 2.8.7.2 of "Windows ACPI Design Guide for SoC
   * Platforms"
   */
@@ -5378,7 +5396,7 @@ Index: v4.19/drivers/input/misc/soc_button_array.c
  	{ "power", 0, EV_KEY, KEY_POWER, false, true },
  	{ "home", 1, EV_KEY, KEY_LEFTMETA, false, true },
  	{ "volume_up", 2, EV_KEY, KEY_VOLUMEUP, true, false },
-@@ -377,9 +397,77 @@ static struct soc_button_info soc_button
+@@ -377,9 +397,77 @@ static struct soc_button_info soc_button_PNP0C40[] = {
  	{ }
  };
  
@@ -5457,10 +5475,10 @@ Index: v4.19/drivers/input/misc/soc_button_array.c
  	{ }
  };
  
-Index: v4.19/drivers/misc/Kconfig
-===================================================================
---- v4.19.orig/drivers/misc/Kconfig
-+++ v4.19/drivers/misc/Kconfig
+diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
+index 3242af01f8fa..22866c6eed20 100644
+--- a/drivers/misc/Kconfig
++++ b/drivers/misc/Kconfig
 @@ -541,6 +541,7 @@ source "drivers/misc/ti-st/Kconfig"
  source "drivers/misc/lis3lv02d/Kconfig"
  source "drivers/misc/altera-stapl/Kconfig"
@@ -5469,10 +5487,10 @@ Index: v4.19/drivers/misc/Kconfig
  source "drivers/misc/vmw_vmci/Kconfig"
  source "drivers/misc/mic/Kconfig"
  source "drivers/misc/genwqe/Kconfig"
-Index: v4.19/drivers/misc/Makefile
-===================================================================
---- v4.19.orig/drivers/misc/Makefile
-+++ v4.19/drivers/misc/Makefile
+diff --git a/drivers/misc/Makefile b/drivers/misc/Makefile
+index f4d0fd9afcb8..c85feb39320a 100644
+--- a/drivers/misc/Makefile
++++ b/drivers/misc/Makefile
 @@ -44,6 +44,7 @@ obj-y				+= lis3lv02d/
  obj-$(CONFIG_USB_SWITCH_FSA9480) += fsa9480.o
  obj-$(CONFIG_ALTERA_STAPL)	+=altera-stapl/
@@ -5481,10 +5499,11 @@ Index: v4.19/drivers/misc/Makefile
  obj-$(CONFIG_VMWARE_VMCI)	+= vmw_vmci/
  obj-$(CONFIG_LATTICE_ECP3_CONFIG)	+= lattice-ecp3-config.o
  obj-$(CONFIG_SRAM)		+= sram.o
-Index: v4.19/drivers/misc/ipts/Kconfig
-===================================================================
+diff --git a/drivers/misc/ipts/Kconfig b/drivers/misc/ipts/Kconfig
+new file mode 100644
+index 000000000000..900d2c58ca74
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/Kconfig
++++ b/drivers/misc/ipts/Kconfig
 @@ -0,0 +1,12 @@
 +# SPDX-License-Identifier: GPL-2.0-or-later
 +config INTEL_IPTS
@@ -5498,10 +5517,11 @@ Index: v4.19/drivers/misc/ipts/Kconfig
 +	  Intel Kabylake
 +
 +source "drivers/misc/ipts/companion/Kconfig"
-Index: v4.19/drivers/misc/ipts/Makefile
-===================================================================
+diff --git a/drivers/misc/ipts/Makefile b/drivers/misc/ipts/Makefile
+new file mode 100644
+index 000000000000..bb3982f48afc
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/Makefile
++++ b/drivers/misc/ipts/Makefile
 @@ -0,0 +1,19 @@
 +# SPDX-License-Identifier: GPL-2.0-or-later
 +#
@@ -5522,10 +5542,11 @@ Index: v4.19/drivers/misc/ipts/Makefile
 +intel-ipts-$(CONFIG_DEBUG_FS) += dbgfs.o
 +
 +obj-y += companion/
-Index: v4.19/drivers/misc/ipts/companion.c
-===================================================================
+diff --git a/drivers/misc/ipts/companion.c b/drivers/misc/ipts/companion.c
+new file mode 100644
+index 000000000000..8f66b852f137
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/companion.c
++++ b/drivers/misc/ipts/companion.c
 @@ -0,0 +1,211 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -5738,10 +5759,11 @@ Index: v4.19/drivers/misc/ipts/companion.c
 +	return ret;
 +
 +}
-Index: v4.19/drivers/misc/ipts/companion.h
-===================================================================
+diff --git a/drivers/misc/ipts/companion.h b/drivers/misc/ipts/companion.h
+new file mode 100644
+index 000000000000..7a1e4b388c40
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/companion.h
++++ b/drivers/misc/ipts/companion.h
 @@ -0,0 +1,25 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -5768,10 +5790,11 @@ Index: v4.19/drivers/misc/ipts/companion.h
 +		struct ipts_bin_fw_list **firmware_config);
 +
 +#endif // _IPTS_COMPANION_H_
-Index: v4.19/drivers/misc/ipts/companion/Kconfig
-===================================================================
+diff --git a/drivers/misc/ipts/companion/Kconfig b/drivers/misc/ipts/companion/Kconfig
+new file mode 100644
+index 000000000000..ef17d9bb5242
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/companion/Kconfig
++++ b/drivers/misc/ipts/companion/Kconfig
 @@ -0,0 +1,8 @@
 +# SPDX-License-Identifier: GPL-2.0-or-later
 +config INTEL_IPTS_SURFACE
@@ -5781,17 +5804,19 @@ Index: v4.19/drivers/misc/ipts/companion/Kconfig
 +	  IPTS companion driver for Microsoft Surface. This driver is
 +	  responsible for loading firmware using surface-specific hardware IDs.
 +	  If you have a Microsoft Surface using IPTS, select y or m here.
-Index: v4.19/drivers/misc/ipts/companion/Makefile
-===================================================================
+diff --git a/drivers/misc/ipts/companion/Makefile b/drivers/misc/ipts/companion/Makefile
+new file mode 100644
+index 000000000000..b37f2f59937a
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/companion/Makefile
++++ b/drivers/misc/ipts/companion/Makefile
 @@ -0,0 +1,2 @@
 +# SPDX-License-Identifier: GPL-2.0-or-later
 +obj-$(CONFIG_INTEL_IPTS_SURFACE)+= ipts-surface.o
-Index: v4.19/drivers/misc/ipts/companion/ipts-surface.c
-===================================================================
+diff --git a/drivers/misc/ipts/companion/ipts-surface.c b/drivers/misc/ipts/companion/ipts-surface.c
+new file mode 100644
+index 000000000000..a717dfcdfeba
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/companion/ipts-surface.c
++++ b/drivers/misc/ipts/companion/ipts-surface.c
 @@ -0,0 +1,157 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -5950,10 +5975,11 @@ Index: v4.19/drivers/misc/ipts/companion/ipts-surface.c
 +IPTS_SURFACE_FIRMWARE("MSHW0102");
 +IPTS_SURFACE_FIRMWARE("MSHW0103");
 +IPTS_SURFACE_FIRMWARE("MSHW0137");
-Index: v4.19/drivers/misc/ipts/dbgfs.c
-===================================================================
+diff --git a/drivers/misc/ipts/dbgfs.c b/drivers/misc/ipts/dbgfs.c
+new file mode 100644
+index 000000000000..fd9388de17e7
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/dbgfs.c
++++ b/drivers/misc/ipts/dbgfs.c
 @@ -0,0 +1,277 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -6232,10 +6258,11 @@ Index: v4.19/drivers/misc/ipts/dbgfs.c
 +
 +	return -ENODEV;
 +}
-Index: v4.19/drivers/misc/ipts/gfx.c
-===================================================================
+diff --git a/drivers/misc/ipts/gfx.c b/drivers/misc/ipts/gfx.c
+new file mode 100644
+index 000000000000..b8900f514c75
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/gfx.c
++++ b/drivers/misc/ipts/gfx.c
 @@ -0,0 +1,180 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -6417,10 +6444,11 @@ Index: v4.19/drivers/misc/ipts/gfx.c
 +	ipts->gfx_info.ipts_ops.unmap_buffer(handle, buf->buf_handle);
 +	devm_kfree(&ipts->cldev->dev, buf);
 +}
-Index: v4.19/drivers/misc/ipts/gfx.h
-===================================================================
+diff --git a/drivers/misc/ipts/gfx.h b/drivers/misc/ipts/gfx.h
+new file mode 100644
+index 000000000000..2880e122e9f9
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/gfx.h
++++ b/drivers/misc/ipts/gfx.h
 @@ -0,0 +1,25 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -6447,10 +6475,11 @@ Index: v4.19/drivers/misc/ipts/gfx.h
 +		struct ipts_mapbuffer *buf);
 +
 +#endif // _IPTS_GFX_H_
-Index: v4.19/drivers/misc/ipts/hid.c
-===================================================================
+diff --git a/drivers/misc/ipts/hid.c b/drivers/misc/ipts/hid.c
+new file mode 100644
+index 000000000000..1b7ad2a774a8
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/hid.c
++++ b/drivers/misc/ipts/hid.c
 @@ -0,0 +1,469 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -6921,10 +6950,11 @@ Index: v4.19/drivers/misc/ipts/hid.c
 +
 +	return ret;
 +}
-Index: v4.19/drivers/misc/ipts/hid.h
-===================================================================
+diff --git a/drivers/misc/ipts/hid.h b/drivers/misc/ipts/hid.h
+new file mode 100644
+index 000000000000..c943979e0198
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/hid.h
++++ b/drivers/misc/ipts/hid.h
 @@ -0,0 +1,21 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -6947,10 +6977,11 @@ Index: v4.19/drivers/misc/ipts/hid.h
 +		struct touch_sensor_hid_ready_for_data_rsp_data *hid_rsp);
 +
 +#endif // _IPTS_HID_H_
-Index: v4.19/drivers/misc/ipts/ipts.c
-===================================================================
+diff --git a/drivers/misc/ipts/ipts.c b/drivers/misc/ipts/ipts.c
+new file mode 100644
+index 000000000000..dfafabf8dd94
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/ipts.c
++++ b/drivers/misc/ipts/ipts.c
 @@ -0,0 +1,62 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -7014,10 +7045,11 @@ Index: v4.19/drivers/misc/ipts/ipts.c
 +
 +	va_end(args);
 +}
-Index: v4.19/drivers/misc/ipts/ipts.h
-===================================================================
+diff --git a/drivers/misc/ipts/ipts.h b/drivers/misc/ipts/ipts.h
+new file mode 100644
+index 000000000000..32eb3ffd68a3
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/ipts.h
++++ b/drivers/misc/ipts/ipts.h
 @@ -0,0 +1,172 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -7191,10 +7223,11 @@ Index: v4.19/drivers/misc/ipts/ipts.h
 +}
 +
 +#endif // _IPTS_H_
-Index: v4.19/drivers/misc/ipts/kernel.c
-===================================================================
+diff --git a/drivers/misc/ipts/kernel.c b/drivers/misc/ipts/kernel.c
+new file mode 100644
+index 000000000000..a2c43228e2c7
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/kernel.c
++++ b/drivers/misc/ipts/kernel.c
 @@ -0,0 +1,1047 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -8243,10 +8276,11 @@ Index: v4.19/drivers/misc/ipts/kernel.c
 +	release_kernel(ipts);
 +	ipts_close_gpu(ipts);
 +}
-Index: v4.19/drivers/misc/ipts/kernel.h
-===================================================================
+diff --git a/drivers/misc/ipts/kernel.h b/drivers/misc/ipts/kernel.h
+new file mode 100644
+index 000000000000..7be45da01cfc
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/kernel.h
++++ b/drivers/misc/ipts/kernel.h
 @@ -0,0 +1,17 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -8265,10 +8299,11 @@ Index: v4.19/drivers/misc/ipts/kernel.h
 +void ipts_release_kernels(struct ipts_info *ipts);
 +
 +#endif // _IPTS_KERNEL_H_
-Index: v4.19/drivers/misc/ipts/mei-msgs.h
-===================================================================
+diff --git a/drivers/misc/ipts/mei-msgs.h b/drivers/misc/ipts/mei-msgs.h
+new file mode 100644
+index 000000000000..036b74f7234e
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/mei-msgs.h
++++ b/drivers/misc/ipts/mei-msgs.h
 @@ -0,0 +1,901 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -9171,10 +9206,11 @@ Index: v4.19/drivers/misc/ipts/mei-msgs.h
 +#pragma pack()
 +
 +#endif // _IPTS_MEI_MSGS_H_
-Index: v4.19/drivers/misc/ipts/mei.c
-===================================================================
+diff --git a/drivers/misc/ipts/mei.c b/drivers/misc/ipts/mei.c
+new file mode 100644
+index 000000000000..03b5d747a728
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/mei.c
++++ b/drivers/misc/ipts/mei.c
 @@ -0,0 +1,238 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -9414,10 +9450,11 @@ Index: v4.19/drivers/misc/ipts/mei.c
 +
 +MODULE_DESCRIPTION("Intel(R) ME Interface Client Driver for IPTS");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/misc/ipts/msg-handler.c
-===================================================================
+diff --git a/drivers/misc/ipts/msg-handler.c b/drivers/misc/ipts/msg-handler.c
+new file mode 100644
+index 000000000000..9431b1dfc6e0
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/msg-handler.c
++++ b/drivers/misc/ipts/msg-handler.c
 @@ -0,0 +1,405 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -9824,10 +9861,11 @@ Index: v4.19/drivers/misc/ipts/msg-handler.c
 +
 +	return ret;
 +}
-Index: v4.19/drivers/misc/ipts/msg-handler.h
-===================================================================
+diff --git a/drivers/misc/ipts/msg-handler.h b/drivers/misc/ipts/msg-handler.h
+new file mode 100644
+index 000000000000..eca4238adf4b
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/msg-handler.h
++++ b/drivers/misc/ipts/msg-handler.h
 @@ -0,0 +1,28 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -9857,10 +9895,11 @@ Index: v4.19/drivers/misc/ipts/msg-handler.h
 +int ipts_restart(struct ipts_info *ipts);
 +
 +#endif /* _IPTS_MSG_HANDLER_H */
-Index: v4.19/drivers/misc/ipts/params.c
-===================================================================
+diff --git a/drivers/misc/ipts/params.c b/drivers/misc/ipts/params.c
+new file mode 100644
+index 000000000000..3ea76ca8342a
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/params.c
++++ b/drivers/misc/ipts/params.c
 @@ -0,0 +1,42 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -9904,10 +9943,11 @@ Index: v4.19/drivers/misc/ipts/params.c
 +	"Periodically print the ME status into the kernel log. (default: false)"
 +);
 +
-Index: v4.19/drivers/misc/ipts/params.h
-===================================================================
+diff --git a/drivers/misc/ipts/params.h b/drivers/misc/ipts/params.h
+new file mode 100644
+index 000000000000..c20546bacb08
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/params.h
++++ b/drivers/misc/ipts/params.h
 @@ -0,0 +1,25 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -9934,10 +9974,11 @@ Index: v4.19/drivers/misc/ipts/params.h
 +extern struct ipts_params ipts_modparams;
 +
 +#endif // _IPTS_PARAMS_H_
-Index: v4.19/drivers/misc/ipts/resource.c
-===================================================================
+diff --git a/drivers/misc/ipts/resource.c b/drivers/misc/ipts/resource.c
+new file mode 100644
+index 000000000000..cfd212f2cac0
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/resource.c
++++ b/drivers/misc/ipts/resource.c
 @@ -0,0 +1,291 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -10230,10 +10271,11 @@ Index: v4.19/drivers/misc/ipts/resource.c
 +	output_buf->dma_addr = dma_addr;
 +	output_buf->addr = cpu_addr;
 +}
-Index: v4.19/drivers/misc/ipts/resource.h
-===================================================================
+diff --git a/drivers/misc/ipts/resource.h b/drivers/misc/ipts/resource.h
+new file mode 100644
+index 000000000000..27b9c17fcb89
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/resource.h
++++ b/drivers/misc/ipts/resource.h
 @@ -0,0 +1,26 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -10261,10 +10303,11 @@ Index: v4.19/drivers/misc/ipts/resource.h
 +		int output_idx, u8 *cpu_addr, u64 dma_addr);
 +
 +#endif // _IPTS_RESOURCE_H_
-Index: v4.19/drivers/misc/ipts/sensor-regs.h
-===================================================================
+diff --git a/drivers/misc/ipts/sensor-regs.h b/drivers/misc/ipts/sensor-regs.h
+new file mode 100644
+index 000000000000..c1afab48249b
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/sensor-regs.h
++++ b/drivers/misc/ipts/sensor-regs.h
 @@ -0,0 +1,834 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -11100,10 +11143,11 @@ Index: v4.19/drivers/misc/ipts/sensor-regs.h
 +#pragma pack()
 +
 +#endif // _IPTS_SENSOR_REGS_H_
-Index: v4.19/drivers/misc/ipts/state.h
-===================================================================
+diff --git a/drivers/misc/ipts/state.h b/drivers/misc/ipts/state.h
+new file mode 100644
+index 000000000000..ef73d28db47c
 --- /dev/null
-+++ v4.19/drivers/misc/ipts/state.h
++++ b/drivers/misc/ipts/state.h
 @@ -0,0 +1,22 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -11127,10 +11171,10 @@ Index: v4.19/drivers/misc/ipts/state.h
 +};
 +
 +#endif // _IPTS_STATE_H_
-Index: v4.19/drivers/misc/mei/hw-me-regs.h
-===================================================================
---- v4.19.orig/drivers/misc/mei/hw-me-regs.h
-+++ v4.19/drivers/misc/mei/hw-me-regs.h
+diff --git a/drivers/misc/mei/hw-me-regs.h b/drivers/misc/mei/hw-me-regs.h
+index 2ac1dc5104b7..5daa857a4938 100644
+--- a/drivers/misc/mei/hw-me-regs.h
++++ b/drivers/misc/mei/hw-me-regs.h
 @@ -119,6 +119,7 @@
  
  #define MEI_DEV_ID_SPT        0x9D3A  /* Sunrise Point */
@@ -11139,11 +11183,11 @@ Index: v4.19/drivers/misc/mei/hw-me-regs.h
  #define MEI_DEV_ID_SPT_H      0xA13A  /* Sunrise Point H */
  #define MEI_DEV_ID_SPT_H_2    0xA13B  /* Sunrise Point H 2 */
  
-Index: v4.19/drivers/misc/mei/pci-me.c
-===================================================================
---- v4.19.orig/drivers/misc/mei/pci-me.c
-+++ v4.19/drivers/misc/mei/pci-me.c
-@@ -86,6 +86,7 @@ static const struct pci_device_id mei_me
+diff --git a/drivers/misc/mei/pci-me.c b/drivers/misc/mei/pci-me.c
+index b4bf12f27caf..34f4338fa641 100644
+--- a/drivers/misc/mei/pci-me.c
++++ b/drivers/misc/mei/pci-me.c
+@@ -86,6 +86,7 @@ static const struct pci_device_id mei_me_pci_tbl[] = {
  
  	{MEI_PCI_DEVICE(MEI_DEV_ID_SPT, MEI_ME_PCH8_CFG)},
  	{MEI_PCI_DEVICE(MEI_DEV_ID_SPT_2, MEI_ME_PCH8_CFG)},
@@ -11151,10 +11195,10 @@ Index: v4.19/drivers/misc/mei/pci-me.c
  	{MEI_PCI_DEVICE(MEI_DEV_ID_SPT_H, MEI_ME_PCH8_SPS_CFG)},
  	{MEI_PCI_DEVICE(MEI_DEV_ID_SPT_H_2, MEI_ME_PCH8_SPS_CFG)},
  	{MEI_PCI_DEVICE(MEI_DEV_ID_LBG, MEI_ME_PCH12_CFG)},
-Index: v4.19/drivers/net/wireless/ath/ath10k/core.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/ath/ath10k/core.c
-+++ v4.19/drivers/net/wireless/ath/ath10k/core.c
+diff --git a/drivers/net/wireless/ath/ath10k/core.c b/drivers/net/wireless/ath/ath10k/core.c
+index cdfdca9dd080..5f65ab6b6853 100644
+--- a/drivers/net/wireless/ath/ath10k/core.c
++++ b/drivers/net/wireless/ath/ath10k/core.c
 @@ -34,6 +34,9 @@ static bool uart_print;
  static bool skip_otp;
  static bool rawmode;
@@ -11175,7 +11219,7 @@ Index: v4.19/drivers/net/wireless/ath/ath10k/core.c
  MODULE_PARM_DESC(debug_mask, "Debugging mask");
  MODULE_PARM_DESC(uart_print, "Uart target debugging");
  MODULE_PARM_DESC(skip_otp, "Skip otp failure for calibration in testmode");
-@@ -52,6 +58,9 @@ MODULE_PARM_DESC(cryptmode, "Crypto mode
+@@ -52,6 +58,9 @@ MODULE_PARM_DESC(cryptmode, "Crypto mode: 0-hardware, 1-software");
  MODULE_PARM_DESC(rawmode, "Use raw 802.11 frame datapath");
  MODULE_PARM_DESC(coredump_mask, "Bitfield of what to include in firmware crash file");
  
@@ -11185,7 +11229,7 @@ Index: v4.19/drivers/net/wireless/ath/ath10k/core.c
  static const struct ath10k_hw_params ath10k_hw_params_list[] = {
  	{
  		.id = QCA988X_HW_2_0_VERSION,
-@@ -804,6 +813,42 @@ static int ath10k_init_configure_target(
+@@ -804,6 +813,42 @@ static int ath10k_init_configure_target(struct ath10k *ar)
  	return 0;
  }
  
@@ -11228,7 +11272,7 @@ Index: v4.19/drivers/net/wireless/ath/ath10k/core.c
  static const struct firmware *ath10k_fetch_fw_file(struct ath10k *ar,
  						   const char *dir,
  						   const char *file)
-@@ -818,6 +863,19 @@ static const struct firmware *ath10k_fet
+@@ -818,6 +863,19 @@ static const struct firmware *ath10k_fetch_fw_file(struct ath10k *ar,
  	if (dir == NULL)
  		dir = ".";
  
@@ -11248,11 +11292,11 @@ Index: v4.19/drivers/net/wireless/ath/ath10k/core.c
  	snprintf(filename, sizeof(filename), "%s/%s", dir, file);
  	ret = firmware_request_nowarn(&fw, filename, ar->dev);
  	ath10k_dbg(ar, ATH10K_DBG_BOOT, "boot fw request '%s': %d\n",
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/11n.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/11n.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/11n.c
-@@ -127,7 +127,7 @@ int mwifiex_ret_11n_delba(struct mwifiex
+diff --git a/drivers/net/wireless/marvell/mwifiex/11n.c b/drivers/net/wireless/marvell/mwifiex/11n.c
+index 5d75c971004b..4ed6ae8a96f1 100644
+--- a/drivers/net/wireless/marvell/mwifiex/11n.c
++++ b/drivers/net/wireless/marvell/mwifiex/11n.c
+@@ -127,7 +127,7 @@ int mwifiex_ret_11n_delba(struct mwifiex_private *priv,
  					   tx_ba_tbl->ra);
  	} else { /*
  		  * In case of failure, recreate the deleted stream in case
@@ -11261,7 +11305,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/11n.c
  		  */
  		if (!INITIATOR_BIT(del_ba_param_set))
  			return 0;
-@@ -664,14 +664,15 @@ int mwifiex_send_delba(struct mwifiex_pr
+@@ -664,14 +664,15 @@ int mwifiex_send_delba(struct mwifiex_private *priv, int tid, u8 *peer_mac,
  	uint16_t del_ba_param_set;
  
  	memset(&delba, 0, sizeof(delba));
@@ -11279,10 +11323,10 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/11n.c
  	memcpy(&delba.peer_mac_addr, peer_mac, ETH_ALEN);
  
  	/* We don't wait for the response of this command */
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/Makefile
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/Makefile
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/Makefile
+diff --git a/drivers/net/wireless/marvell/mwifiex/Makefile b/drivers/net/wireless/marvell/mwifiex/Makefile
+index fdfd9bf15ed4..8a1e7c5b9c6e 100644
+--- a/drivers/net/wireless/marvell/mwifiex/Makefile
++++ b/drivers/net/wireless/marvell/mwifiex/Makefile
 @@ -49,6 +49,7 @@ mwifiex_sdio-y += sdio.o
  obj-$(CONFIG_MWIFIEX_SDIO) += mwifiex_sdio.o
  
@@ -11291,11 +11335,11 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/Makefile
  obj-$(CONFIG_MWIFIEX_PCIE) += mwifiex_pcie.o
  
  mwifiex_usb-y += usb.o
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/cfg80211.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
-@@ -523,8 +523,14 @@ mwifiex_cfg80211_set_default_mgmt_key(st
+diff --git a/drivers/net/wireless/marvell/mwifiex/cfg80211.c b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
+index 00ee00e6cea0..ad9a0b2214b0 100644
+--- a/drivers/net/wireless/marvell/mwifiex/cfg80211.c
++++ b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
+@@ -523,8 +523,14 @@ mwifiex_cfg80211_set_default_mgmt_key(struct wiphy *wiphy,
  	encrypt_key.is_igtk_def_key = true;
  	eth_broadcast_addr(encrypt_key.mac_addr);
  
@@ -11312,7 +11356,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  }
  
  /*
-@@ -912,16 +918,20 @@ mwifiex_init_new_priv_params(struct mwif
+@@ -912,16 +918,20 @@ mwifiex_init_new_priv_params(struct mwifiex_private *priv,
  	switch (type) {
  	case NL80211_IFTYPE_STATION:
  	case NL80211_IFTYPE_ADHOC:
@@ -11336,7 +11380,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  		break;
  	default:
  		mwifiex_dbg(adapter, ERROR,
-@@ -943,6 +953,117 @@ mwifiex_init_new_priv_params(struct mwif
+@@ -943,6 +953,117 @@ mwifiex_init_new_priv_params(struct mwifiex_private *priv,
  	return 0;
  }
  
@@ -11454,7 +11498,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  static int
  mwifiex_change_vif_to_p2p(struct net_device *dev,
  			  enum nl80211_iftype curr_iftype,
-@@ -959,13 +1080,6 @@ mwifiex_change_vif_to_p2p(struct net_dev
+@@ -959,13 +1080,6 @@ mwifiex_change_vif_to_p2p(struct net_device *dev,
  
  	adapter = priv->adapter;
  
@@ -11468,7 +11512,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	mwifiex_dbg(adapter, INFO,
  		    "%s: changing role to p2p\n", dev->name);
  
-@@ -974,6 +1088,10 @@ mwifiex_change_vif_to_p2p(struct net_dev
+@@ -974,6 +1088,10 @@ mwifiex_change_vif_to_p2p(struct net_device *dev,
  	if (mwifiex_init_new_priv_params(priv, dev, type))
  		return -1;
  
@@ -11479,7 +11523,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	switch (type) {
  	case NL80211_IFTYPE_P2P_CLIENT:
  		if (mwifiex_cfg80211_init_p2p_client(priv))
-@@ -997,21 +1115,6 @@ mwifiex_change_vif_to_p2p(struct net_dev
+@@ -997,21 +1115,6 @@ mwifiex_change_vif_to_p2p(struct net_device *dev,
  	if (mwifiex_sta_init_cmd(priv, false, false))
  		return -1;
  
@@ -11501,7 +11545,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	return 0;
  }
  
-@@ -1031,15 +1134,6 @@ mwifiex_change_vif_to_sta_adhoc(struct n
+@@ -1031,15 +1134,6 @@ mwifiex_change_vif_to_sta_adhoc(struct net_device *dev,
  
  	adapter = priv->adapter;
  
@@ -11517,7 +11561,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	if (type == NL80211_IFTYPE_STATION)
  		mwifiex_dbg(adapter, INFO,
  			    "%s: changing role to station\n", dev->name);
-@@ -1051,26 +1145,17 @@ mwifiex_change_vif_to_sta_adhoc(struct n
+@@ -1051,26 +1145,17 @@ mwifiex_change_vif_to_sta_adhoc(struct net_device *dev,
  		return -1;
  	if (mwifiex_init_new_priv_params(priv, dev, type))
  		return -1;
@@ -11549,7 +11593,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	return 0;
  }
  
-@@ -1090,13 +1175,6 @@ mwifiex_change_vif_to_ap(struct net_devi
+@@ -1090,13 +1175,6 @@ mwifiex_change_vif_to_ap(struct net_device *dev,
  
  	adapter = priv->adapter;
  
@@ -11563,7 +11607,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	mwifiex_dbg(adapter, INFO,
  		    "%s: changing role to AP\n", dev->name);
  
-@@ -1104,27 +1182,17 @@ mwifiex_change_vif_to_ap(struct net_devi
+@@ -1104,27 +1182,17 @@ mwifiex_change_vif_to_ap(struct net_device *dev,
  		return -1;
  	if (mwifiex_init_new_priv_params(priv, dev, type))
  		return -1;
@@ -11596,7 +11640,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	return 0;
  }
  /*
-@@ -1145,6 +1213,27 @@ mwifiex_cfg80211_change_virtual_intf(str
+@@ -1145,6 +1213,27 @@ mwifiex_cfg80211_change_virtual_intf(struct wiphy *wiphy,
  		return -EBUSY;
  	}
  
@@ -11624,7 +11668,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	switch (curr_iftype) {
  	case NL80211_IFTYPE_ADHOC:
  		switch (type) {
-@@ -1164,19 +1253,10 @@ mwifiex_cfg80211_change_virtual_intf(str
+@@ -1164,19 +1253,10 @@ mwifiex_cfg80211_change_virtual_intf(struct wiphy *wiphy,
  		case NL80211_IFTYPE_AP:
  			return mwifiex_change_vif_to_ap(dev, curr_iftype, type,
  							params);
@@ -11646,7 +11690,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  	case NL80211_IFTYPE_STATION:
  		switch (type) {
  		case NL80211_IFTYPE_ADHOC:
-@@ -1195,22 +1275,14 @@ mwifiex_cfg80211_change_virtual_intf(str
+@@ -1195,22 +1275,14 @@ mwifiex_cfg80211_change_virtual_intf(struct wiphy *wiphy,
  		case NL80211_IFTYPE_AP:
  			return mwifiex_change_vif_to_ap(dev, curr_iftype, type,
  							params);
@@ -11672,7 +11716,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  			return mwifiex_change_vif_to_sta_adhoc(dev, curr_iftype,
  							       type, params);
  			break;
-@@ -1218,69 +1290,60 @@ mwifiex_cfg80211_change_virtual_intf(str
+@@ -1218,69 +1290,60 @@ mwifiex_cfg80211_change_virtual_intf(struct wiphy *wiphy,
  		case NL80211_IFTYPE_P2P_GO:
  			return mwifiex_change_vif_to_p2p(dev, curr_iftype,
  							 type, params);
@@ -11778,7 +11822,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  }
  
  static void
-@@ -2974,7 +3037,7 @@ struct wireless_dev *mwifiex_add_virtual
+@@ -2960,7 +3023,7 @@ struct wireless_dev *mwifiex_add_virtual_intf(struct wiphy *wiphy,
  		priv->bss_type = MWIFIEX_BSS_TYPE_P2P;
  
  		priv->frame_type = MWIFIEX_DATA_FRAME_TYPE_ETH_II;
@@ -11787,7 +11831,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  		priv->bss_role = MWIFIEX_BSS_ROLE_STA;
  		priv->bss_started = 0;
  
-@@ -3085,23 +3148,7 @@ struct wireless_dev *mwifiex_add_virtual
+@@ -3071,23 +3134,7 @@ struct wireless_dev *mwifiex_add_virtual_intf(struct wiphy *wiphy,
  	mwifiex_dev_debugfs_init(priv);
  #endif
  
@@ -11812,7 +11856,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  
  	return &priv->wdev;
  
-@@ -3167,24 +3214,7 @@ int mwifiex_del_virtual_intf(struct wiph
+@@ -3153,24 +3200,7 @@ int mwifiex_del_virtual_intf(struct wiphy *wiphy, struct wireless_dev *wdev)
  	/* Clear the priv in adapter */
  	priv->netdev = NULL;
  
@@ -11838,7 +11882,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  
  	priv->bss_mode = NL80211_IFTYPE_UNSPECIFIED;
  
-@@ -3447,7 +3477,7 @@ static int mwifiex_cfg80211_suspend(stru
+@@ -3433,7 +3463,7 @@ static int mwifiex_cfg80211_suspend(struct wiphy *wiphy,
  	}
  
  	if (!wowlan) {
@@ -11847,11 +11891,11 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cfg80211.c
  			    "None of the WOWLAN triggers enabled\n");
  		ret = 0;
  		goto done;
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/cmdevt.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/cmdevt.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/cmdevt.c
-@@ -604,6 +604,11 @@ int mwifiex_send_cmd(struct mwifiex_priv
+diff --git a/drivers/net/wireless/marvell/mwifiex/cmdevt.c b/drivers/net/wireless/marvell/mwifiex/cmdevt.c
+index 60db2b969e20..c7db969aa11d 100644
+--- a/drivers/net/wireless/marvell/mwifiex/cmdevt.c
++++ b/drivers/net/wireless/marvell/mwifiex/cmdevt.c
+@@ -604,6 +604,11 @@ int mwifiex_send_cmd(struct mwifiex_private *priv, u16 cmd_no,
  		return -1;
  	}
  
@@ -11863,7 +11907,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cmdevt.c
  
  	/* Get a new command node */
  	cmd_node = mwifiex_get_cmd_node(adapter);
-@@ -711,6 +716,15 @@ mwifiex_insert_cmd_to_pending_q(struct m
+@@ -711,6 +716,15 @@ mwifiex_insert_cmd_to_pending_q(struct mwifiex_adapter *adapter,
  		}
  	}
  
@@ -11879,7 +11923,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cmdevt.c
  	spin_lock_irqsave(&adapter->cmd_pending_q_lock, flags);
  	if (add_tail)
  		list_add_tail(&cmd_node->list, &adapter->cmd_pending_q);
-@@ -1215,6 +1229,13 @@ mwifiex_process_hs_config(struct mwifiex
+@@ -1215,6 +1229,13 @@ mwifiex_process_hs_config(struct mwifiex_adapter *adapter)
  		    __func__);
  
  	adapter->if_ops.wakeup(adapter);
@@ -11893,11 +11937,11 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/cmdevt.c
  	adapter->hs_activated = false;
  	clear_bit(MWIFIEX_IS_HS_CONFIGURED, &adapter->work_flags);
  	clear_bit(MWIFIEX_IS_SUSPENDED, &adapter->work_flags);
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/main.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/main.c
-@@ -227,6 +227,19 @@ exit_rx_proc:
+diff --git a/drivers/net/wireless/marvell/mwifiex/main.c b/drivers/net/wireless/marvell/mwifiex/main.c
+index ceac611ef086..7159033fcc2e 100644
+--- a/drivers/net/wireless/marvell/mwifiex/main.c
++++ b/drivers/net/wireless/marvell/mwifiex/main.c
+@@ -227,6 +227,19 @@ static int mwifiex_process_rx(struct mwifiex_adapter *adapter)
  	return 0;
  }
  
@@ -11917,7 +11961,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.c
  /*
   * The main process.
   *
-@@ -357,6 +370,7 @@ process_start:
+@@ -357,6 +370,7 @@ int mwifiex_main_process(struct mwifiex_adapter *adapter)
  			if (adapter->hw_status == MWIFIEX_HW_STATUS_INIT_DONE) {
  				adapter->hw_status = MWIFIEX_HW_STATUS_READY;
  				mwifiex_init_fw_complete(adapter);
@@ -11925,7 +11969,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.c
  			}
  		}
  
-@@ -402,6 +416,12 @@ process_start:
+@@ -402,6 +416,12 @@ int mwifiex_main_process(struct mwifiex_adapter *adapter)
  		     !adapter->scan_processing) &&
  		    !adapter->data_sent &&
  		    !skb_queue_empty(&adapter->tx_data_q)) {
@@ -11938,7 +11982,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.c
  			mwifiex_process_tx_queue(adapter);
  			if (adapter->hs_activated) {
  				clear_bit(MWIFIEX_IS_HS_CONFIGURED,
-@@ -419,6 +439,12 @@ process_start:
+@@ -419,6 +439,12 @@ int mwifiex_main_process(struct mwifiex_adapter *adapter)
  		    !mwifiex_bypass_txlist_empty(adapter) &&
  		    !mwifiex_is_tdls_chan_switching
  			(mwifiex_get_priv(adapter, MWIFIEX_BSS_ROLE_STA))) {
@@ -11951,7 +11995,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.c
  			mwifiex_process_bypass_tx(adapter);
  			if (adapter->hs_activated) {
  				clear_bit(MWIFIEX_IS_HS_CONFIGURED,
-@@ -435,6 +461,12 @@ process_start:
+@@ -435,6 +461,12 @@ int mwifiex_main_process(struct mwifiex_adapter *adapter)
  		    !adapter->data_sent && !mwifiex_wmm_lists_empty(adapter) &&
  		    !mwifiex_is_tdls_chan_switching
  			(mwifiex_get_priv(adapter, MWIFIEX_BSS_ROLE_STA))) {
@@ -11964,10 +12008,10 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.c
  			mwifiex_wmm_process_tx(adapter);
  			if (adapter->hs_activated) {
  				clear_bit(MWIFIEX_IS_HS_CONFIGURED,
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.h
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/main.h
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/main.h
+diff --git a/drivers/net/wireless/marvell/mwifiex/main.h b/drivers/net/wireless/marvell/mwifiex/main.h
+index 7e526014b638..fa84258f042a 100644
+--- a/drivers/net/wireless/marvell/mwifiex/main.h
++++ b/drivers/net/wireless/marvell/mwifiex/main.h
 @@ -524,6 +524,7 @@ enum mwifiex_adapter_work_flags {
  	MWIFIEX_IS_SUSPENDED,
  	MWIFIEX_IS_HS_CONFIGURED,
@@ -11984,10 +12028,10 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/main.h
  	u16 hs_activate_wait_q_woken;
  	wait_queue_head_t hs_activate_wait_q;
  	u8 event_body[MAX_EVENT_SIZE];
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/pcie.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
+diff --git a/drivers/net/wireless/marvell/mwifiex/pcie.c b/drivers/net/wireless/marvell/mwifiex/pcie.c
+index 991b9cc18000..5a17054c07e2 100644
+--- a/drivers/net/wireless/marvell/mwifiex/pcie.c
++++ b/drivers/net/wireless/marvell/mwifiex/pcie.c
 @@ -27,6 +27,7 @@
  #include "wmm.h"
  #include "11n.h"
@@ -11996,7 +12040,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  
  #define PCIE_VERSION	"1.0"
  #define DRV_NAME        "Marvell mwifiex PCIe"
-@@ -87,6 +88,12 @@ static int mwifiex_write_reg(struct mwif
+@@ -87,6 +88,12 @@ static int mwifiex_write_reg(struct mwifiex_adapter *adapter, int reg, u32 data)
  
  	iowrite32(data, card->pci_mmap1 + reg);
  
@@ -12009,7 +12053,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  	return 0;
  }
  
-@@ -150,10 +157,8 @@ static bool mwifiex_pcie_ok_to_access_hw
+@@ -150,10 +157,8 @@ static bool mwifiex_pcie_ok_to_access_hw(struct mwifiex_adapter *adapter)
  static int mwifiex_pcie_suspend(struct device *dev)
  {
  	struct mwifiex_adapter *adapter;
@@ -12021,7 +12065,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  
  	/* Might still be loading firmware */
  	wait_for_completion(&card->fw_done);
-@@ -195,10 +200,8 @@ static int mwifiex_pcie_suspend(struct d
+@@ -195,10 +200,8 @@ static int mwifiex_pcie_suspend(struct device *dev)
  static int mwifiex_pcie_resume(struct device *dev)
  {
  	struct mwifiex_adapter *adapter;
@@ -12033,7 +12077,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  
  	if (!card->adapter) {
  		dev_err(dev, "adapter structure is not valid\n");
-@@ -233,6 +236,7 @@ static int mwifiex_pcie_probe(struct pci
+@@ -233,6 +236,7 @@ static int mwifiex_pcie_probe(struct pci_dev *pdev,
  					const struct pci_device_id *ent)
  {
  	struct pcie_service_card *card;
@@ -12041,7 +12085,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  	int ret;
  
  	pr_debug("info: vendor=0x%4.04X device=0x%4.04X rev=%d\n",
-@@ -265,12 +269,21 @@ static int mwifiex_pcie_probe(struct pci
+@@ -265,12 +269,21 @@ static int mwifiex_pcie_probe(struct pci_dev *pdev,
  			return ret;
  	}
  
@@ -12063,7 +12107,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  	return 0;
  }
  
-@@ -380,6 +393,13 @@ static void mwifiex_pcie_reset_prepare(s
+@@ -380,6 +393,13 @@ static void mwifiex_pcie_reset_prepare(struct pci_dev *pdev)
  	mwifiex_shutdown_sw(adapter);
  	clear_bit(MWIFIEX_IFACE_WORK_DEVICE_DUMP, &card->work_flags);
  	clear_bit(MWIFIEX_IFACE_WORK_CARD_RESET, &card->work_flags);
@@ -12075,9 +12119,9 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
 +		mwifiex_pcie_reset_d3cold_quirk(pdev);
 +
  	mwifiex_dbg(adapter, INFO, "%s, successful\n", __func__);
+ }
  
- 	card->pci_reset_ongoing = true;
-@@ -498,6 +518,7 @@ static int mwifiex_pm_wakeup_card(struct
+@@ -494,6 +514,7 @@ static int mwifiex_pm_wakeup_card(struct mwifiex_adapter *adapter)
  {
  	struct pcie_service_card *card = adapter->card;
  	const struct mwifiex_pcie_card_reg *reg = card->pcie.reg;
@@ -12085,7 +12129,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  
  	mwifiex_dbg(adapter, EVENT,
  		    "event: Wakeup device...\n");
-@@ -505,12 +526,28 @@ static int mwifiex_pm_wakeup_card(struct
+@@ -501,12 +522,28 @@ static int mwifiex_pm_wakeup_card(struct mwifiex_adapter *adapter)
  	if (reg->sleep_cookie)
  		mwifiex_pcie_dev_wakeup_delay(adapter);
  
@@ -12120,7 +12164,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  
  	if (reg->sleep_cookie) {
  		mwifiex_pcie_dev_wakeup_delay(adapter);
-@@ -1588,9 +1625,21 @@ mwifiex_pcie_send_boot_cmd(struct mwifie
+@@ -1586,9 +1623,21 @@ mwifiex_pcie_send_boot_cmd(struct mwifiex_adapter *adapter, struct sk_buff *skb)
  static int mwifiex_pcie_init_fw_port(struct mwifiex_adapter *adapter)
  {
  	struct pcie_service_card *card = adapter->card;
@@ -12142,7 +12186,7 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  	/* Write the RX ring read pointer in to reg->rx_rdptr */
  	if (mwifiex_write_reg(adapter, reg->rx_rdptr, card->rxbd_rdptr |
  			      tx_wrap)) {
-@@ -2808,6 +2857,16 @@ static void mwifiex_pcie_card_reset_work
+@@ -2806,6 +2855,16 @@ static void mwifiex_pcie_card_reset_work(struct mwifiex_adapter *adapter)
  {
  	struct pcie_service_card *card = adapter->card;
  
@@ -12159,22 +12203,25 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.c
  	/* We can't afford to wait here; remove() might be waiting on us. If we
  	 * can't grab the device lock, maybe we'll get another chance later.
  	 */
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie.h
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/pcie.h
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/pcie.h
+diff --git a/drivers/net/wireless/marvell/mwifiex/pcie.h b/drivers/net/wireless/marvell/mwifiex/pcie.h
+index 72d0c01ff3592..ed8bcd6720704 100644
+--- a/drivers/net/wireless/marvell/mwifiex/pcie.h
++++ b/drivers/net/wireless/marvell/mwifiex/pcie.h
 @@ -391,6 +391,7 @@ struct pcie_service_card {
  	struct mwifiex_msix_context share_irq_ctx;
  	struct work_struct work;
  	unsigned long work_flags;
 +  unsigned long quirks;
- 
- 	bool pci_reset_ongoing;
+
+  bool pci_reset_ongoing;
  };
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie_quirks.c
-===================================================================
+ 
+ static inline int
+diff --git a/drivers/net/wireless/marvell/mwifiex/pcie_quirks.c b/drivers/net/wireless/marvell/mwifiex/pcie_quirks.c
+new file mode 100644
+index 000000000000..6885575826a6
 --- /dev/null
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/pcie_quirks.c
++++ b/drivers/net/wireless/marvell/mwifiex/pcie_quirks.c
 @@ -0,0 +1,276 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
@@ -12452,10 +12499,11 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie_quirks.c
 +
 +	return 0;
 +}
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie_quirks.h
-===================================================================
+diff --git a/drivers/net/wireless/marvell/mwifiex/pcie_quirks.h b/drivers/net/wireless/marvell/mwifiex/pcie_quirks.h
+new file mode 100644
+index 000000000000..4ec2ae72f632
 --- /dev/null
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/pcie_quirks.h
++++ b/drivers/net/wireless/marvell/mwifiex/pcie_quirks.h
 @@ -0,0 +1,19 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
@@ -12476,11 +12524,11 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/pcie_quirks.h
 +void mwifiex_initialize_quirks(struct pcie_service_card *card);
 +int mwifiex_pcie_reset_d3cold_quirk(struct pci_dev *pdev);
 +int mwifiex_pcie_reset_wsid_quirk(struct pci_dev *pdev);
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/sta_cmd.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/sta_cmd.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/sta_cmd.c
-@@ -396,6 +396,10 @@ mwifiex_cmd_802_11_hs_cfg(struct mwifiex
+diff --git a/drivers/net/wireless/marvell/mwifiex/sta_cmd.c b/drivers/net/wireless/marvell/mwifiex/sta_cmd.c
+index 4ed10cf82f9a..057c810a9ef7 100644
+--- a/drivers/net/wireless/marvell/mwifiex/sta_cmd.c
++++ b/drivers/net/wireless/marvell/mwifiex/sta_cmd.c
+@@ -396,6 +396,10 @@ mwifiex_cmd_802_11_hs_cfg(struct mwifiex_private *priv,
  	if (hs_activate) {
  		hs_cfg->action = cpu_to_le16(HS_ACTIVATE);
  		hs_cfg->params.hs_activate.resp_ctrl = cpu_to_le16(RESP_NEEDED);
@@ -12491,11 +12539,11 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/sta_cmd.c
  	} else {
  		hs_cfg->action = cpu_to_le16(HS_CONFIGURE);
  		hs_cfg->params.hs_config.conditions = hscfg_param->conditions;
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c
-@@ -708,6 +708,22 @@ static int mwifiex_ret_ver_ext(struct mw
+diff --git a/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c b/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c
+index 7003767eef42..3079ca3e3fdc 100644
+--- a/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c
++++ b/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c
+@@ -708,6 +708,22 @@ static int mwifiex_ret_ver_ext(struct mwifiex_private *priv,
  {
  	struct host_cmd_ds_version_ext *ver_ext = &resp->params.verext;
  
@@ -12518,11 +12566,11 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/sta_cmdresp.c
  	if (version_ext) {
  		version_ext->version_str_sel = ver_ext->version_str_sel;
  		memcpy(version_ext->version_str, ver_ext->version_str,
-Index: v4.19/drivers/net/wireless/marvell/mwifiex/sta_event.c
-===================================================================
---- v4.19.orig/drivers/net/wireless/marvell/mwifiex/sta_event.c
-+++ v4.19/drivers/net/wireless/marvell/mwifiex/sta_event.c
-@@ -1058,9 +1058,7 @@ int mwifiex_process_sta_event(struct mwi
+diff --git a/drivers/net/wireless/marvell/mwifiex/sta_event.c b/drivers/net/wireless/marvell/mwifiex/sta_event.c
+index a327fc5b36e3..6228971d9b8b 100644
+--- a/drivers/net/wireless/marvell/mwifiex/sta_event.c
++++ b/drivers/net/wireless/marvell/mwifiex/sta_event.c
+@@ -1058,9 +1058,7 @@ int mwifiex_process_sta_event(struct mwifiex_private *priv)
  							adapter->event_skb);
  		break;
  	case EVENT_BT_COEX_WLAN_PARA_CHANGE:
@@ -12533,10 +12581,10 @@ Index: v4.19/drivers/net/wireless/marvell/mwifiex/sta_event.c
  		break;
  	case EVENT_RXBA_SYNC:
  		dev_dbg(adapter->dev, "EVENT: RXBA_SYNC\n");
-Index: v4.19/drivers/pci/hotplug/pciehp.h
-===================================================================
---- v4.19.orig/drivers/pci/hotplug/pciehp.h
-+++ v4.19/drivers/pci/hotplug/pciehp.h
+diff --git a/drivers/pci/hotplug/pciehp.h b/drivers/pci/hotplug/pciehp.h
+index ef6071807072..80d3f76c1193 100644
+--- a/drivers/pci/hotplug/pciehp.h
++++ b/drivers/pci/hotplug/pciehp.h
 @@ -19,7 +19,6 @@
  #include <linux/pci.h>
  #include <linux/pci_hotplug.h>
@@ -12545,10 +12593,11 @@ Index: v4.19/drivers/pci/hotplug/pciehp.h
  #include <linux/mutex.h>
  #include <linux/rwsem.h>
  #include <linux/workqueue.h>
-@@ -60,72 +59,64 @@ do {									\
+@@ -59,73 +58,65 @@ do {									\
+ 
  #define SLOT_NAME_SIZE 10
  
- /**
+-/**
 - * struct slot - PCIe hotplug slot
 - * @state: current state machine position
 - * @ctrl: pointer to the slot's controller structure
@@ -12566,7 +12615,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp.h
 -	struct mutex lock;
 -};
 -
--/**
+ /**
   * struct controller - PCIe hotplug controller
 - * @ctrl_lock: serializes writes to the Slot Control register
   * @pcie: pointer to the controller's PCIe port service device
@@ -12722,10 +12771,10 @@ Index: v4.19/drivers/pci/hotplug/pciehp.h
  }
  
  #endif				/* _PCIEHP_H */
-Index: v4.19/drivers/pci/hotplug/pciehp_core.c
-===================================================================
---- v4.19.orig/drivers/pci/hotplug/pciehp_core.c
-+++ v4.19/drivers/pci/hotplug/pciehp_core.c
+diff --git a/drivers/pci/hotplug/pciehp_core.c b/drivers/pci/hotplug/pciehp_core.c
+index 518c46f8e63b..e5de25ebc4cf 100644
+--- a/drivers/pci/hotplug/pciehp_core.c
++++ b/drivers/pci/hotplug/pciehp_core.c
 @@ -23,8 +23,6 @@
  #include <linux/types.h>
  #include <linux/pci.h>
@@ -12735,7 +12784,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  
  #include "../pci.h"
  
-@@ -47,17 +45,12 @@ MODULE_PARM_DESC(pciehp_poll_time, "Poll
+@@ -47,17 +45,12 @@ MODULE_PARM_DESC(pciehp_poll_time, "Polling mechanism frequency, in seconds");
  #define PCIE_MODULE_NAME "pciehp"
  
  static int set_attention_status(struct hotplug_slot *slot, u8 value);
@@ -12753,7 +12802,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  	struct hotplug_slot *hotplug = NULL;
  	struct hotplug_slot_info *info = NULL;
  	struct hotplug_slot_ops *ops = NULL;
-@@ -77,15 +70,15 @@ static int init_slot(struct controller *
+@@ -77,15 +70,15 @@ static int init_slot(struct controller *ctrl)
  	if (!ops)
  		goto out;
  
@@ -12773,7 +12822,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  		ops->set_attention_status = set_attention_status;
  	} else if (ctrl->pcie->port->hotplug_user_indicators) {
  		ops->get_attention_status = pciehp_get_raw_indicator_status;
-@@ -94,9 +87,9 @@ static int init_slot(struct controller *
+@@ -94,9 +87,9 @@ static int init_slot(struct controller *ctrl)
  
  	/* register this slot with the hotplug pci core */
  	hotplug->info = info;
@@ -12785,7 +12834,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  	snprintf(name, SLOT_NAME_SIZE, "%u", PSN(ctrl));
  
  	retval = pci_hp_initialize(hotplug,
-@@ -114,7 +107,7 @@ out:
+@@ -114,7 +107,7 @@ static int init_slot(struct controller *ctrl)
  
  static void cleanup_slot(struct controller *ctrl)
  {
@@ -12794,7 +12843,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  
  	pci_hp_destroy(hotplug_slot);
  	kfree(hotplug_slot->ops);
-@@ -127,79 +120,48 @@ static void cleanup_slot(struct controll
+@@ -127,79 +120,48 @@ static void cleanup_slot(struct controller *ctrl)
   */
  static int set_attention_status(struct hotplug_slot *hotplug_slot, u8 status)
  {
@@ -12886,7 +12935,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  /**
   * pciehp_check_presence() - synthesize event if presence has changed
   *
-@@ -212,20 +174,19 @@ static int reset_slot(struct hotplug_slo
+@@ -212,20 +174,19 @@ static int reset_slot(struct hotplug_slot *hotplug_slot, int probe)
   */
  static void pciehp_check_presence(struct controller *ctrl)
  {
@@ -12915,7 +12964,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  	up_read(&ctrl->reset_lock);
  }
  
-@@ -233,7 +194,6 @@ static int pciehp_probe(struct pcie_devi
+@@ -233,7 +194,6 @@ static int pciehp_probe(struct pcie_device *dev)
  {
  	int rc;
  	struct controller *ctrl;
@@ -12923,7 +12972,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  
  	/* If this is not a "hotplug" service, we have no business here. */
  	if (dev->service != PCIE_PORT_SERVICE_HP)
-@@ -271,8 +231,7 @@ static int pciehp_probe(struct pcie_devi
+@@ -271,8 +231,7 @@ static int pciehp_probe(struct pcie_device *dev)
  	}
  
  	/* Publish to user space */
@@ -12933,7 +12982,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  	if (rc) {
  		ctrl_err(ctrl, "Publication to user space failed (%d)\n", rc);
  		goto err_out_shutdown_notification;
-@@ -295,29 +254,43 @@ static void pciehp_remove(struct pcie_de
+@@ -295,29 +254,43 @@ static void pciehp_remove(struct pcie_device *dev)
  {
  	struct controller *ctrl = get_service_data(dev);
  
@@ -12980,7 +13029,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  		pcie_clear_hotplug_events(ctrl);
  
  	return 0;
-@@ -327,10 +300,29 @@ static int pciehp_resume(struct pcie_dev
+@@ -327,10 +300,29 @@ static int pciehp_resume(struct pcie_device *dev)
  {
  	struct controller *ctrl = get_service_data(dev);
  
@@ -13010,7 +13059,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  #endif /* PM */
  
  static struct pcie_port_service_driver hpdriver_portdrv = {
-@@ -345,6 +337,8 @@ static struct pcie_port_service_driver h
+@@ -345,6 +337,8 @@ static struct pcie_port_service_driver hpdriver_portdrv = {
  	.suspend	= pciehp_suspend,
  	.resume_noirq	= pciehp_resume_noirq,
  	.resume		= pciehp_resume,
@@ -13019,10 +13068,10 @@ Index: v4.19/drivers/pci/hotplug/pciehp_core.c
  #endif	/* PM */
  };
  
-Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
-===================================================================
---- v4.19.orig/drivers/pci/hotplug/pciehp_ctrl.c
-+++ v4.19/drivers/pci/hotplug/pciehp_ctrl.c
+diff --git a/drivers/pci/hotplug/pciehp_ctrl.c b/drivers/pci/hotplug/pciehp_ctrl.c
+index c71964e29b01..6513dd13b786 100644
+--- a/drivers/pci/hotplug/pciehp_ctrl.c
++++ b/drivers/pci/hotplug/pciehp_ctrl.c
 @@ -13,24 +13,24 @@
   *
   */
@@ -13053,7 +13102,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  
  		/*
  		 * After turning power off, we must wait for at least 1 second
-@@ -40,31 +40,30 @@ static void set_slot_off(struct controll
+@@ -40,31 +40,30 @@ static void set_slot_off(struct controller *ctrl, struct slot *pslot)
  		msleep(1000);
  	}
  
@@ -13091,7 +13140,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  
  	/* Check link training status */
  	retval = pciehp_check_link_status(ctrl);
-@@ -74,13 +73,13 @@ static int board_added(struct slot *p_sl
+@@ -74,13 +73,13 @@ static int board_added(struct slot *p_slot)
  	}
  
  	/* Check for a power fault */
@@ -13108,7 +13157,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  	if (retval) {
  		if (retval != -EEXIST) {
  			ctrl_err(ctrl, "Cannot add device at %04x:%02x:00\n",
-@@ -89,27 +88,26 @@ static int board_added(struct slot *p_sl
+@@ -89,27 +88,26 @@ static int board_added(struct slot *p_slot)
  		}
  	}
  
@@ -13144,7 +13193,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  
  		/*
  		 * After turning power off, we must wait for at least 1 second
-@@ -124,11 +122,11 @@ static void remove_board(struct slot *p_
+@@ -124,11 +122,11 @@ static void remove_board(struct slot *p_slot)
  	}
  
  	/* turn off Green LED */
@@ -13159,7 +13208,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  
  void pciehp_request(struct controller *ctrl, int action)
  {
-@@ -139,11 +137,11 @@ void pciehp_request(struct controller *c
+@@ -139,11 +137,11 @@ void pciehp_request(struct controller *ctrl, int action)
  
  void pciehp_queue_pushbutton_work(struct work_struct *work)
  {
@@ -13175,7 +13224,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  	case BLINKINGOFF_STATE:
  		pciehp_request(ctrl, DISABLE_SLOT);
  		break;
-@@ -153,30 +151,28 @@ void pciehp_queue_pushbutton_work(struct
+@@ -153,30 +151,28 @@ void pciehp_queue_pushbutton_work(struct work_struct *work)
  	default:
  		break;
  	}
@@ -13218,7 +13267,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  		break;
  	case BLINKINGOFF_STATE:
  	case BLINKINGON_STATE:
-@@ -185,197 +181,184 @@ void pciehp_handle_button_press(struct s
+@@ -185,197 +181,184 @@ void pciehp_handle_button_press(struct slot *p_slot)
  		 * press the attention again before the 5 sec. limit
  		 * expires to cancel hot-add or hot-remove
  		 */
@@ -13485,7 +13534,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  		/*
  		 * The IRQ thread becomes a no-op if the user pulls out the
  		 * card before the thread wakes up, so initialize to -ENODEV.
-@@ -388,33 +371,33 @@ int pciehp_sysfs_enable_slot(struct slot
+@@ -388,33 +371,33 @@ int pciehp_sysfs_enable_slot(struct slot *p_slot)
  		return ctrl->request_result;
  	case POWERON_STATE:
  		ctrl_info(ctrl, "Slot(%s): Already in powering on state\n",
@@ -13528,7 +13577,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  		pciehp_request(ctrl, DISABLE_SLOT);
  		wait_event(ctrl->requester,
  			   !atomic_read(&ctrl->pending_events) &&
-@@ -422,20 +405,20 @@ int pciehp_sysfs_disable_slot(struct slo
+@@ -422,20 +405,20 @@ int pciehp_sysfs_disable_slot(struct slot *p_slot)
  		return ctrl->request_result;
  	case POWEROFF_STATE:
  		ctrl_info(ctrl, "Slot(%s): Already in powering off state\n",
@@ -13553,10 +13602,10 @@ Index: v4.19/drivers/pci/hotplug/pciehp_ctrl.c
  
  	return -ENODEV;
  }
-Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
-===================================================================
---- v4.19.orig/drivers/pci/hotplug/pciehp_hpc.c
-+++ v4.19/drivers/pci/hotplug/pciehp_hpc.c
+diff --git a/drivers/pci/hotplug/pciehp_hpc.c b/drivers/pci/hotplug/pciehp_hpc.c
+index b1d7b212a7e1..0ef74d234887 100644
+--- a/drivers/pci/hotplug/pciehp_hpc.c
++++ b/drivers/pci/hotplug/pciehp_hpc.c
 @@ -13,15 +13,12 @@
   */
  
@@ -13573,7 +13622,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  #include <linux/slab.h>
  
  #include "../pci.h"
-@@ -43,7 +40,7 @@ static inline int pciehp_request_irq(str
+@@ -43,7 +40,7 @@ static inline int pciehp_request_irq(struct controller *ctrl)
  	if (pciehp_poll_mode) {
  		ctrl->poll_thread = kthread_run(&pciehp_poll, ctrl,
  						"pciehp_poll-%s",
@@ -13582,7 +13631,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  		return PTR_ERR_OR_ZERO(ctrl->poll_thread);
  	}
  
-@@ -159,9 +156,9 @@ static void pcie_do_write_cmd(struct con
+@@ -159,9 +156,9 @@ static void pcie_do_write_cmd(struct controller *ctrl, u16 cmd,
  	slot_ctrl |= (cmd & mask);
  	ctrl->cmd_busy = 1;
  	smp_mb();
@@ -13593,7 +13642,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  
  	/*
  	 * Controllers with the Intel CF118 and similar errata advertise
-@@ -217,13 +214,6 @@ bool pciehp_check_link_active(struct con
+@@ -217,13 +214,6 @@ bool pciehp_check_link_active(struct controller *ctrl)
  	return ret;
  }
  
@@ -13607,7 +13656,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  static bool pci_bus_check_dev(struct pci_bus *bus, int devfn)
  {
  	u32 l;
-@@ -261,19 +251,23 @@ int pciehp_check_link_status(struct cont
+@@ -261,19 +251,23 @@ int pciehp_check_link_status(struct controller *ctrl)
  	 * hot-plug capable downstream port. But old controller might
  	 * not implement it. In this case, we wait for 1000 ms.
  	*/
@@ -13633,7 +13682,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	/* try in 1s */
  	found = pci_bus_check_dev(ctrl->pcie->port->subordinate,
  					PCI_DEVFN(0, 0));
-@@ -325,8 +319,8 @@ static int pciehp_link_enable(struct con
+@@ -325,8 +319,8 @@ static int pciehp_link_enable(struct controller *ctrl)
  int pciehp_get_raw_indicator_status(struct hotplug_slot *hotplug_slot,
  				    u8 *status)
  {
@@ -13644,7 +13693,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	u16 slot_ctrl;
  
  	pci_config_pm_runtime_get(pdev);
-@@ -336,9 +330,9 @@ int pciehp_get_raw_indicator_status(stru
+@@ -336,9 +330,9 @@ int pciehp_get_raw_indicator_status(struct hotplug_slot *hotplug_slot,
  	return 0;
  }
  
@@ -13656,7 +13705,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	struct pci_dev *pdev = ctrl_dev(ctrl);
  	u16 slot_ctrl;
  
-@@ -362,11 +356,12 @@ void pciehp_get_attention_status(struct
+@@ -362,11 +356,12 @@ void pciehp_get_attention_status(struct slot *slot, u8 *status)
  		*status = 0xFF;
  		break;
  	}
@@ -13671,7 +13720,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	struct pci_dev *pdev = ctrl_dev(ctrl);
  	u16 slot_ctrl;
  
-@@ -387,27 +382,41 @@ void pciehp_get_power_status(struct slot
+@@ -387,27 +382,41 @@ void pciehp_get_power_status(struct slot *slot, u8 *status)
  	}
  }
  
@@ -13720,7 +13769,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	u16 slot_status;
  
  	pcie_capability_read_word(pdev, PCI_EXP_SLTSTA, &slot_status);
-@@ -417,8 +426,7 @@ int pciehp_query_power_fault(struct slot
+@@ -417,8 +426,7 @@ int pciehp_query_power_fault(struct slot *slot)
  int pciehp_set_raw_indicator_status(struct hotplug_slot *hotplug_slot,
  				    u8 status)
  {
@@ -13730,7 +13779,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	struct pci_dev *pdev = ctrl_dev(ctrl);
  
  	pci_config_pm_runtime_get(pdev);
-@@ -428,9 +436,8 @@ int pciehp_set_raw_indicator_status(stru
+@@ -428,9 +436,8 @@ int pciehp_set_raw_indicator_status(struct hotplug_slot *hotplug_slot,
  	return 0;
  }
  
@@ -13741,7 +13790,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	u16 slot_cmd;
  
  	if (!ATTN_LED(ctrl))
-@@ -454,10 +461,8 @@ void pciehp_set_attention_status(struct
+@@ -454,10 +461,8 @@ void pciehp_set_attention_status(struct slot *slot, u8 value)
  		 pci_pcie_cap(ctrl->pcie->port) + PCI_EXP_SLTCTL, slot_cmd);
  }
  
@@ -13753,7 +13802,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	if (!PWR_LED(ctrl))
  		return;
  
-@@ -468,10 +473,8 @@ void pciehp_green_led_on(struct slot *sl
+@@ -468,10 +473,8 @@ void pciehp_green_led_on(struct slot *slot)
  		 PCI_EXP_SLTCTL_PWR_IND_ON);
  }
  
@@ -13765,7 +13814,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	if (!PWR_LED(ctrl))
  		return;
  
-@@ -482,10 +485,8 @@ void pciehp_green_led_off(struct slot *s
+@@ -482,10 +485,8 @@ void pciehp_green_led_off(struct slot *slot)
  		 PCI_EXP_SLTCTL_PWR_IND_OFF);
  }
  
@@ -13777,7 +13826,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	if (!PWR_LED(ctrl))
  		return;
  
-@@ -496,9 +497,8 @@ void pciehp_green_led_blink(struct slot
+@@ -496,9 +497,8 @@ void pciehp_green_led_blink(struct slot *slot)
  		 PCI_EXP_SLTCTL_PWR_IND_BLINK);
  }
  
@@ -13788,7 +13837,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	struct pci_dev *pdev = ctrl_dev(ctrl);
  	u16 slot_status;
  	int retval;
-@@ -522,10 +522,8 @@ int pciehp_power_on_slot(struct slot *sl
+@@ -522,10 +522,8 @@ int pciehp_power_on_slot(struct slot *slot)
  	return retval;
  }
  
@@ -13800,7 +13849,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	pcie_write_cmd(ctrl, PCI_EXP_SLTCTL_PWR_OFF, PCI_EXP_SLTCTL_PCC);
  	ctrl_dbg(ctrl, "%s: SLOTCTRL %x write cmd %x\n", __func__,
  		 pci_pcie_cap(ctrl->pcie->port) + PCI_EXP_SLTCTL,
-@@ -540,9 +538,11 @@ static irqreturn_t pciehp_isr(int irq, v
+@@ -540,9 +538,11 @@ static irqreturn_t pciehp_isr(int irq, void *dev_id)
  	u16 status, events = 0;
  
  	/*
@@ -13814,7 +13863,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  		return IRQ_NONE;
  
  	/*
-@@ -637,7 +637,6 @@ static irqreturn_t pciehp_ist(int irq, v
+@@ -637,7 +637,6 @@ static irqreturn_t pciehp_ist(int irq, void *dev_id)
  {
  	struct controller *ctrl = (struct controller *)dev_id;
  	struct pci_dev *pdev = ctrl_dev(ctrl);
@@ -13822,7 +13871,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	irqreturn_t ret;
  	u32 events;
  
-@@ -662,16 +661,16 @@ static irqreturn_t pciehp_ist(int irq, v
+@@ -662,16 +661,16 @@ static irqreturn_t pciehp_ist(int irq, void *dev_id)
  	/* Check Attention Button Pressed */
  	if (events & PCI_EXP_SLTSTA_ABP) {
  		ctrl_info(ctrl, "Slot(%s): Attention button pressed\n",
@@ -13844,7 +13893,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	}
  
  	/*
-@@ -680,9 +679,9 @@ static irqreturn_t pciehp_ist(int irq, v
+@@ -680,9 +679,9 @@ static irqreturn_t pciehp_ist(int irq, void *dev_id)
  	 */
  	down_read(&ctrl->reset_lock);
  	if (events & DISABLE_SLOT)
@@ -13856,7 +13905,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	up_read(&ctrl->reset_lock);
  
  	ret = IRQ_HANDLED;
-@@ -771,6 +770,29 @@ void pcie_clear_hotplug_events(struct co
+@@ -771,6 +770,29 @@ void pcie_clear_hotplug_events(struct controller *ctrl)
  				   PCI_EXP_SLTSTA_PDC | PCI_EXP_SLTSTA_DLLSC);
  }
  
@@ -13886,7 +13935,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  /*
   * pciehp has a 1:1 bus:slot relationship so we ultimately want a secondary
   * bus reset of the bridge, but at the same time we want to ensure that it is
-@@ -779,9 +801,9 @@ void pcie_clear_hotplug_events(struct co
+@@ -779,9 +801,9 @@ void pcie_clear_hotplug_events(struct controller *ctrl)
   * momentarily, if we see that they could interfere. Also, clear any spurious
   * events after.
   */
@@ -13898,7 +13947,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	struct pci_dev *pdev = ctrl_dev(ctrl);
  	u16 stat_mask = 0, ctrl_mask = 0;
  	int rc;
-@@ -831,34 +853,6 @@ void pcie_shutdown_notification(struct c
+@@ -831,34 +853,6 @@ void pcie_shutdown_notification(struct controller *ctrl)
  	}
  }
  
@@ -13933,7 +13982,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  static inline void dbg_ctrl(struct controller *ctrl)
  {
  	struct pci_dev *pdev = ctrl->pcie->port;
-@@ -880,12 +874,13 @@ struct controller *pcie_init(struct pcie
+@@ -880,12 +874,13 @@ struct controller *pcie_init(struct pcie_device *dev)
  {
  	struct controller *ctrl;
  	u32 slot_cap, link_cap;
@@ -13949,7 +13998,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  
  	ctrl->pcie = dev;
  	pcie_capability_read_dword(pdev, PCI_EXP_SLTCAP, &slot_cap);
-@@ -902,15 +897,19 @@ struct controller *pcie_init(struct pcie
+@@ -902,15 +897,19 @@ struct controller *pcie_init(struct pcie_device *dev)
  
  	ctrl->slot_cap = slot_cap;
  	mutex_init(&ctrl->ctrl_lock);
@@ -13971,7 +14020,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  
  	/* Clear all remaining event bits in Slot Status register. */
  	pcie_capability_write_word(pdev, PCI_EXP_SLTSTA,
-@@ -932,33 +931,24 @@ struct controller *pcie_init(struct pcie
+@@ -932,33 +931,24 @@ struct controller *pcie_init(struct pcie_device *dev)
  		FLAG(link_cap, PCI_EXP_LNKCAP_DLLLARC),
  		pdev->broken_cmd_compl ? " (with Cmd Compl erratum)" : "");
  
@@ -14009,10 +14058,10 @@ Index: v4.19/drivers/pci/hotplug/pciehp_hpc.c
  	kfree(ctrl);
  }
  
-Index: v4.19/drivers/pci/hotplug/pciehp_pci.c
-===================================================================
---- v4.19.orig/drivers/pci/hotplug/pciehp_pci.c
-+++ v4.19/drivers/pci/hotplug/pciehp_pci.c
+diff --git a/drivers/pci/hotplug/pciehp_pci.c b/drivers/pci/hotplug/pciehp_pci.c
+index 5c58c22e0c08..b9c1396db6fe 100644
+--- a/drivers/pci/hotplug/pciehp_pci.c
++++ b/drivers/pci/hotplug/pciehp_pci.c
 @@ -13,20 +13,26 @@
   *
   */
@@ -14044,7 +14093,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_pci.c
  
  	pci_lock_rescan_remove();
  
-@@ -62,17 +68,28 @@ int pciehp_configure_device(struct slot
+@@ -62,17 +68,28 @@ int pciehp_configure_device(struct slot *p_slot)
  	return ret;
  }
  
@@ -14078,7 +14127,7 @@ Index: v4.19/drivers/pci/hotplug/pciehp_pci.c
  
  	pci_lock_rescan_remove();
  
-@@ -85,12 +102,6 @@ void pciehp_unconfigure_device(struct sl
+@@ -85,12 +102,6 @@ void pciehp_unconfigure_device(struct slot *p_slot)
  	list_for_each_entry_safe_reverse(dev, temp, &parent->devices,
  					 bus_list) {
  		pci_dev_get(dev);
@@ -14091,11 +14140,11 @@ Index: v4.19/drivers/pci/hotplug/pciehp_pci.c
  		pci_stop_and_remove_bus_device(dev);
  		/*
  		 * Ensure that no new Requests will be generated from
-Index: v4.19/drivers/pci/pci-acpi.c
-===================================================================
---- v4.19.orig/drivers/pci/pci-acpi.c
-+++ v4.19/drivers/pci/pci-acpi.c
-@@ -519,6 +519,46 @@ static pci_power_t acpi_pci_choose_state
+diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
+index 2c46f7dcd2f5..1516327a8459 100644
+--- a/drivers/pci/pci-acpi.c
++++ b/drivers/pci/pci-acpi.c
+@@ -519,6 +519,46 @@ static pci_power_t acpi_pci_choose_state(struct pci_dev *pdev)
  	return PCI_POWER_ERROR;
  }
  
@@ -14142,7 +14191,7 @@ Index: v4.19/drivers/pci/pci-acpi.c
  static bool acpi_pci_power_manageable(struct pci_dev *dev)
  {
  	struct acpi_device *adev = ACPI_COMPANION(&dev->dev);
-@@ -636,6 +676,7 @@ static bool acpi_pci_need_resume(struct
+@@ -636,6 +676,7 @@ static bool acpi_pci_need_resume(struct pci_dev *dev)
  }
  
  static const struct pci_platform_pm_ops acpi_pci_platform_pm = {
@@ -14150,11 +14199,11 @@ Index: v4.19/drivers/pci/pci-acpi.c
  	.is_manageable = acpi_pci_power_manageable,
  	.set_state = acpi_pci_set_power_state,
  	.get_state = acpi_pci_get_power_state,
-Index: v4.19/drivers/pci/pci-sysfs.c
-===================================================================
---- v4.19.orig/drivers/pci/pci-sysfs.c
-+++ v4.19/drivers/pci/pci-sysfs.c
-@@ -124,6 +124,17 @@ static ssize_t cpulistaffinity_show(stru
+diff --git a/drivers/pci/pci-sysfs.c b/drivers/pci/pci-sysfs.c
+index 1edf5a1836ea..ee1518650d55 100644
+--- a/drivers/pci/pci-sysfs.c
++++ b/drivers/pci/pci-sysfs.c
+@@ -124,6 +124,17 @@ static ssize_t cpulistaffinity_show(struct device *dev,
  }
  static DEVICE_ATTR_RO(cpulistaffinity);
  
@@ -14172,7 +14221,7 @@ Index: v4.19/drivers/pci/pci-sysfs.c
  /* show resources */
  static ssize_t resource_show(struct device *dev, struct device_attribute *attr,
  			     char *buf)
-@@ -745,6 +756,7 @@ static ssize_t driver_override_show(stru
+@@ -745,6 +756,7 @@ static ssize_t driver_override_show(struct device *dev,
  static DEVICE_ATTR_RW(driver_override);
  
  static struct attribute *pci_dev_attrs[] = {
@@ -14180,11 +14229,11 @@ Index: v4.19/drivers/pci/pci-sysfs.c
  	&dev_attr_resource.attr,
  	&dev_attr_vendor.attr,
  	&dev_attr_device.attr,
-Index: v4.19/drivers/pci/pci.c
-===================================================================
---- v4.19.orig/drivers/pci/pci.c
-+++ v4.19/drivers/pci/pci.c
-@@ -793,6 +793,11 @@ static inline bool platform_pci_need_res
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index cd628dd73719..34d287879c0a 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -793,6 +793,11 @@ static inline bool platform_pci_need_resume(struct pci_dev *dev)
  	return pci_platform_pm ? pci_platform_pm->need_resume(dev) : false;
  }
  
@@ -14196,7 +14245,31 @@ Index: v4.19/drivers/pci/pci.c
  /**
   * pci_raw_set_power_state - Use PCI PM registers to set the power state of
   *                           given PCI device
-@@ -2147,10 +2152,13 @@ static int __pci_enable_wake(struct pci_
+@@ -1585,20 +1590,10 @@ static int pci_enable_device_flags(struct pci_dev *dev, unsigned long flags)
+ 	int err;
+ 	int i, bars = 0;
+ 
+-	/*
+-	 * Power state could be unknown at this point, either due to a fresh
+-	 * boot or a device removal call.  So get the current power state
+-	 * so that things like MSI message writing will behave as expected
+-	 * (e.g. if the device really is in D0 at enable time).
+-	 */
+-	if (dev->pm_cap) {
+-		u16 pmcsr;
+-		pci_read_config_word(dev, dev->pm_cap + PCI_PM_CTRL, &pmcsr);
+-		dev->current_state = (pmcsr & PCI_PM_CTRL_STATE_MASK);
+-	}
+-
+-	if (atomic_inc_return(&dev->enable_cnt) > 1)
++	if (atomic_inc_return(&dev->enable_cnt) > 1) {
++		pci_update_current_state(dev, dev->current_state);
+ 		return 0;		/* already enabled */
++	}
+ 
+ 	bridge = pci_upstream_bridge(dev);
+ 	if (bridge)
+@@ -2151,10 +2146,13 @@ static int __pci_enable_wake(struct pci_dev *dev, pci_power_t state, bool enable
  	int ret = 0;
  
  	/*
@@ -14213,7 +14286,7 @@ Index: v4.19/drivers/pci/pci.c
  		return 0;
  
  	/* Don't do the same thing twice in a row for one device. */
-@@ -2522,6 +2530,32 @@ static const struct dmi_system_id bridge
+@@ -2515,6 +2513,32 @@ static const struct dmi_system_id bridge_d3_blacklist[] = {
  	{ }
  };
  
@@ -14246,7 +14319,7 @@ Index: v4.19/drivers/pci/pci.c
  /**
   * pci_bridge_d3_possible - Is it possible to put the bridge into D3
   * @bridge: Bridge to check
-@@ -2555,13 +2589,18 @@ bool pci_bridge_d3_possible(struct pci_d
+@@ -2548,13 +2572,18 @@ bool pci_bridge_d3_possible(struct pci_dev *bridge)
  		if (bridge->is_thunderbolt)
  			return true;
  
@@ -14267,7 +14340,7 @@ Index: v4.19/drivers/pci/pci.c
  
  		if (dmi_check_system(bridge_d3_blacklist))
  			return false;
-@@ -4543,21 +4582,42 @@ bool pcie_wait_for_link(struct pci_dev *
+@@ -4525,21 +4554,42 @@ bool pcie_wait_for_link(struct pci_dev *pdev, bool active)
  	bool ret;
  	u16 lnk_status;
  
@@ -14316,11 +14389,11 @@ Index: v4.19/drivers/pci/pci.c
  }
  
  void pci_reset_secondary_bus(struct pci_dev *dev)
-Index: v4.19/drivers/pci/pci.h
-===================================================================
---- v4.19.orig/drivers/pci/pci.h
-+++ v4.19/drivers/pci/pci.h
-@@ -40,6 +40,8 @@ int pci_bus_error_reset(struct pci_dev *
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index e9ede82ee2c2..0a5efc437bd1 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -40,6 +40,8 @@ int pci_bus_error_reset(struct pci_dev *dev);
  /**
   * struct pci_platform_pm_ops - Firmware PM callbacks
   *
@@ -14329,7 +14402,7 @@ Index: v4.19/drivers/pci/pci.h
   * @is_manageable: returns 'true' if given device is power manageable by the
   *		   platform firmware
   *
-@@ -61,6 +63,7 @@ int pci_bus_error_reset(struct pci_dev *
+@@ -61,6 +63,7 @@ int pci_bus_error_reset(struct pci_dev *dev);
   * these callbacks are mandatory.
   */
  struct pci_platform_pm_ops {
@@ -14337,11 +14410,11 @@ Index: v4.19/drivers/pci/pci.h
  	bool (*is_manageable)(struct pci_dev *dev);
  	int (*set_state)(struct pci_dev *dev, pci_power_t state);
  	pci_power_t (*get_state)(struct pci_dev *dev);
-Index: v4.19/drivers/pci/pcie/aspm.c
-===================================================================
---- v4.19.orig/drivers/pci/pcie/aspm.c
-+++ v4.19/drivers/pci/pcie/aspm.c
-@@ -907,7 +907,7 @@ void pcie_aspm_init_link_state(struct pc
+diff --git a/drivers/pci/pcie/aspm.c b/drivers/pci/pcie/aspm.c
+index cb474338f39d..18aa830e79e4 100644
+--- a/drivers/pci/pcie/aspm.c
++++ b/drivers/pci/pcie/aspm.c
+@@ -907,7 +907,7 @@ void pcie_aspm_init_link_state(struct pci_dev *pdev)
  	struct pcie_link_state *link;
  	int blacklist = !!pcie_aspm_sanity_check(pdev);
  
@@ -14350,11 +14423,11 @@ Index: v4.19/drivers/pci/pcie/aspm.c
  		return;
  
  	if (pdev->link_state)
-Index: v4.19/drivers/pci/pcie/dpc.c
-===================================================================
---- v4.19.orig/drivers/pci/pcie/dpc.c
-+++ v4.19/drivers/pci/pcie/dpc.c
-@@ -93,10 +93,12 @@ static pci_ers_result_t dpc_reset_link(s
+diff --git a/drivers/pci/pcie/dpc.c b/drivers/pci/pcie/dpc.c
+index 118b5bcae42e..87f8d8628d94 100644
+--- a/drivers/pci/pcie/dpc.c
++++ b/drivers/pci/pcie/dpc.c
+@@ -93,10 +93,12 @@ static pci_ers_result_t dpc_reset_link(struct pci_dev *pdev)
  	pci_write_config_word(pdev, cap + PCI_EXP_DPC_STATUS,
  			      PCI_EXP_DPC_STATUS_TRIGGER);
  
@@ -14368,11 +14441,11 @@ Index: v4.19/drivers/pci/pcie/dpc.c
  static void dpc_process_rp_pio_error(struct dpc_dev *dpc)
  {
  	struct device *dev = &dpc->dev->device;
-Index: v4.19/drivers/pci/pcie/err.c
-===================================================================
---- v4.19.orig/drivers/pci/pcie/err.c
-+++ v4.19/drivers/pci/pcie/err.c
-@@ -239,17 +239,13 @@ void pcie_do_fatal_recovery(struct pci_d
+diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
+index 2c3b5bd59b18..dee5a7507403 100644
+--- a/drivers/pci/pcie/err.c
++++ b/drivers/pci/pcie/err.c
+@@ -239,17 +239,13 @@ void pcie_do_fatal_recovery(struct pci_dev *dev, u32 service)
  		udev = dev->bus->self;
  
  	parent = udev->subordinate;
@@ -14392,10 +14465,10 @@ Index: v4.19/drivers/pci/pcie/err.c
  	}
  
  	result = reset_link(udev, service);
-Index: v4.19/drivers/pci/pcie/portdrv.h
-===================================================================
---- v4.19.orig/drivers/pci/pcie/portdrv.h
-+++ v4.19/drivers/pci/pcie/portdrv.h
+diff --git a/drivers/pci/pcie/portdrv.h b/drivers/pci/pcie/portdrv.h
+index 2498b2d34009..abfdc2ae7979 100644
+--- a/drivers/pci/pcie/portdrv.h
++++ b/drivers/pci/pcie/portdrv.h
 @@ -76,6 +76,8 @@ struct pcie_port_service_driver {
  	int (*suspend) (struct pcie_device *dev);
  	int (*resume_noirq) (struct pcie_device *dev);
@@ -14405,7 +14478,7 @@ Index: v4.19/drivers/pci/pcie/portdrv.h
  
  	/* Device driver may resume normal operations */
  	void (*error_resume)(struct pci_dev *dev);
-@@ -109,6 +111,8 @@ int pcie_port_device_register(struct pci
+@@ -109,6 +111,8 @@ int pcie_port_device_register(struct pci_dev *dev);
  int pcie_port_device_suspend(struct device *dev);
  int pcie_port_device_resume_noirq(struct device *dev);
  int pcie_port_device_resume(struct device *dev);
@@ -14414,11 +14487,11 @@ Index: v4.19/drivers/pci/pcie/portdrv.h
  #endif
  void pcie_port_device_remove(struct pci_dev *dev);
  int __must_check pcie_port_bus_register(void);
-Index: v4.19/drivers/pci/pcie/portdrv_core.c
-===================================================================
---- v4.19.orig/drivers/pci/pcie/portdrv_core.c
-+++ v4.19/drivers/pci/pcie/portdrv_core.c
-@@ -395,6 +395,26 @@ int pcie_port_device_resume(struct devic
+diff --git a/drivers/pci/pcie/portdrv_core.c b/drivers/pci/pcie/portdrv_core.c
+index 7c37d815229e..6542c48c7f59 100644
+--- a/drivers/pci/pcie/portdrv_core.c
++++ b/drivers/pci/pcie/portdrv_core.c
+@@ -395,6 +395,26 @@ int pcie_port_device_resume(struct device *dev)
  	size_t off = offsetof(struct pcie_port_service_driver, resume);
  	return device_for_each_child(dev, &off, pm_iter);
  }
@@ -14445,10 +14518,10 @@ Index: v4.19/drivers/pci/pcie/portdrv_core.c
  #endif /* PM */
  
  static int remove_iter(struct device *dev, void *data)
-Index: v4.19/drivers/pci/pcie/portdrv_pci.c
-===================================================================
---- v4.19.orig/drivers/pci/pcie/portdrv_pci.c
-+++ v4.19/drivers/pci/pcie/portdrv_pci.c
+diff --git a/drivers/pci/pcie/portdrv_pci.c b/drivers/pci/pcie/portdrv_pci.c
+index 23a5a0c2c3fe..59d2567e2db2 100644
+--- a/drivers/pci/pcie/portdrv_pci.c
++++ b/drivers/pci/pcie/portdrv_pci.c
 @@ -45,12 +45,10 @@ __setup("pcie_ports=", pcie_port_setup);
  #ifdef CONFIG_PM
  static int pcie_port_runtime_suspend(struct device *dev)
@@ -14465,7 +14538,7 @@ Index: v4.19/drivers/pci/pcie/portdrv_pci.c
  }
  
  static int pcie_port_runtime_idle(struct device *dev)
-@@ -73,7 +71,7 @@ static const struct dev_pm_ops pcie_port
+@@ -73,7 +71,7 @@ static const struct dev_pm_ops pcie_portdrv_pm_ops = {
  	.restore_noirq	= pcie_port_device_resume_noirq,
  	.restore	= pcie_port_device_resume,
  	.runtime_suspend = pcie_port_runtime_suspend,
@@ -14474,7 +14547,7 @@ Index: v4.19/drivers/pci/pcie/portdrv_pci.c
  	.runtime_idle	= pcie_port_runtime_idle,
  };
  
-@@ -109,8 +107,8 @@ static int pcie_portdrv_probe(struct pci
+@@ -109,8 +107,8 @@ static int pcie_portdrv_probe(struct pci_dev *dev,
  
  	pci_save_state(dev);
  
@@ -14485,11 +14558,11 @@ Index: v4.19/drivers/pci/pcie/portdrv_pci.c
  
  	if (pci_bridge_d3_possible(dev)) {
  		/*
-Index: v4.19/drivers/pci/probe.c
-===================================================================
---- v4.19.orig/drivers/pci/probe.c
-+++ v4.19/drivers/pci/probe.c
-@@ -769,6 +769,7 @@ static void pci_set_bus_speed(struct pci
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 9a5b6a8e2502..6fc19c35582f 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -769,6 +769,7 @@ static void pci_set_bus_speed(struct pci_bus *bus)
  
  		pcie_capability_read_dword(bridge, PCI_EXP_LNKCAP, &linkcap);
  		bus->max_bus_speed = pcie_link_speed[linkcap & PCI_EXP_LNKCAP_SLS];
@@ -14497,10 +14570,10 @@ Index: v4.19/drivers/pci/probe.c
  
  		pcie_capability_read_word(bridge, PCI_EXP_LNKSTA, &linksta);
  		pcie_update_link_speed(bus, linksta);
-Index: v4.19/drivers/platform/x86/Kconfig
-===================================================================
---- v4.19.orig/drivers/platform/x86/Kconfig
-+++ v4.19/drivers/platform/x86/Kconfig
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index 3c1e0494bd20..d4b4e3d74b36 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
 @@ -708,6 +708,25 @@ config ACPI_WMI
  	  It is safe to enable this driver even if your DSDT doesn't define
  	  any ACPI-WMI devices.
@@ -14667,11 +14740,11 @@ Index: v4.19/drivers/platform/x86/Kconfig
  endif # X86_PLATFORM_DEVICES
  
  config PMC_ATOM
-Index: v4.19/drivers/platform/x86/Makefile
-===================================================================
---- v4.19.orig/drivers/platform/x86/Makefile
-+++ v4.19/drivers/platform/x86/Makefile
-@@ -80,8 +80,18 @@ obj-$(CONFIG_PVPANIC)           += pvpan
+diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
+index e81e292403a8..a7aa295428f5 100644
+--- a/drivers/platform/x86/Makefile
++++ b/drivers/platform/x86/Makefile
+@@ -80,8 +80,18 @@ obj-$(CONFIG_PVPANIC)           += pvpanic.o
  obj-$(CONFIG_ALIENWARE_WMI)	+= alienware-wmi.o
  obj-$(CONFIG_INTEL_PMC_IPC)	+= intel_pmc_ipc.o
  obj-$(CONFIG_TOUCHSCREEN_DMI)	+= touchscreen_dmi.o
@@ -14690,10 +14763,11 @@ Index: v4.19/drivers/platform/x86/Makefile
  obj-$(CONFIG_INTEL_PUNIT_IPC)  += intel_punit_ipc.o
  obj-$(CONFIG_INTEL_BXTWC_PMIC_TMU)	+= intel_bxtwc_tmu.o
  obj-$(CONFIG_INTEL_TELEMETRY)	+= intel_telemetry_core.o \
-Index: v4.19/drivers/platform/x86/sb1_dgpu_sw.c
-===================================================================
+diff --git a/drivers/platform/x86/sb1_dgpu_sw.c b/drivers/platform/x86/sb1_dgpu_sw.c
+new file mode 100644
+index 000000000000..8c66ed5110fd
 --- /dev/null
-+++ v4.19/drivers/platform/x86/sb1_dgpu_sw.c
++++ b/drivers/platform/x86/sb1_dgpu_sw.c
 @@ -0,0 +1,162 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +
@@ -14857,11 +14931,11 @@ Index: v4.19/drivers/platform/x86/sb1_dgpu_sw.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Discrete GPU Power-Switch for Surface Book 1");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surface3-wmi.c
-===================================================================
---- v4.19.orig/drivers/platform/x86/surface3-wmi.c
-+++ v4.19/drivers/platform/x86/surface3-wmi.c
-@@ -41,6 +41,13 @@ static const struct dmi_system_id surfac
+diff --git a/drivers/platform/x86/surface3-wmi.c b/drivers/platform/x86/surface3-wmi.c
+index 25b176996cb7..58d11877677f 100644
+--- a/drivers/platform/x86/surface3-wmi.c
++++ b/drivers/platform/x86/surface3-wmi.c
+@@ -41,6 +41,13 @@ static const struct dmi_system_id surface3_dmi_table[] = {
  			DMI_MATCH(DMI_PRODUCT_NAME, "Surface 3"),
  		},
  	},
@@ -14875,10 +14949,11 @@ Index: v4.19/drivers/platform/x86/surface3-wmi.c
  #endif
  	{ }
  };
-Index: v4.19/drivers/platform/x86/surface3_power.c
-===================================================================
+diff --git a/drivers/platform/x86/surface3_power.c b/drivers/platform/x86/surface3_power.c
+new file mode 100644
+index 000000000000..e0af01a60302
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface3_power.c
++++ b/drivers/platform/x86/surface3_power.c
 @@ -0,0 +1,604 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +
@@ -15484,10 +15559,11 @@ Index: v4.19/drivers/platform/x86/surface3_power.c
 +MODULE_AUTHOR("Benjamin Tissoires <benjamin.tissoires@gmail.com>");
 +MODULE_DESCRIPTION("mshw0011 driver");
 +MODULE_LICENSE("GPL v2");
-Index: v4.19/drivers/platform/x86/surface_acpi_notify.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_acpi_notify.c b/drivers/platform/x86/surface_acpi_notify.c
+new file mode 100644
+index 000000000000..ef9c1f8e8336
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_acpi_notify.c
++++ b/drivers/platform/x86/surface_acpi_notify.c
 @@ -0,0 +1,886 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -16375,10 +16451,11 @@ Index: v4.19/drivers/platform/x86/surface_acpi_notify.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Surface ACPI Notify driver for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surface_aggregator/Kconfig
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/Kconfig b/drivers/platform/x86/surface_aggregator/Kconfig
+new file mode 100644
+index 000000000000..44c2493706bc
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/Kconfig
++++ b/drivers/platform/x86/surface_aggregator/Kconfig
 @@ -0,0 +1,69 @@
 +# SPDX-License-Identifier: GPL-2.0+
 +# Copyright (C) 2019-2020 Maximilian Luz <luzmaximilian@gmail.com>
@@ -16449,10 +16526,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/Kconfig
 +	  transport and communication problems, such as invalid data sent to or
 +	  received from the EC, dropped data, and communication timeouts.
 +	  Intended for development and debugging.
-Index: v4.19/drivers/platform/x86/surface_aggregator/Makefile
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/Makefile b/drivers/platform/x86/surface_aggregator/Makefile
+new file mode 100644
+index 000000000000..c112e2c7112b
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/Makefile
++++ b/drivers/platform/x86/surface_aggregator/Makefile
 @@ -0,0 +1,17 @@
 +# SPDX-License-Identifier: GPL-2.0+
 +# Copyright (C) 2019-2020 Maximilian Luz <luzmaximilian@gmail.com>
@@ -16471,10 +16549,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/Makefile
 +ifeq ($(CONFIG_SURFACE_AGGREGATOR_BUS),y)
 +surface_aggregator-objs += bus.o
 +endif
-Index: v4.19/drivers/platform/x86/surface_aggregator/bus.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/bus.c b/drivers/platform/x86/surface_aggregator/bus.c
+new file mode 100644
+index 000000000000..b77927b278ca
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/bus.c
++++ b/drivers/platform/x86/surface_aggregator/bus.c
 @@ -0,0 +1,415 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -16891,10 +16970,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/bus.c
 +{
 +	return bus_unregister(&ssam_bus_type);
 +}
-Index: v4.19/drivers/platform/x86/surface_aggregator/bus.h
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/bus.h b/drivers/platform/x86/surface_aggregator/bus.h
+new file mode 100644
+index 000000000000..7712baaed6a5
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/bus.h
++++ b/drivers/platform/x86/surface_aggregator/bus.h
 @@ -0,0 +1,27 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -16923,10 +17003,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/bus.h
 +
 +#endif /* CONFIG_SURFACE_AGGREGATOR_BUS */
 +#endif /* _SURFACE_AGGREGATOR_BUS_H */
-Index: v4.19/drivers/platform/x86/surface_aggregator/controller.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/controller.c b/drivers/platform/x86/surface_aggregator/controller.c
+new file mode 100644
+index 000000000000..dd1f0ed9481c
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/controller.c
++++ b/drivers/platform/x86/surface_aggregator/controller.c
 @@ -0,0 +1,2570 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -19498,10 +19579,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/controller.c
 +	}
 +	disable_irq(ctrl->irq.num);
 +}
-Index: v4.19/drivers/platform/x86/surface_aggregator/controller.h
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/controller.h b/drivers/platform/x86/surface_aggregator/controller.h
+new file mode 100644
+index 000000000000..8297d34e7489
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/controller.h
++++ b/drivers/platform/x86/surface_aggregator/controller.h
 @@ -0,0 +1,285 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -19788,10 +19870,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/controller.h
 +void ssam_event_item_cache_destroy(void);
 +
 +#endif /* _SURFACE_AGGREGATOR_CONTROLLER_H */
-Index: v4.19/drivers/platform/x86/surface_aggregator/core.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/core.c b/drivers/platform/x86/surface_aggregator/core.c
+new file mode 100644
+index 000000000000..1b35f3e284da
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/core.c
++++ b/drivers/platform/x86/surface_aggregator/core.c
 @@ -0,0 +1,850 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -20643,10 +20726,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/core.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Subsystem and Surface Serial Hub driver for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_msgb.h
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/ssh_msgb.h b/drivers/platform/x86/surface_aggregator/ssh_msgb.h
+new file mode 100644
+index 000000000000..1221f642dda1
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/ssh_msgb.h
++++ b/drivers/platform/x86/surface_aggregator/ssh_msgb.h
 @@ -0,0 +1,205 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -20853,10 +20937,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_msgb.h
 +}
 +
 +#endif /* _SURFACE_AGGREGATOR_SSH_MSGB_H */
-Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_packet_layer.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/ssh_packet_layer.c b/drivers/platform/x86/surface_aggregator/ssh_packet_layer.c
+new file mode 100644
+index 000000000000..d4a82b42a881
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/ssh_packet_layer.c
++++ b/drivers/platform/x86/surface_aggregator/ssh_packet_layer.c
 @@ -0,0 +1,2074 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -22932,10 +23017,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_packet_layer.c
 +	kfifo_free(&ptl->rx.fifo);
 +	sshp_buf_free(&ptl->rx.buf);
 +}
-Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_packet_layer.h
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/ssh_packet_layer.h b/drivers/platform/x86/surface_aggregator/ssh_packet_layer.h
+new file mode 100644
+index 000000000000..e8757d03f279
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/ssh_packet_layer.h
++++ b/drivers/platform/x86/surface_aggregator/ssh_packet_layer.h
 @@ -0,0 +1,190 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -23127,10 +23213,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_packet_layer.h
 +void ssh_ctrl_packet_cache_destroy(void);
 +
 +#endif /* _SURFACE_AGGREGATOR_SSH_PACKET_LAYER_H */
-Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_parser.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/ssh_parser.c b/drivers/platform/x86/surface_aggregator/ssh_parser.c
+new file mode 100644
+index 000000000000..e2dead8de94a
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/ssh_parser.c
++++ b/drivers/platform/x86/surface_aggregator/ssh_parser.c
 @@ -0,0 +1,228 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -23360,10 +23447,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_parser.c
 +
 +	return 0;
 +}
-Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_parser.h
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/ssh_parser.h b/drivers/platform/x86/surface_aggregator/ssh_parser.h
+new file mode 100644
+index 000000000000..63c38d350988
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/ssh_parser.h
++++ b/drivers/platform/x86/surface_aggregator/ssh_parser.h
 @@ -0,0 +1,154 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -23519,10 +23607,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_parser.h
 +		       struct ssam_span *command_data);
 +
 +#endif /* _SURFACE_AGGREGATOR_SSH_PARSER_h */
-Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_request_layer.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/ssh_request_layer.c b/drivers/platform/x86/surface_aggregator/ssh_request_layer.c
+new file mode 100644
+index 000000000000..52a83a8fcf82
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/ssh_request_layer.c
++++ b/drivers/platform/x86/surface_aggregator/ssh_request_layer.c
 @@ -0,0 +1,1263 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -24787,10 +24876,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_request_layer.c
 +		ssh_request_put(r);
 +	}
 +}
-Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_request_layer.h
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/ssh_request_layer.h b/drivers/platform/x86/surface_aggregator/ssh_request_layer.h
+new file mode 100644
+index 000000000000..cb35815858d1
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/ssh_request_layer.h
++++ b/drivers/platform/x86/surface_aggregator/ssh_request_layer.h
 @@ -0,0 +1,143 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -24935,10 +25025,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/ssh_request_layer.h
 +		     const struct ssh_request_ops *ops);
 +
 +#endif /* _SURFACE_AGGREGATOR_SSH_REQUEST_LAYER_H */
-Index: v4.19/drivers/platform/x86/surface_aggregator/trace.h
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator/trace.h b/drivers/platform/x86/surface_aggregator/trace.h
+new file mode 100644
+index 000000000000..eb332bb53ae4
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator/trace.h
++++ b/drivers/platform/x86/surface_aggregator/trace.h
 @@ -0,0 +1,632 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -25572,10 +25663,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator/trace.h
 +#define TRACE_INCLUDE_FILE trace
 +
 +#include <trace/define_trace.h>
-Index: v4.19/drivers/platform/x86/surface_aggregator_cdev.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator_cdev.c b/drivers/platform/x86/surface_aggregator_cdev.c
+new file mode 100644
+index 000000000000..cad859e1402d
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator_cdev.c
++++ b/drivers/platform/x86/surface_aggregator_cdev.c
 @@ -0,0 +1,322 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -25899,10 +25991,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator_cdev.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("User-space interface for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surface_aggregator_registry.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_aggregator_registry.c b/drivers/platform/x86/surface_aggregator_registry.c
+new file mode 100644
+index 000000000000..1b87bdd6dd1e
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_aggregator_registry.c
++++ b/drivers/platform/x86/surface_aggregator_registry.c
 @@ -0,0 +1,618 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -26522,10 +26615,11 @@ Index: v4.19/drivers/platform/x86/surface_aggregator_registry.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Device-registry for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surface_dtx.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_dtx.c b/drivers/platform/x86/surface_dtx.c
+new file mode 100644
+index 000000000000..f6abd2d850a3
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_dtx.c
++++ b/drivers/platform/x86/surface_dtx.c
 @@ -0,0 +1,1287 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -27814,10 +27908,11 @@ Index: v4.19/drivers/platform/x86/surface_dtx.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Detachment-system driver for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surface_gpe.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_gpe.c b/drivers/platform/x86/surface_gpe.c
+new file mode 100644
+index 000000000000..7eaaeacbf408
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_gpe.c
++++ b/drivers/platform/x86/surface_gpe.c
 @@ -0,0 +1,313 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
@@ -28132,10 +28227,11 @@ Index: v4.19/drivers/platform/x86/surface_gpe.c
 +MODULE_ALIAS("dmi:*:svnMicrosoftCorporation:pnSurfaceLaptop:*");
 +MODULE_ALIAS("dmi:*:svnMicrosoftCorporation:pnSurfaceLaptop2:*");
 +MODULE_ALIAS("dmi:*:svnMicrosoftCorporation:pnSurfaceLaptop3:*");
-Index: v4.19/drivers/platform/x86/surface_hotplug.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_hotplug.c b/drivers/platform/x86/surface_hotplug.c
+new file mode 100644
+index 000000000000..cfcc15cfbacb
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_hotplug.c
++++ b/drivers/platform/x86/surface_hotplug.c
 @@ -0,0 +1,282 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -28419,10 +28515,11 @@ Index: v4.19/drivers/platform/x86/surface_hotplug.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Surface Hot-Plug Signaling Driver for Surface Book Devices");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surface_perfmode.c
-===================================================================
+diff --git a/drivers/platform/x86/surface_perfmode.c b/drivers/platform/x86/surface_perfmode.c
+new file mode 100644
+index 000000000000..3b92a43f8606
 --- /dev/null
-+++ v4.19/drivers/platform/x86/surface_perfmode.c
++++ b/drivers/platform/x86/surface_perfmode.c
 @@ -0,0 +1,122 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -28546,10 +28643,10 @@ Index: v4.19/drivers/platform/x86/surface_perfmode.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Performance mode interface for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/platform/x86/surfacepro3_button.c
-===================================================================
---- v4.19.orig/drivers/platform/x86/surfacepro3_button.c
-+++ v4.19/drivers/platform/x86/surfacepro3_button.c
+diff --git a/drivers/platform/x86/surfacepro3_button.c b/drivers/platform/x86/surfacepro3_button.c
+index 1b491690ce07..96627627060e 100644
+--- a/drivers/platform/x86/surfacepro3_button.c
++++ b/drivers/platform/x86/surfacepro3_button.c
 @@ -24,6 +24,12 @@
  #define SURFACE_BUTTON_OBJ_NAME		"VGBI"
  #define SURFACE_BUTTON_DEVICE_NAME	"Surface Pro 3/4 Buttons"
@@ -28563,7 +28660,7 @@ Index: v4.19/drivers/platform/x86/surfacepro3_button.c
  #define SURFACE_BUTTON_NOTIFY_TABLET_MODE	0xc8
  
  #define SURFACE_BUTTON_NOTIFY_PRESS_POWER	0xc6
-@@ -146,6 +152,44 @@ static int surface_button_resume(struct
+@@ -146,6 +152,44 @@ static int surface_button_resume(struct device *dev)
  }
  #endif
  
@@ -28608,7 +28705,7 @@ Index: v4.19/drivers/platform/x86/surfacepro3_button.c
  static int surface_button_add(struct acpi_device *device)
  {
  	struct surface_button *button;
-@@ -158,6 +202,9 @@ static int surface_button_add(struct acp
+@@ -158,6 +202,9 @@ static int surface_button_add(struct acpi_device *device)
  	    strlen(SURFACE_BUTTON_OBJ_NAME)))
  		return -ENODEV;
  
@@ -28618,11 +28715,11 @@ Index: v4.19/drivers/platform/x86/surfacepro3_button.c
  	button = kzalloc(sizeof(struct surface_button), GFP_KERNEL);
  	if (!button)
  		return -ENOMEM;
-Index: v4.19/drivers/power/supply/Kconfig
-===================================================================
---- v4.19.orig/drivers/power/supply/Kconfig
-+++ v4.19/drivers/power/supply/Kconfig
-@@ -671,4 +671,36 @@ config CHARGER_WILCO
+diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
+index 8e74c42d5eac..d9a2777cdbe2 100644
+--- a/drivers/power/supply/Kconfig
++++ b/drivers/power/supply/Kconfig
+@@ -670,4 +670,36 @@ config CHARGER_WILCO
  	  information can be found in
  	  Documentation/ABI/testing/sysfs-class-power-wilco
  
@@ -28659,20 +28756,21 @@ Index: v4.19/drivers/power/supply/Kconfig
 +	  Surface Book 3, and Surface Laptop Go.
 +
  endif # POWER_SUPPLY
-Index: v4.19/drivers/power/supply/Makefile
-===================================================================
---- v4.19.orig/drivers/power/supply/Makefile
-+++ v4.19/drivers/power/supply/Makefile
-@@ -88,3 +88,5 @@ obj-$(CONFIG_CHARGER_CROS_USBPD)	+= cros
+diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
+index 2b603a142701..2cfb92f3056e 100644
+--- a/drivers/power/supply/Makefile
++++ b/drivers/power/supply/Makefile
+@@ -88,3 +88,5 @@ obj-$(CONFIG_CHARGER_CROS_USBPD)	+= cros_usbpd-charger.o
  obj-$(CONFIG_CHARGER_SC2731)	+= sc2731_charger.o
  obj-$(CONFIG_FUEL_GAUGE_SC27XX)	+= sc27xx_fuel_gauge.o
  obj-$(CONFIG_CHARGER_WILCO)	+= wilco-charger.o
 +obj-$(CONFIG_BATTERY_SURFACE)  += surface_battery.o
 +obj-$(CONFIG_CHARGER_SURFACE)  += surface_charger.o
-Index: v4.19/drivers/power/supply/surface_battery.c
-===================================================================
+diff --git a/drivers/power/supply/surface_battery.c b/drivers/power/supply/surface_battery.c
+new file mode 100644
+index 000000000000..1e48b2363f23
 --- /dev/null
-+++ v4.19/drivers/power/supply/surface_battery.c
++++ b/drivers/power/supply/surface_battery.c
 @@ -0,0 +1,816 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -29490,10 +29588,11 @@ Index: v4.19/drivers/power/supply/surface_battery.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("Battery driver for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/power/supply/surface_charger.c
-===================================================================
+diff --git a/drivers/power/supply/surface_charger.c b/drivers/power/supply/surface_charger.c
+new file mode 100644
+index 000000000000..560da0c301c1
 --- /dev/null
-+++ v4.19/drivers/power/supply/surface_charger.c
++++ b/drivers/power/supply/surface_charger.c
 @@ -0,0 +1,282 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
@@ -29777,11 +29876,11 @@ Index: v4.19/drivers/power/supply/surface_charger.c
 +MODULE_AUTHOR("Maximilian Luz <luzmaximilian@gmail.com>");
 +MODULE_DESCRIPTION("AC driver for Surface System Aggregator Module");
 +MODULE_LICENSE("GPL");
-Index: v4.19/drivers/tty/serdev/core.c
-===================================================================
---- v4.19.orig/drivers/tty/serdev/core.c
-+++ v4.19/drivers/tty/serdev/core.c
-@@ -496,16 +496,97 @@ static int of_serdev_register_devices(st
+diff --git a/drivers/tty/serdev/core.c b/drivers/tty/serdev/core.c
+index c66a04d24f1d..1b18d12d217f 100644
+--- a/drivers/tty/serdev/core.c
++++ b/drivers/tty/serdev/core.c
+@@ -496,16 +496,97 @@ static int of_serdev_register_devices(struct serdev_controller *ctrl)
  }
  
  #ifdef CONFIG_ACPI
@@ -29885,7 +29984,7 @@ Index: v4.19/drivers/tty/serdev/core.c
  	serdev = serdev_device_alloc(ctrl);
  	if (!serdev) {
  		dev_err(&ctrl->dev, "failed to allocate serdev device for %s\n",
-@@ -533,7 +614,7 @@ static const struct acpi_device_id serde
+@@ -533,7 +614,7 @@ static const struct acpi_device_id serdev_acpi_devices_blacklist[] = {
  };
  
  static acpi_status acpi_serdev_add_device(acpi_handle handle, u32 level,
@@ -29894,7 +29993,7 @@ Index: v4.19/drivers/tty/serdev/core.c
  {
  	struct serdev_controller *ctrl = data;
  	struct acpi_device *adev;
-@@ -541,26 +622,32 @@ static acpi_status acpi_serdev_add_devic
+@@ -541,26 +622,32 @@ static acpi_status acpi_serdev_add_device(acpi_handle handle, u32 level,
  	if (acpi_bus_get_device(handle, &adev))
  		return AE_OK;
  
@@ -29932,11 +30031,11 @@ Index: v4.19/drivers/tty/serdev/core.c
  
  	if (!ctrl->serdev)
  		return -ENODEV;
-Index: v4.19/include/acpi/acpi_bus.h
-===================================================================
---- v4.19.orig/include/acpi/acpi_bus.h
-+++ v4.19/include/acpi/acpi_bus.h
-@@ -350,10 +350,16 @@ struct acpi_device_physical_node {
+diff --git a/include/acpi/acpi_bus.h b/include/acpi/acpi_bus.h
+index 5f3a8f6f2cd7..addaa1bada11 100644
+--- a/include/acpi/acpi_bus.h
++++ b/include/acpi/acpi_bus.h
+@@ -349,10 +349,16 @@ struct acpi_device_physical_node {
  	bool put_online:1;
  };
  
@@ -29954,11 +30053,11 @@ Index: v4.19/include/acpi/acpi_bus.h
  	const union acpi_object *of_compatible;
  	struct list_head subnodes;
  };
-Index: v4.19/include/linux/acpi.h
-===================================================================
---- v4.19.orig/include/linux/acpi.h
-+++ v4.19/include/linux/acpi.h
-@@ -1096,6 +1096,15 @@ static inline int acpi_node_get_property
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 7f90be019424..47a56a3886ab 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -1082,6 +1082,15 @@ static inline int acpi_node_get_property_reference(
  		NR_FWNODE_REFERENCE_ARGS, args);
  }
  
@@ -29974,10 +30073,11 @@ Index: v4.19/include/linux/acpi.h
  int acpi_node_prop_get(const struct fwnode_handle *fwnode, const char *propname,
  		       void **valptr);
  int acpi_dev_prop_read_single(struct acpi_device *adev,
-Index: v4.19/include/linux/ipts-binary.h
-===================================================================
+diff --git a/include/linux/ipts-binary.h b/include/linux/ipts-binary.h
+new file mode 100644
+index 000000000000..98b54d74ff88
 --- /dev/null
-+++ v4.19/include/linux/ipts-binary.h
++++ b/include/linux/ipts-binary.h
 @@ -0,0 +1,140 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -30119,10 +30219,11 @@ Index: v4.19/include/linux/ipts-binary.h
 +#pragma pack()
 +
 +#endif // IPTS_BINARY_H
-Index: v4.19/include/linux/ipts-companion.h
-===================================================================
+diff --git a/include/linux/ipts-companion.h b/include/linux/ipts-companion.h
+new file mode 100644
+index 000000000000..de31f5e0b186
 --- /dev/null
-+++ v4.19/include/linux/ipts-companion.h
++++ b/include/linux/ipts-companion.h
 @@ -0,0 +1,29 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -30153,10 +30254,11 @@ Index: v4.19/include/linux/ipts-companion.h
 +int ipts_remove_companion(struct ipts_companion *companion);
 +
 +#endif // IPTS_COMPANION_H
-Index: v4.19/include/linux/ipts-gfx.h
-===================================================================
+diff --git a/include/linux/ipts-gfx.h b/include/linux/ipts-gfx.h
+new file mode 100644
+index 000000000000..cb9d98fe96e4
 --- /dev/null
-+++ v4.19/include/linux/ipts-gfx.h
++++ b/include/linux/ipts-gfx.h
 @@ -0,0 +1,86 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -30244,10 +30346,11 @@ Index: v4.19/include/linux/ipts-gfx.h
 +void ipts_disconnect(uint64_t gfx_handle);
 +
 +#endif // IPTS_GFX_H
-Index: v4.19/include/linux/ipts.h
-===================================================================
+diff --git a/include/linux/ipts.h b/include/linux/ipts.h
+new file mode 100644
+index 000000000000..f229a3436851
 --- /dev/null
-+++ v4.19/include/linux/ipts.h
++++ b/include/linux/ipts.h
 @@ -0,0 +1,19 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
@@ -30268,10 +30371,10 @@ Index: v4.19/include/linux/ipts.h
 +#define IPTS_QUIRK_NONE        0
 +
 +#endif // IPTS_H
-Index: v4.19/include/linux/mod_devicetable.h
-===================================================================
---- v4.19.orig/include/linux/mod_devicetable.h
-+++ v4.19/include/linux/mod_devicetable.h
+diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+index 610cdf8082f2..2c8dd2abbd04 100644
+--- a/include/linux/mod_devicetable.h
++++ b/include/linux/mod_devicetable.h
 @@ -768,4 +768,22 @@ struct typec_device_id {
  	kernel_ulong_t driver_data;
  };
@@ -30295,10 +30398,10 @@ Index: v4.19/include/linux/mod_devicetable.h
 +};
 +
  #endif /* LINUX_MOD_DEVICETABLE_H */
-Index: v4.19/include/linux/pci.h
-===================================================================
---- v4.19.orig/include/linux/pci.h
-+++ v4.19/include/linux/pci.h
+diff --git a/include/linux/pci.h b/include/linux/pci.h
+index ec6c48ecd7d5..74c8e9190fed 100644
+--- a/include/linux/pci.h
++++ b/include/linux/pci.h
 @@ -407,6 +407,7 @@ struct pci_dev {
  	unsigned int	has_secondary_link:1;
  	unsigned int	non_compliant_bars:1;	/* Broken BARs; ignore them */
@@ -30307,10 +30410,11 @@ Index: v4.19/include/linux/pci.h
  	pci_dev_flags_t dev_flags;
  	atomic_t	enable_cnt;	/* pci_enable_device has been called */
  
-Index: v4.19/include/linux/surface_acpi_notify.h
-===================================================================
+diff --git a/include/linux/surface_acpi_notify.h b/include/linux/surface_acpi_notify.h
+new file mode 100644
+index 000000000000..8e3e86c7d78c
 --- /dev/null
-+++ v4.19/include/linux/surface_acpi_notify.h
++++ b/include/linux/surface_acpi_notify.h
 @@ -0,0 +1,39 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -30351,10 +30455,11 @@ Index: v4.19/include/linux/surface_acpi_notify.h
 +int san_dgpu_notifier_unregister(struct notifier_block *nb);
 +
 +#endif /* _LINUX_SURFACE_ACPI_NOTIFY_H */
-Index: v4.19/include/linux/surface_aggregator/controller.h
-===================================================================
+diff --git a/include/linux/surface_aggregator/controller.h b/include/linux/surface_aggregator/controller.h
+new file mode 100644
+index 000000000000..f4b1ba887384
 --- /dev/null
-+++ v4.19/include/linux/surface_aggregator/controller.h
++++ b/include/linux/surface_aggregator/controller.h
 @@ -0,0 +1,824 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -31180,10 +31285,11 @@ Index: v4.19/include/linux/surface_aggregator/controller.h
 +			     struct ssam_event_notifier *n);
 +
 +#endif /* _LINUX_SURFACE_AGGREGATOR_CONTROLLER_H */
-Index: v4.19/include/linux/surface_aggregator/device.h
-===================================================================
+diff --git a/include/linux/surface_aggregator/device.h b/include/linux/surface_aggregator/device.h
+new file mode 100644
+index 000000000000..02f3e06c0a60
 --- /dev/null
-+++ v4.19/include/linux/surface_aggregator/device.h
++++ b/include/linux/surface_aggregator/device.h
 @@ -0,0 +1,423 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -31608,10 +31714,11 @@ Index: v4.19/include/linux/surface_aggregator/device.h
 +	}
 +
 +#endif /* _LINUX_SURFACE_AGGREGATOR_DEVICE_H */
-Index: v4.19/include/linux/surface_aggregator/serial_hub.h
-===================================================================
+diff --git a/include/linux/surface_aggregator/serial_hub.h b/include/linux/surface_aggregator/serial_hub.h
+new file mode 100644
+index 000000000000..c78ab6e472c8
 --- /dev/null
-+++ v4.19/include/linux/surface_aggregator/serial_hub.h
++++ b/include/linux/surface_aggregator/serial_hub.h
 @@ -0,0 +1,668 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
@@ -32281,10 +32388,11 @@ Index: v4.19/include/linux/surface_aggregator/serial_hub.h
 +}
 +
 +#endif /* _LINUX_SURFACE_AGGREGATOR_SERIAL_HUB_H */
-Index: v4.19/include/uapi/linux/surface_aggregator/cdev.h
-===================================================================
+diff --git a/include/uapi/linux/surface_aggregator/cdev.h b/include/uapi/linux/surface_aggregator/cdev.h
+new file mode 100644
+index 000000000000..fbcce04abfe9
 --- /dev/null
-+++ v4.19/include/uapi/linux/surface_aggregator/cdev.h
++++ b/include/uapi/linux/surface_aggregator/cdev.h
 @@ -0,0 +1,78 @@
 +/* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
 +/*
@@ -32364,10 +32472,11 @@ Index: v4.19/include/uapi/linux/surface_aggregator/cdev.h
 +#define SSAM_CDEV_REQUEST	_IOWR(0xA5, 1, struct ssam_cdev_request)
 +
 +#endif /* _UAPI_LINUX_SURFACE_AGGREGATOR_CDEV_H */
-Index: v4.19/include/uapi/linux/surface_aggregator/dtx.h
-===================================================================
+diff --git a/include/uapi/linux/surface_aggregator/dtx.h b/include/uapi/linux/surface_aggregator/dtx.h
+new file mode 100644
+index 000000000000..fc0ba6cbe3e8
 --- /dev/null
-+++ v4.19/include/uapi/linux/surface_aggregator/dtx.h
++++ b/include/uapi/linux/surface_aggregator/dtx.h
 @@ -0,0 +1,146 @@
 +/* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
 +/*
@@ -32515,10 +32624,10 @@ Index: v4.19/include/uapi/linux/surface_aggregator/dtx.h
 +#define SDTX_IOCTL_GET_LATCH_STATUS	_IOR(0xa5, 0x2b, __u16)
 +
 +#endif /* _UAPI_LINUX_SURFACE_AGGREGATOR_DTX_H */
-Index: v4.19/scripts/mod/devicetable-offsets.c
-===================================================================
---- v4.19.orig/scripts/mod/devicetable-offsets.c
-+++ v4.19/scripts/mod/devicetable-offsets.c
+diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+index 293004499b4d..6a319852083e 100644
+--- a/scripts/mod/devicetable-offsets.c
++++ b/scripts/mod/devicetable-offsets.c
 @@ -225,5 +225,13 @@ int main(void)
  	DEVID_FIELD(typec_device_id, svid);
  	DEVID_FIELD(typec_device_id, mode);
@@ -32533,11 +32642,11 @@ Index: v4.19/scripts/mod/devicetable-offsets.c
 +
  	return 0;
  }
-Index: v4.19/scripts/mod/file2alias.c
-===================================================================
---- v4.19.orig/scripts/mod/file2alias.c
-+++ v4.19/scripts/mod/file2alias.c
-@@ -1276,6 +1276,28 @@ static int do_typec_entry(const char *fi
+diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+index 7f40b6aab689..f171616ab318 100644
+--- a/scripts/mod/file2alias.c
++++ b/scripts/mod/file2alias.c
+@@ -1276,6 +1276,28 @@ static int do_typec_entry(const char *filename, void *symval, char *alias)
  	return 1;
  }
  
@@ -32566,7 +32675,7 @@ Index: v4.19/scripts/mod/file2alias.c
  /* Does namelen bytes of name exactly match the symbol? */
  static bool sym_is(const char *name, unsigned namelen, const char *symbol)
  {
-@@ -1346,6 +1368,7 @@ static const struct devtable devtable[]
+@@ -1346,6 +1368,7 @@ static const struct devtable devtable[] = {
  	{"fslmc", SIZE_fsl_mc_device_id, do_fsl_mc_entry},
  	{"tbsvc", SIZE_tb_service_id, do_tbsvc_entry},
  	{"typec", SIZE_typec_device_id, do_typec_entry},
@@ -32574,10 +32683,10 @@ Index: v4.19/scripts/mod/file2alias.c
  };
  
  /* Create MODULE_ALIAS() statements.
-Index: v4.19/security/selinux/hooks.c
-===================================================================
---- v4.19.orig/security/selinux/hooks.c
-+++ v4.19/security/selinux/hooks.c
+diff --git a/security/selinux/hooks.c b/security/selinux/hooks.c
+index 2abb7107f183..2ee2527a1769 100644
+--- a/security/selinux/hooks.c
++++ b/security/selinux/hooks.c
 @@ -99,6 +99,12 @@
  #include "netlabel.h"
  #include "audit.h"
@@ -32591,7 +32700,7 @@ Index: v4.19/security/selinux/hooks.c
  
  struct selinux_state selinux_state;
  
-@@ -510,10 +516,32 @@ static int selinux_is_genfs_special_hand
+@@ -510,10 +516,32 @@ static int selinux_is_genfs_special_handling(struct super_block *sb)
  		  !strcmp(sb->s_type->name, "cgroup2")));
  }
  
@@ -32625,7 +32734,7 @@ Index: v4.19/security/selinux/hooks.c
  	/*
  	 * IMPORTANT: Double-check logic in this function when adding a new
  	 * SECURITY_FS_USE_* definition!
-@@ -3481,7 +3509,15 @@ static int selinux_inode_getsecurity(str
+@@ -3481,7 +3509,15 @@ static int selinux_inode_getsecurity(struct inode *inode, const char *name, void
  	 * and lack of permission just means that we fall back to the
  	 * in-core context value, not a denial.
  	 */
@@ -32642,7 +32751,7 @@ Index: v4.19/security/selinux/hooks.c
  	if (has_cap_mac_admin(false))
  		error = security_sid_to_context_force(&selinux_state,
  						      isec->sid, &context,
-@@ -3504,11 +3540,28 @@ out_nofree:
+@@ -3504,11 +3540,28 @@ static int selinux_inode_getsecurity(struct inode *inode, const char *name, void
  static int selinux_inode_setsecurity(struct inode *inode, const char *name,
  				     const void *value, size_t size, int flags)
  {
@@ -32673,14 +32782,15 @@ Index: v4.19/security/selinux/hooks.c
  	if (strcmp(name, XATTR_SELINUX_SUFFIX))
  		return -EOPNOTSUPP;
  
-Index: v4.19/sound/soc/codecs/rt5645.c
-===================================================================
---- v4.19.orig/sound/soc/codecs/rt5645.c
-+++ v4.19/sound/soc/codecs/rt5645.c
-@@ -3688,6 +3688,15 @@ static const struct dmi_system_id dmi_pl
+diff --git a/sound/soc/codecs/rt5645.c b/sound/soc/codecs/rt5645.c
+index 87b8c2807535..5477ab0e3653 100644
+--- a/sound/soc/codecs/rt5645.c
++++ b/sound/soc/codecs/rt5645.c
+@@ -3687,6 +3687,15 @@ static const struct dmi_system_id dmi_platform_data[] = {
+ 		},
  		.driver_data = (void *)&intel_braswell_platform_data,
  	},
- 	{
++	{
 +		.ident = "Microsoft Surface 3",
 +		.matches = {
 +			DMI_MATCH(DMI_BIOS_VENDOR, "American Megatrends Inc."),
@@ -32689,15 +32799,14 @@ Index: v4.19/sound/soc/codecs/rt5645.c
 +		},
 +		.driver_data = (void *)&intel_braswell_platform_data,
 +	},
-+	{
+ 	{
  		/*
  		 * Match for the GPDwin which unfortunately uses somewhat
- 		 * generic dmi strings, which is why we test for 4 strings.
-Index: v4.19/sound/soc/intel/common/soc-acpi-intel-cht-match.c
-===================================================================
---- v4.19.orig/sound/soc/intel/common/soc-acpi-intel-cht-match.c
-+++ v4.19/sound/soc/intel/common/soc-acpi-intel-cht-match.c
-@@ -36,6 +36,14 @@ static const struct dmi_system_id cht_ta
+diff --git a/sound/soc/intel/common/soc-acpi-intel-cht-match.c b/sound/soc/intel/common/soc-acpi-intel-cht-match.c
+index 30ba81c0fbbd..78b1103249bf 100644
+--- a/sound/soc/intel/common/soc-acpi-intel-cht-match.c
++++ b/sound/soc/intel/common/soc-acpi-intel-cht-match.c
+@@ -36,6 +36,14 @@ static const struct dmi_system_id cht_table[] = {
  			DMI_MATCH(DMI_PRODUCT_NAME, "Surface 3"),
  		},
  	},
