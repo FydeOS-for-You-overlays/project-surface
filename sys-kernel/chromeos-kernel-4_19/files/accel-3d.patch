@@ -1,8 +1,8 @@
 diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
-index 21fbdcde1faa1..24cd2030a2b07 100644
+index ef62f36ebcf9..27fa655f0d61 100644
 --- a/drivers/hid/hid-sensor-hub.c
 +++ b/drivers/hid/hid-sensor-hub.c
-@@ -693,9 +693,7 @@ static int sensor_hub_probe(struct hid_device *hdev,
+@@ -698,9 +698,7 @@ static int sensor_hub_probe(struct hid_device *hdev,
  			if (last_hsdev)
  				last_hsdev->end_collection_index = i;
  			last_hsdev = hsdev;
@@ -14,7 +14,7 @@ index 21fbdcde1faa1..24cd2030a2b07 100644
  				hid_err(hdev, "Failed MFD device name\n");
  				ret = -ENOMEM;
 diff --git a/drivers/iio/common/hid-sensors/Makefile b/drivers/iio/common/hid-sensors/Makefile
-index 22e7c5a82325e..f71aab6669cba 100644
+index 22e7c5a82325..f71aab6669cb 100644
 --- a/drivers/iio/common/hid-sensors/Makefile
 +++ b/drivers/iio/common/hid-sensors/Makefile
 @@ -3,5 +3,6 @@
@@ -26,7 +26,7 @@ index 22e7c5a82325e..f71aab6669cba 100644
  hid-sensor-iio-common-y := hid-sensor-attributes.o
 diff --git a/drivers/iio/common/hid-sensors/hid-sensor-cros-compat.c b/drivers/iio/common/hid-sensors/hid-sensor-cros-compat.c
 new file mode 100644
-index 0000000000000..76e50015f76d7
+index 000000000000..76e50015f76d
 --- /dev/null
 +++ b/drivers/iio/common/hid-sensors/hid-sensor-cros-compat.c
 @@ -0,0 +1,1062 @@
